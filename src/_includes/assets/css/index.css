@@ -1,3 +1,17 @@
 @import "./normalize.css";
 @import "./webflow.css";
 @import "./ada-mode-website.webflow.css";
+
+.w-slider-dot {
+  height: 6px;
+  background: #6aaaf3;
+}
+.w-slider-dot.w-active {
+  height: 6px;
+  background: #1bc691;
+}
+.w-slider-nav.w-round > div {
+  width: 6px;
+  border-radius: 6px;
+  margin: 15px;
+}
