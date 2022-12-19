@@ -29,19 +29,22 @@ description: We are looking for talented people to join our growing team.
         <div id="w-node-b4538a14-7aea-81c8-e276-cf45490f59f2-91e0a56c" class="live-roles-div-block">
           <div class="w-dyn-list">
             <div role="list" class="collection-list-4 w-dyn-items">
-              <div role="listitem" class="w-dyn-item">
-                <div class="div-block-53">
-                  <div class="_20-pad-div-block">
-                    <h3 class="heading-4"></h3>
-                  </div>
-                  <div class="div-block-142">
-                    <a href="http://www.ada-mode.com/careers/software-engineer" class="green-outline-button w-button">Learn more</a>
+              {% for job in allJobs %}
+                <div role="listitem" class="w-dyn-item">
+                  <div class="div-block-53">
+                    <div class="_20-pad-div-block">
+                      <h3 class="heading-4">{{ job.title }}</h3>
+                    </div>
+                    <div class="div-block-142">
+                      <a href="/careers/{{ job.slug.current }}/" class="green-outline-button w-button">Learn more</a>
+                    </div>
                   </div>
                 </div>
+              {% else %}
+              <div class="w-dyn-empty">
+                <div>No items found.</div>
               </div>
-            </div>
-            <div class="w-dyn-empty">
-              <div>No items found.</div>
+              {% endfor %}
             </div>
           </div>
         </div>
