@@ -1,22 +1,42 @@
 ---
 layout: base.html
 # This is the blog post page template
+pagination:
+    data: allPosts.data
+    alias: post
+    size: 1
+permalink: 
+    build: /blog/{{ post.slug.current | slug }}/index.html
+    # preview: /post/preview/:id
+eleventyComputed:
+    pageTitle: '{{ post.title }}'
+    pageDescription: '{{ post.description | default: post.blurb }}'
 ---
 
   <div class="section reduced-bottom-padding wf-section">
     <div class="large-container w-container">
       <div class="div-block-108">
         <div class="_40-pad-div-block">
-          <div class="blog-post-category-text"></div>
+          <div class="blog-post-category-text">{{ post.categories | first }}</div>
           <div class="small-grey-sub-heading padding">|</div>
-          <div class="small-grey-sub-heading"></div>
+          <div class="small-grey-sub-heading">{{ post.publishedAt | date: "%B %d, %Y" }}</div>
         </div>
         <div class="_40-pad-div-block">
-          <h1 class="heading-1"></h1>
+          <h1 class="heading-1">{{ post.title }}</h1>
         </div>
       </div>
     </div>
-    <div class="blog-post-feature-image"></div>
+    <div class="blog-post-feature-image">
+      {% if post.mainImage.asset %}
+                {% capture imgUrl %}
+                    {% sanityImageUrl post.mainImage %}
+                {% endcapture %}
+                {% else %}
+                {% capture imgUrl %}
+                    {% sanityImageUrl site.blogFallbackImage %}
+                {% endcapture %}
+            {% endif %}
+    </div>
   </div>
   <div class="section wf-section">
     <div class="html-embed-2 w-embed">
@@ -27,49 +47,49 @@ layout: base.html
         <div class="div-block-106"></div>
         <div class="div-block-107">
           <div class="_60-pad-div-block">
-            <div class="_40-pad-div-block">
-              <h2 class="heading-3">Key Points</h2>
+            <div class="paragraph-2 w-richtext">
+              {% portableText post.body.content %}
             </div>
-            <div class="paragraph-2 w-richtext"></div>
           </div>
-          <div class="_60-pad-div-block">
-            <div class="paragraph w-richtext"></div>
-          </div>
-          <div class="paragraph w-richtext"></div>
         </div>
       </div>
     </div>
   </div>
   <div class="section wf-section">
+    {%- assign relatedPosts = allPosts.posts | getRelatedPosts: post -%}
     <div class="large-container w-container">
       <div class="_60-pad-div-block">
         <h3 class="heading-3">Related posts</h3>
       </div>
       <div class="w-dyn-list">
         <div role="list" class="collection-list w-dyn-items">
-          <div id="w-node-c49082f0-865f-00a1-a627-0e89ebad9e4b-e4fd2b7f" role="listitem" class="collection-item-6 w-dyn-item">
-            <a href="#" class="link-block w-inline-block">
-              <div class="w-layout-grid recent-blog-grid">
-                <div id="w-node-c49082f0-865f-00a1-a627-0e89ebad9e4e-e4fd2b7f" class="blog-post-image-div"><img src="" loading="lazy" alt="" class="image"></div>
-                <div class="blog-category-div">
-                  <div class="small-green-sub-heading"></div>
-                  <div class="div-block-6">
-                    <div class="small-grey-sub-heading">|</div>
+          {% for post in relatedPosts limit:3 %}
+          {% capture imgUrl %}{% sanityImageUrl post.mainImage %}{% endcapture %}
+            <div id="w-node-c49082f0-865f-00a1-a627-0e89ebad9e4b-e4fd2b7f" role="listitem" class="collection-item-6 w-dyn-item">
+              <a href="/blog/{{post.slug.current}}" class="link-block w-inline-block">
+                <div class="w-layout-grid recent-blog-grid">
+                  <div id="w-node-c49082f0-865f-00a1-a627-0e89ebad9e4e-e4fd2b7f" class="blog-post-image-div"><img src="{{ sanityImageUrl }}" loading="lazy" alt="" class="image"></div>
+                  <div class="blog-category-div">
+                    <div class="small-green-sub-heading">{{ post.categories | first }}</div>
+                    <div class="div-block-6">
+                      <div class="small-grey-sub-heading">|</div>
+                    </div>
+                    <div class="small-grey-sub-heading">{{ post.publishedAt | date: "%B %d, %Y" }}</div>
                   </div>
-                  <div class="small-grey-sub-heading"></div>
+                  <div class="_20-pad-div-block">
+                    <h4 class="heading-4">{{ post.title }}</h4>
+                  </div>
                 </div>
-                <div class="_20-pad-div-block">
-                  <h4 class="heading-4"></h4>
-                </div>
+              </a>
+              <div class="div-block-144">
+                <a href="/blog/{{post.slug.current}}" class="green-button w-button">Read more</a>
               </div>
-            </a>
-            <div class="div-block-144">
-              <a href="#" class="green-button w-button">Read more</a>
             </div>
-          </div>
-        </div>
-        <div class="w-dyn-empty">
-          <div>No items found.</div>
+          {% else %}
+            <div class="w-dyn-empty">
+              <div>No items found.</div>
+            </div>
+          {% endfor %}
         </div>
       </div>
     </div>
