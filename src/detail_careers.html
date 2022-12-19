@@ -1,6 +1,16 @@
 ---
 layout: base.html
 # This is the careers page template
+pagination:
+    data: allJobs
+    alias: job
+    size: 1
+permalink: 
+    build: /careers/{{ job.slug.current | slug }}/index.html
+    # preview: /job/preview/:id
+eleventyComputed:
+    title: '{{ job.title }}'
+    description: '{{ job.description }}'
 ---
   
 
@@ -8,41 +18,27 @@ layout: base.html
     <div class="large-container w-container">
       <div class="div-block-80">
         <div class="_100-pad-div-block">
-          <h1 class="heading-1"></h1>
+          <h1 class="heading-1">{{ job.title }}</h1>
         </div>
       </div>
     </div>
     <div class="container w-container">
-      <div class="_20-pad-div-block">
-        <h2 class="heading-3 green">About Ada Mode</h2>
-      </div>
-      <div class="_60-pad-div-block">
-        <p class="paragraph">Ada Mode is an industrial technology and data science company whose aim is to improve the performance of complex industrial processes through artificial intelligence, engineering expertise and great design. Ada Mode helps clients by identifying opportunities in their data, designing a strategy and developing the solution. All of our solutions are bespoke to the client, built on technology developed in-house. Ada Mode currently works across the energy, utilities and manufacturing sectors. We are a small company with a strong order book and are looking for someone who shares our vision and has enthusiasm for growing and developing an exciting business. <br><br>This role can be partially remote with at least one day per week to be spent in either our Bristol or Southampton office and occasional visits to client sites. A successful applicant will join our growing development team working alongside data scientists, front end designers, software developers and engineers to deliver innovative data driven solutions across industry. The applicant will play a key part in the development of a condition monitoring and machine learning platform for the offshore wind industry. </p>
-      </div>
-      <div class="_80-pad-div-block">
-        <div class="_20-pad-div-block">
-          <h2 class="heading-4">The Role</h2>
-        </div>
+      {% unless job.positionAbout == 'bottom' %}
+        <aside class="flow">
+          {%- comment -%}TODO: Use dynamic text from backend{%- endcomment -%}
+            <div class="_20-pad-div-block">
+              <h2 class="heading-3 green">About Ada Mode</h2>
+            </div>
+            <div class="_60-pad-div-block">
+              <p class="paragraph">Ada Mode is an industrial technology and data science company whose aim is to improve the performance of complex industrial processes through artificial intelligence, engineering expertise and great design. Ada Mode helps clients by identifying opportunities in their data, designing a strategy and developing the solution. All of our solutions are bespoke to the client, built on technology developed in-house. Ada Mode currently works across the energy, utilities and manufacturing sectors. We are a small company with a strong order book and are looking for someone who shares our vision and has enthusiasm for growing and developing an exciting business. <br><br>This role can be partially remote with at least one day per week to be spent in either our Bristol or Southampton office and occasional visits to client sites. A successful applicant will join our growing development team working alongside data scientists, front end designers, software developers and engineers to deliver innovative data driven solutions across industry. The applicant will play a key part in the development of a condition monitoring and machine learning platform for the offshore wind industry. </p>
+            </div>
+        </aside>
+    {% endunless %}
+      
         <div class="_40-pad-div-block">
-          <div class="paragraph w-richtext"></div>
-        </div>
-        <div class="_20-pad-div-block">
-          <h2 class="heading-4">Experience and Qualifications</h2>
-        </div>
-        <div class="_40-pad-div-block">
-          <div class="paragraph w-richtext"></div>
-        </div>
-        <div class="_20-pad-div-block">
-          <h2 class="heading-4">Desirable Skills</h2>
-        </div>
-        <div class="_40-pad-div-block">
-          <div class="paragraph w-richtext"></div>
-        </div>
-        <div class="_20-pad-div-block">
-          <h2 class="heading-4">Benefits</h2>
-        </div>
-        <div class="_40-pad-div-block">
-          <div class="paragraph w-richtext"></div>
+          <div class="paragraph w-richtext">
+            {% portableText job.body.content %}
+          </div>
         </div>
       </div>
       <div>
@@ -57,6 +53,19 @@ layout: base.html
           </div>
         </div>
       </div>
+      {% if job.positionAbout == 'bottom' %}
+        <aside class="flow">
+          <aside class="flow">
+          {%- comment -%}TODO: Use dynamic text from backend{%- endcomment -%}
+            <div class="_20-pad-div-block">
+              <h2 class="heading-3 green">About Ada Mode</h2>
+            </div>
+            <div class="_60-pad-div-block">
+              <p class="paragraph">Ada Mode is an industrial technology and data science company whose aim is to improve the performance of complex industrial processes through artificial intelligence, engineering expertise and great design. Ada Mode helps clients by identifying opportunities in their data, designing a strategy and developing the solution. All of our solutions are bespoke to the client, built on technology developed in-house. Ada Mode currently works across the energy, utilities and manufacturing sectors. We are a small company with a strong order book and are looking for someone who shares our vision and has enthusiasm for growing and developing an exciting business. <br><br>This role can be partially remote with at least one day per week to be spent in either our Bristol or Southampton office and occasional visits to client sites. A successful applicant will join our growing development team working alongside data scientists, front end designers, software developers and engineers to deliver innovative data driven solutions across industry. The applicant will play a key part in the development of a condition monitoring and machine learning platform for the offshore wind industry. </p>
+            </div>
+        </aside>
+        </aside>
+    {% endif %}
     </div>
   </div>
  
