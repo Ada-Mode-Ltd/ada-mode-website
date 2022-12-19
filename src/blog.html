@@ -20,75 +20,55 @@ description: Read our latest views on industry, technology and everything else h
         <a filter-by="*" href="#" class="filter-button w-inline-block">
           <div filter-by="Machine Learning" class="filter-by-text">All posts</div>
         </a>
-        <a filter-by="Machine Learning" href="#" class="filter-button w-inline-block">
-          <div filter-by="Machine Learning" class="filter-by-text">Machine Learning</div>
-        </a>
-        <a filter-by="people" href="#" class="filter-button w-inline-block">
-          <div filter-by="digital-transformation" class="filter-by-text">People</div>
-        </a>
-        <a filter-by="Digital Twins" href="#" class="filter-button w-inline-block">
-          <div filter-by="Machine Learning" class="filter-by-text">Digital Twins</div>
-        </a>
-        <a filter-by="Digital Transformation" href="#" class="filter-button w-inline-block">
-          <div filter-by="Machine Learning" class="filter-by-text">Digital Transformation</div>
-        </a>
-        <a filter-by="Industry View" href="#" class="filter-button w-inline-block">
-          <div filter-by="Machine Learning" class="filter-by-text">Industry View<br></div>
-        </a>
+        {% for category in allPosts.categories %}
+          <a filter-by="{{category}}" href="#" class="filter-button w-inline-block">
+            <div filter-by="{{ category }}" class="filter-by-text">{{ category }}</div>
+          </a>
+        {% endfor %}
       </div>
       <div class="w-layout-grid blog-post-page-grid">
         <div id="w-node-e272b7f5-b09a-5866-b965-eaf02a097450-1c9d9963" class="collection-list-wrapper w-dyn-list">
-          <div role="list" class="blog-post-page-collection-list w-dyn-items">
-            <div role="listitem" class="collection-list-item w-dyn-item">
-              <a href="#" class="blog-post-image-link-block w-inline-block"></a>
+          <div role="list" class="blog-post-page-collection-list">
+            {% for post in allPosts.data %}
+              {% capture imgUrl %}{% sanityImageUrl post.mainImage %}{% endcapture %}
+              <div role="listitem" class="collection-list-item">
+              <a href="/blog/{{post.slug.current}}" class="blog-post-image-link-block w-inline-block" style="background-image:url('{{ imgUrl }}')"></a>
               <div class="post-content-div">
                 <div class="_20-pad-div-block _2">
                   <div>
-                    <div class="text-block-7"></div>
+                    <div class="text-block-7">{{ post.categories | first }}</div>
                   </div>
                   <div class="div-block-50">
                     <div class="small-grey-sub-heading">|</div>
                   </div>
                   <div>
-                    <div class="small-grey-sub-heading"></div>
+                    <div class="small-grey-sub-heading">{{ post.publishedAt | date: "%B %d, %Y" }}</div>
                   </div>
                 </div>
                 <a href="#" class="_20-pad-div-block w-inline-block">
-                  <h3 class="heading-4"></h3>
+                  <h3 class="heading-4">{{ post.title }}</h3>
                 </a>
                 <div class="_40-pad-div-block">
-                  <p></p>
+                  <p>{{ post.blurb  }}</p>
                 </div>
                 <div class="div-block-143">
-                  <a href="#" class="green-outline-button w-button"><span>Learn more   →</span></a>
+                  <a href="/blog/{{post.slug.current}}" class="green-outline-button w-button"><span>Learn more   →</span></a>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="w-dyn-empty">
-            <div>No items found.</div>
+            {% endfor %}
           </div>
         </div>
         <div id="w-node-_4c17e45c-f258-9cc0-4e37-5935c99391c2-1c9d9963" class="post-filter-div-block">
           <div class="filter-wrapper">
             <a filter-by="*" href="#" class="filter-button w-inline-block">
-              <div class="filter-by-text">All posts</div>
-            </a>
-            <a filter-by="machine learning" href="#" class="filter-button w-inline-block">
-              <div class="filter-by-text">Machine Learning</div>
-            </a>
-            <a filter-by="people" href="#" class="filter-button w-inline-block">
-              <div class="filter-by-text">People</div>
-            </a>
-            <a filter-by="Digital Twins" href="#" class="filter-button w-inline-block">
-              <div class="filter-by-text">Digital Twins</div>
-            </a>
-            <a filter-by="Digital Transformation" href="#" class="filter-button w-inline-block">
-              <div class="filter-by-text">Digital Transformation</div>
-            </a>
-            <a filter-by="Industry View" href="#" class="filter-button w-inline-block">
-              <div class="filter-by-text">Industry View<br></div>
-            </a>
+          <div filter-by="Machine Learning" class="filter-by-text">All posts</div>
+        </a>
+        {% for category in allPosts.categories %}
+          <a filter-by="{{category}}" href="#" class="filter-button w-inline-block">
+            <div filter-by="{{ category }}" class="filter-by-text">{{ category }}</div>
+          </a>
+        {% endfor %}
           </div>
           <div class="subscribe-to-newsletter-form w-form">
             <div class="_20-pad-div-block">

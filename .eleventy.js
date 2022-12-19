@@ -2,11 +2,11 @@ const EleventyPluginNavigation = require("@11ty/eleventy-navigation");
 const EleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
 const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
 
-// const imageShortcode = require("./src/_11ty/shortcodes/image");
-// const { dateFormat, w3cDate } = require("./src/_11ty/filters/date");
-// const { sanityImageUrl } = require("./src/_11ty/shortcodes/sanityImageUrl");
-// const portableText = require("./src/_11ty/shortcodes/portableText");
-// const getReferences = require("./src/_11ty/shortcodes/getReference");
+const imageShortcode = require("./src/_11ty/shortcodes/image");
+const { dateFormat, w3cDate } = require("./src/_11ty/filters/date");
+const { sanityImageUrl } = require("./src/_11ty/shortcodes/sanityImageUrl");
+const portableText = require("./src/_11ty/shortcodes/portableText");
+const getReferences = require("./src/_11ty/shortcodes/getReference");
 
 const { copy } = require("fs-extra");
 
@@ -21,32 +21,32 @@ module.exports = function (eleventyConfig) {
   //   return page.url.startsWith("/design-system/");
   // });
 
-//   eleventyConfig.addFilter("w3cDate", w3cDate);
-//   eleventyConfig.addFilter("dateFormat", dateFormat);
-//   eleventyConfig.addFilter("makeArray", function (obj) {
-//     return [obj];
-//   });
-//   eleventyConfig.addFilter("setId", function (content) {
-//     return content?._key || content?._id || new Date().getTime();
-//   });
+  eleventyConfig.addFilter("w3cDate", w3cDate);
+  eleventyConfig.addFilter("dateFormat", dateFormat);
+  eleventyConfig.addFilter("makeArray", function (obj) {
+    return [obj];
+  });
+  eleventyConfig.addFilter("setId", function (content) {
+    return content?._key || content?._id || new Date().getTime();
+  });
 
-//   eleventyConfig.addFilter("getRelatedPosts", function (posts, post) {
-//     // Get the tags from the post
-//     const tags = post.categories.map((c) => c.title);
-//     // Filter out the current post
-//     const relatedPosts = posts
-//       .filter((p) => p._id !== post._id)
-//       .filter((p) => p.categories.some((t) => tags.includes(t.title)));
-//     // Ensure that 3 related posts are returned, or add more if there are not enough
-//     if (relatedPosts.length < 3) {
-//       const morePosts = posts
-//         .filter((p) => p._id !== post._id)
-//         .filter((p) => !p.categories.some((t) => tags.includes(t.title)));
-//       relatedPosts.push(...morePosts.slice(0, 3 - relatedPosts.length));
-//     }
+  eleventyConfig.addFilter("getRelatedPosts", function (posts, post) {
+    // Get the tags from the post
+    const tags = post.categories.map((c) => c.title);
+    // Filter out the current post
+    const relatedPosts = posts
+      .filter((p) => p._id !== post._id)
+      .filter((p) => p.categories.some((t) => tags.includes(t.title)));
+    // Ensure that 3 related posts are returned, or add more if there are not enough
+    if (relatedPosts.length < 3) {
+      const morePosts = posts
+        .filter((p) => p._id !== post._id)
+        .filter((p) => !p.categories.some((t) => tags.includes(t.title)));
+      relatedPosts.push(...morePosts.slice(0, 3 - relatedPosts.length));
+    }
 
-//     return relatedPosts;
-//   });
+    return relatedPosts;
+  });
 
 //   // Shortcodes
 //   eleventyConfig.addPairedShortcode("postcss",
@@ -65,29 +65,29 @@ module.exports = function (eleventyConfig) {
 //   .then(result => result.css);
 // });
 
-//   eleventyConfig.addShortcode("image", imageShortcode); // Because copyright text in the footer ...
-//   eleventyConfig.addShortcode(
-//     "currentYear",
-//     () => `${new Date().getFullYear()}`
-//   ); // Because copyright text in the footer ...
-//   eleventyConfig.addShortcode("sanityImageUrl", sanityImageUrl);
-//   eleventyConfig.addLiquidShortcode("portableText", portableText);
-//   eleventyConfig.addShortcode("getReferences", getReferences);
-//   eleventyConfig.addShortcode("analyticsScript", () => {
-//     if (dev || isServerless) return "";
-//     return `
-//     <!-- Google tag (gtag.js) -->
-//     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-213481953-1"></script>
-//     <script>
-//     if(window.location.host === 'winscope.io')
-//   window.dataLayer = window.dataLayer || [];
-//   function gtag(){dataLayer.push(arguments)};
-//   gtag('js', new Date());
+  eleventyConfig.addShortcode("image", imageShortcode); // Because copyright text in the footer ...
+  eleventyConfig.addShortcode(
+    "currentYear",
+    () => `${new Date().getFullYear()}`
+  ); // Because copyright text in the footer ...
+  eleventyConfig.addShortcode("sanityImageUrl", sanityImageUrl);
+  eleventyConfig.addLiquidShortcode("portableText", portableText);
+  eleventyConfig.addShortcode("getReferences", getReferences);
+  eleventyConfig.addShortcode("analyticsScript", () => {
+    if (dev || isServerless) return "";
+    return `
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-213481953-1"></script>
+    <script>
+    if(window.location.host === 'winscope.io')
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
 
-//   gtag('config', 'UA-213481953-1');
-//   }
-// </script>
-//     `})
+  gtag('config', 'UA-213481953-1');
+  }
+</script>
+    `})
 
   eleventyConfig.addPlugin(EleventyPluginNavigation);
 
