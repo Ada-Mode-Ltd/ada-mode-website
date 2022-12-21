@@ -170,6 +170,7 @@ module.exports = function (eleventyConfig) {
   // // eleventyConfig.addPassthroughCopy({ "public/assets/build.css": "assets/preview/index.css" });
   eleventyConfig.addPassthroughCopy("src/_includes/assets/js");
   eleventyConfig.addPassthroughCopy("public/images/*");
+  eleventyConfig.addPassthroughCopy("public/assets/**/*");
 
 
   // eleventyConfig.on("eleventy.after", async () => {

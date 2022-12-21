@@ -1,16 +1,18 @@
 const { toHTML } = require('@portabletext/to-html')
+const htm = require('htm')
+const vhtml = require('vhtml')
+
 const image = require('./image')
 const { sanityBlogImageUrl } = require('./sanityImageUrl')
 
-const htm = require('htm')
-const vhtml = require('vhtml')
+
 const html = htm.bind(vhtml)
 
  function imageSerializer(value) {
-    const url = sanityBlogImageUrl(value)
+    let url = sanityBlogImageUrl(value)
 
     if (value.caption) {
-        return `<figure>
+        return `<figure class="w-richtext-align-center w-richtext-figure-type-image">
             <img src="${url}" alt="${value.altText}" />
         <figcaption>${value.caption}</figcaption>
         </figure>`
@@ -22,11 +24,11 @@ const html = htm.bind(vhtml)
 const serializer = {
     types: {
       image: ({ value }) => {
-        const img = imageSerializer(value)
+        let img = imageSerializer(value)
         return html`${img}`
       },
       videoId: ({ value }) => {
-        const { id, service } = value
+        let { id, service } = value
         if (service === 'youtube') {
             return html`<div class="video-wrapper"><lite-youtube videoid="${id}"></lite-youtube></div>`
         } else if (service === 'vimeo') {
@@ -34,7 +36,7 @@ const serializer = {
         }
     },
     quote: ({ value }) => {
-        const { text, attribution, partner } = value
+        let { text, attribution, partner } = value
         return html`<div class="partner-quote flow">
             <div class="quote__text">${text}</div>
             <div class="quote__author text--small">${attribution.name}, ${attribution.title}</div>
@@ -42,7 +44,7 @@ const serializer = {
         </div>`
     },
     largeStat: ({ value }) => {
-        const { statDescription, stat } = value
+        let { statDescription, stat } = value
         return html`<div class="large-stat"><span class="color-accent">${stat}</span><p class="text--small">${statDescription}</p></div>`
     }
 },
@@ -56,7 +58,7 @@ const serializer = {
 }
 
 async function portableText(text) {
-    const output = await toHTML(text, {components: serializer})
+    let output = await toHTML(text, {components: serializer})
     return output
 }
 
