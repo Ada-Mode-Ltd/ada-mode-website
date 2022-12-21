@@ -17,7 +17,8 @@ eleventyComputed:
     <div class="large-container w-container">
       <div class="div-block-108">
         <div class="_40-pad-div-block">
-          <div class="blog-post-category-text">{{ post.categories | first }}</div>
+          {% assign category = post.categories | first %}
+          <div class="blog-post-category-text">{{ category.title }}</div>
           <div class="small-grey-sub-heading padding">|</div>
           <div class="small-grey-sub-heading">{{ post.publishedAt | date: "%B %d, %Y" }}</div>
         </div>
@@ -26,16 +27,12 @@ eleventyComputed:
         </div>
       </div>
     </div>
-    <div class="blog-post-feature-image">
-      {% if post.mainImage.asset %}
-                {% capture imgUrl %}
-                    {% sanityImageUrl post.mainImage %}
-                {% endcapture %}
-                {% else %}
-                {% capture imgUrl %}
-                    {% sanityImageUrl site.blogFallbackImage %}
-                {% endcapture %}
-            {% endif %}
+    {% if post.mainImage.asset %}
+              {% capture imgUrl %}{% sanityImageUrl post.mainImage %}{% endcapture %}
+              {% else %}
+              {% capture imgUrl %}{% sanityImageUrl site.blogFallbackImage %}{% endcapture %}
+          {% endif %}
+    <div class="blog-post-feature-image"  style="background-image:url('{{ imgUrl }}')">
     </div>
   </div>
   <div class="section wf-section">
@@ -56,7 +53,7 @@ eleventyComputed:
     </div>
   </div>
   <div class="section wf-section">
-    {%- assign relatedPosts = allPosts.posts | getRelatedPosts: post -%}
+    {%- assign relatedPosts = allPosts.data | getRelatedPosts: post -%}
     <div class="large-container w-container">
       <div class="_60-pad-div-block">
         <h3 class="heading-3">Related posts</h3>
@@ -68,9 +65,10 @@ eleventyComputed:
             <div id="w-node-c49082f0-865f-00a1-a627-0e89ebad9e4b-e4fd2b7f" role="listitem" class="collection-item-6 w-dyn-item">
               <a href="/blog/{{post.slug.current}}" class="link-block w-inline-block">
                 <div class="w-layout-grid recent-blog-grid">
-                  <div id="w-node-c49082f0-865f-00a1-a627-0e89ebad9e4e-e4fd2b7f" class="blog-post-image-div"><img src="{{ sanityImageUrl }}" loading="lazy" alt="" class="image"></div>
+                  <div id="w-node-c49082f0-865f-00a1-a627-0e89ebad9e4e-e4fd2b7f" class="blog-post-image-div" style="background-image: none;"><img src="{{ imgUrl }}" loading="lazy" alt="" class="image"></div>
                   <div class="blog-category-div">
-                    <div class="small-green-sub-heading">{{ post.categories | first }}</div>
+                    {% assign category = post.categories | first %}
+                    <div class="small-green-sub-heading">{{ category.title }}</div>
                     <div class="div-block-6">
                       <div class="small-grey-sub-heading">|</div>
                     </div>

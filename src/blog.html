@@ -38,7 +38,8 @@ description: Read our latest views on industry, technology and everything else h
               <div class="post-content-div">
                 <div class="_20-pad-div-block _2">
                   <div>
-                    <div class="text-block-7">{{ post.categories | first }}</div>
+                    {% assign category = post.categories | first %}
+                    <div class="text-block-7">{{ category.title }}</div>
                   </div>
                   <div class="div-block-50">
                     <div class="small-grey-sub-heading">|</div>
@@ -47,7 +48,7 @@ description: Read our latest views on industry, technology and everything else h
                     <div class="small-grey-sub-heading">{{ post.publishedAt | date: "%B %d, %Y" }}</div>
                   </div>
                 </div>
-                <a href="#" class="_20-pad-div-block w-inline-block">
+                <a href="/blog/{{post.slug.current}}" class="_20-pad-div-block w-inline-block">
                   <h3 class="heading-4">{{ post.title }}</h3>
                 </a>
                 <div class="_40-pad-div-block">
