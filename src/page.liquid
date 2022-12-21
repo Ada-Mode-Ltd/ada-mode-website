@@ -1,0 +1,289 @@
+---
+layout: base.html
+pagination:
+    data: pages
+    alias: thisPage
+    size: 1
+permalink: 
+    build: '{% if thisPage.policyPage %}/policies/{% endif %}{{ thisPage.slug.current | slug }}/index.html'
+    # preview: /page/preview/:id
+eleventyComputed:
+    title: '{{ thisPage.title }}'
+    description: '{{ thisPage.description | default: "Ada Mode build human-in-the-loop AI for machine health and industrial process optimisation. Making industrial plants greener, safer and more efficient." }}'
+---
+{% assign id = eleventy.serverless.path.id %}
+
+{% if eleventy.serverless.path %}
+{% for page in preview.page %}
+    {% if page._id == id %}
+        {% assign thisPage = page %}
+        {% break %}
+    {% endif %}
+{% endfor %}
+{% endif %}
+
+<section class="section wf-section">
+    {% for content in thisPage.body %}
+        {% if content._type == 'pageHeading' %}
+            {% include "components/pageHeading.liquid" %}
+        {% endif %}
+    
+        {% if content._type == 'blockContent' %}
+        <div class="wrapper">
+            <article class="flow">
+                {% portableText content.content %}
+            </article>
+        </div>
+        {% endif %}
+    
+        {% if content._type == 'blockLayout' %}
+            <section class="">
+                <div class="wrapper columns">
+                    {% assign textPlacement = content.layout %}
+                        {% capture imgUrl %}
+                            {% sanityImageUrl content.image %}
+                        {% endcapture %}
+                    {% if textPlacement == 'right' %}
+                        {% image imgUrl, content.image.altText %}
+                        <div class="flow text-content">{% portableText content.text.content %}</div>
+                    {% else %}
+                        <div class="flow text-content">{% portableText content.text.content %}</div>
+                        {% image imgUrl, content.image.altText %}
+                    {% endif %}
+                </div>
+            </section>
+        {% endif %}
+    
+        {% if content._type == 'quote' %}
+            <section class="">
+                <div class="wrapper">
+                    {% assign quotes = content | makeArray %}
+                    {% include 'components/quotes.liquid' %}
+                </div>
+            </section>
+        {% endif %}
+    
+        {% if content._type == 'quoteCarousel' and content.allQuotes %}
+            <section class="">
+                <div class="wrapper">
+                    {% assign quotes = allQuotes %}
+                    {% include 'components/quotes.liquid' %}
+                </div>
+            </section>
+        {% elsif content._type == 'quoteCarousel' and content.allQuotes != true %}
+            <section class="">
+                <div class="wrapper">
+                    {% assign quotes = content.quotes %}
+                    {% include 'components/quotes.liquid' %}
+                </div>
+            </section>
+        {% endif %}
+    
+        {% if content._type == 'people' %}
+            {% if content.allPeople %}
+                {% assign people = allPeople %}
+            {% else %}
+                {% assign people = content.people %}
+            {% endif %}
+    
+            <section class="">
+                <div class="wrapper flow">
+                {% if content.sectionTitle %}
+                {% include 'components/sectionHeading.liquid' %}
+                {% endif %}
+                {% include 'components/people.liquid' %}
+            </div>
+            </section>
+    
+        {% endif %}
+    
+    {% if content._type == 'stackedTabs' %}
+        <section class="">
+        <div class="wrapper flow">
+            {% assign tabs = content.tabs %}
+            {% assign sectionTitle = content.title %}
+            {% assign sectionLink = content.sectionLink %}
+            {% include 'components/stackedTabs.liquid' %}
+        </div>
+    </section>
+    {% endif %}
+    
+    {% if content._type == 'comparison' %}
+        {% assign rows = content.left.size | minus: 1 %}
+        {% assign left = content.left %}
+        {% assign right = content.right %}
+        <section class="">
+        <div class="wrapper columns comparison" style="--comparison-rows: {{rows}};">
+            <div>
+                <p class="column-title color-secondary">{{ left.title }}</p>
+                <ul data-marker="{{ left.icon}}">
+                    {% for item in left.items %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div>
+                <p class="column-title color-accent">{{ right.title }}</p>
+                <ul data-marker="{{ right.icon }}">
+                    {% for item in right.items %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    
+        {% if content._type == 'sectionHeading' %}
+                {% assign sectionTitle = content.title %}
+                {% assign sectionText = content.text %}
+                {% include 'components/sectionHeading.liquid' %}
+        {% endif %}
+    
+        {% if content._type == 'rowOfLogos' %}
+            <section class="">
+                <div class="wrapper flow">
+                {% if content.sectionTitle %}
+                {% include 'components/sectionHeading.liquid' %}
+                {% endif %}
+                {% include 'components/rowOfLogos.liquid' %}
+            </div>
+            </section>
+    
+        {% endif %}
+    
+        {% if content._type == 'careers' %}
+        {% if content.allJobs %}
+                {% assign jobs = allJobs %}
+            {% else %}
+                {% assign jobs = content.jobs %}
+            {% endif %}
+            <section class="" data-narrow>
+                <div class="wrapper">
+                <div class="flex-row content-col">
+                    <div class="content flow">
+                        <h2>Join our team</h2>
+                        <p>Join us as we continue to drive down the cost of clean energy with AI applications.</p>
+                    </div>
+                    <div class="flex-col flow">
+                        {% if jobs.size > 0 %}
+                        {% for job in jobs %}
+                            <div class="border-box__light" data-button>
+                                <div class="flow">
+                                    <p class="semi-bold text--secondary">{{ job.title }}</p>
+                                </div>
+                                <div>
+                                    {% assign buttonIcon = true %}
+                                    {% assign buttonType = "tertiary" %}
+                                    {% assign buttonText = "Learn more" %}
+                                    {% assign buttonLink = "/careers/" | append: job.slug.current %}
+                                    {% include 'components/button.liquid' %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                        {% else %}
+                            <div class="border-box__light" data-button>
+                                <div class="flow">
+                                    <p class="semi-bold text--secondary">No open positions.</p>
+                                    <p>You can still send us your CV to keep on file.</p>
+                                </div>
+                                <div>
+                                    {% assign buttonIcon = true %}
+                                    {% assign buttonType = "tertiary" %}
+                                    {% assign buttonText = "Email us" %}
+                                    {% assign buttonLink = "mailto:careers@ada-mode.com" %}
+                                    {% include 'components/button.liquid' %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            </section>
+    
+        {% endif %}
+    
+        {% if content._type == 'productFeatures' %}
+            {% if content.allFeatures %}
+            {% assign featureType = content.featureType %}
+            {% assign features = allFeatures[featureType] %}
+            <section class="">
+        <div class="wrapper product-feature-holder" data-style="{{ content.featureType }}">
+            {% for feature in features %}
+                {% assign featureStyle = featureType %}
+                {% if featureStyle == "large" %}
+                    {% assign featureImage = feature.largeImage %}
+                    {% assign featureTitle = feature.longTitle %}
+                    {% assign featureText = feature.largeText %}
+                    {% assign featureImagePlacement = "left" %}
+                    {% assign secondaryTitle = feature.secondaryTitle %}
+                {% elsif featureStyle == "medium" %}
+                    {% assign featureImage = feature.mediumImage %}
+                    {% assign featureTitle = feature.mediumTitle %}
+                    {% assign featureText = feature.mediumText %}
+                    {% assign secondaryTitle = false %}
+                    {% assign featureImagePlacement = false %}
+                {% else %}
+                    {% assign featureImage = feature.smallImage %}
+                    {% assign featureTitle = feature.smallTitle %}
+                    {% assign featureText = feature.smallText %}
+                    {% assign secondaryTitle = false %}
+                    {% assign featureImagePlacement = false %}
+                {% endif %}
+    
+                {% assign floatImage = false %}
+                {% if featureImage.offset %}
+                {% assign floatImage = featureImage.offset %}
+                {% endif %}
+    
+                <article>{% include 'components/prod-feature.liquid' %}</article>
+            {% endfor %}
+        </div>
+    </section>
+            {% else %}
+                <section class="">
+        <div class="wrapper product-feature-holder" data-style="{{content.featureType}}">
+            {% for feature in content.features %}
+                {% assign featureStyle = feature.featureType %}
+    
+                {% if featureStyle == "large" %}
+                {% assign featureImage = feature.largeImage %}
+                {% assign featureTitle = feature.longTitle %}
+                {% assign featureText = feature.largeText %}
+                {% assign featureImagePlacement = "left" %}
+                {% assign secondaryTitle = feature.secondaryTitle %}
+                {% elsif featureStyle == "medium" %}
+                {% assign featureImage = feature.mediumImage %}
+                {% assign featureTitle = feature.mediumTitle %}
+                {% assign featureText = feature.mediumText %}
+                {% assign secondaryTitle = null %}
+                {% assign featureImagePlacement = null %}
+                {% else %}
+                {% assign featureImage = feature.smallImage %}
+                {% assign featureTitle = feature.smallTitle %}
+                {% assign featureText = feature.smallText %}
+                {% assign secondaryTitle = null %}
+                {% assign featureImagePlacement = null %}
+                {% endif %}
+    
+                {% assign floatImage = false %}
+                {% if featureImage.offset %}
+                {% assign floatImage = featureImage.offset %}
+                {% endif %}
+                <article>{% include 'components/prod-feature.liquid' %}</article>
+            {% endfor %}
+        </div>
+    </section>
+            {% endif %}
+        {% endif %}
+    
+        {% if content._type == 'ctaSection' %}
+            {% if content.blockLayout %}
+            {% unless content.blockLayout == 'noimage' %}
+                {% assign ctaCols = 2 %}
+            {% endunless %}
+            {% endif %}
+            {% include 'components/cta-section.liquid' %}
+        {% endif %}
+    {% endfor %}
+</section>
