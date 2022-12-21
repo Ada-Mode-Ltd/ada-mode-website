@@ -40,31 +40,31 @@ eleventyComputed:
             {% portableText job.body.content %}
           </div>
         </div>
-      </div>
       <div>
         <div class="_40-pad-div-block">
           <div class="paragraph">To apply for this role, click on the button below and provide your CV and cover letter. </div>
         </div>
         <div class="w-layout-grid grid-55">
-          <a id="w-node-f90988ed-b5bf-a0fe-5e42-063100192a5b-aed3be59" href="mailto:careers@ada-mode.com?subject=Careers%20at%20Ada%20Mode" class="green-button w-button">Apply for this role</a>
+          <a id="w-node-f90988ed-b5bf-a0fe-5e42-063100192a5b-aed3be59" href="mailto:careers@ada-mode.com?subject=Careers%20at%20Ada%20Mode - {{ job.title }}" class="green-button w-button">Apply for this role</a>
         </div>
+        <div class="_40-pad-div-block">
         <div>
           <div class="paragraph">Alternatively, for more information, please email <a href="mailto:careers@ada-mode.com?subject=Careers%20information" class="link">careers@ada-mode.com</a>
           </div>
         </div>
       </div>
+      </div>
       {% if job.positionAbout == 'bottom' %}
+
         <aside class="flow">
-          <aside class="flow">
-          {%- comment -%}TODO: Use dynamic text from backend{%- endcomment -%}
-            <div class="_20-pad-div-block">
-              <h2 class="heading-3 green">About Ada Mode</h2>
+        {%- comment -%}TODO: Use dynamic text from backend{%- endcomment -%}
+        <div class="_20-pad-div-block">
+          <h2 class="heading-3 green">About Ada Mode</h2>
+          </div>
+          <div class="_60-pad-div-block">
+            <p class="paragraph">Ada Mode is an industrial technology and data science company whose aim is to improve the performance of complex industrial processes through artificial intelligence, engineering expertise and great design. Ada Mode helps clients by identifying opportunities in their data, designing a strategy and developing the solution. All of our solutions are bespoke to the client, built on technology developed in-house. Ada Mode currently works across the energy, utilities and manufacturing sectors. We are a small company with a strong order book and are looking for someone who shares our vision and has enthusiasm for growing and developing an exciting business. <br><br>This role can be partially remote with at least one day per week to be spent in either our Bristol or Southampton office and occasional visits to client sites. A successful applicant will join our growing development team working alongside data scientists, front end designers, software developers and engineers to deliver innovative data driven solutions across industry. The applicant will play a key part in the development of a condition monitoring and machine learning platform for the offshore wind industry. </p>
             </div>
-            <div class="_60-pad-div-block">
-              <p class="paragraph">Ada Mode is an industrial technology and data science company whose aim is to improve the performance of complex industrial processes through artificial intelligence, engineering expertise and great design. Ada Mode helps clients by identifying opportunities in their data, designing a strategy and developing the solution. All of our solutions are bespoke to the client, built on technology developed in-house. Ada Mode currently works across the energy, utilities and manufacturing sectors. We are a small company with a strong order book and are looking for someone who shares our vision and has enthusiasm for growing and developing an exciting business. <br><br>This role can be partially remote with at least one day per week to be spent in either our Bristol or Southampton office and occasional visits to client sites. A successful applicant will join our growing development team working alongside data scientists, front end designers, software developers and engineers to deliver innovative data driven solutions across industry. The applicant will play a key part in the development of a condition monitoring and machine learning platform for the offshore wind industry. </p>
-            </div>
-        </aside>
-        </aside>
+            </aside>
     {% endif %}
   </div>
- 
+  </div>
