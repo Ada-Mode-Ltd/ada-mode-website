@@ -1,0 +1,13 @@
+<li class="quote" id="quote-{{ quoteIndex }}" data-quote="{{ quoteIndex }}" aria-current="{{ current }}">
+    <p>{{ quote.text }}</p>
+    <small class="text--regular">
+        {{ quote.attribution.name }}
+        <br />
+        {{ quote.attribution.title }}
+    </small>
+    {% capture imgUrl %}
+    {% sanityImageUrl quote.partner.logo %}
+    {% endcapture %}
+
+    {% image imgUrl, '' %}
+</li>

@@ -1,0 +1,30 @@
+<div class="product-feature content-col" data-style="{{ featureStyle }}" data-image-placement="{{ featureImagePlacement }}">
+    <div class="image-holder" {% if floatImage %} data-float-image="{{ floatImage }}" {% endif %}>
+        {% capture imgUrl %}
+            {% sanityImageUrl featureImage %}
+        {% endcapture %}
+
+        {% image imgUrl, featureImage.altText %}
+    </div>
+    <div class="content flow">
+        {% if secondaryTitle %}
+        <p class="secondary-title">{{ secondaryTitle }}</p>
+        {% endif %}
+        {% portableText featureTitle %}
+        {% portableText featureText %}
+        {% if featureStyle == "large" %}
+            {% if feature.link %}
+            {%- assign slug = feature.link.url -%}
+            {% if feature.link.linkType == 'internal' %}
+            {%- if feature.link.text -%}
+                {% assign text = feature.link.text %}
+            {% else %}
+                {% assign text = feature.link.internalLink.title %}
+            {%- endif -%}
+            {%- assign slug = '/' | append: feature.link.internalLink.slug -%}
+            {% endif %}
+        <p><a class="text-link secondary" href="{{ slug }}">{{ text }}</a></p>
+            {% endif %}
+        {% endif %}
+    </div>
+</div>
