@@ -1,0 +1,45 @@
+.flex-row {
+  --min: 10ch;
+  --gap: var(--space-48);
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  row-gap: var(--row-gap, var(--space-80));
+  margin-block-start: var(--block-margin, var(--space-64));
+  align-items: center;
+  justify-content: center;
+
+  &[data-justify="start"] {
+    justify-content: flex-start;
+  }
+
+  &[data-align="start"] {
+    align-items: flex-start;
+  }
+
+  @media (max-width: 700px) {
+    --gap: 2rem;
+    --min: 100%;
+  }
+
+  &.logos {
+    & img,
+    > picture {
+      height: auto;
+      max-width: 150px;
+    }
+  }
+}
+
+.flex-row > * {
+  flex: 1 1 var(--min);
+}
+
+.flex-row[data-special="true"] > * {
+  flex: 1 0;
+}
+
+.flex-row__align-start {
+  align-items: flex-start;
+}

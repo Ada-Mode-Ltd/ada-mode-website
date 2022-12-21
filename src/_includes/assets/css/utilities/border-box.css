@@ -1,0 +1,17 @@
+.border-box__light {
+  background-color: var(--ws-white);
+  border-radius: var(--space-16);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--ws-light-grey);
+  padding: var(--space-16) var(--space-24);
+  box-shadow: var(--shadow-light);
+}
+
+[class^="border-box"][data-button] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-24);
+  flex-wrap: wrap;
+}

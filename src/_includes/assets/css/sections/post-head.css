@@ -1,0 +1,31 @@
+#post-header {
+  padding-block-end: var(--space-56);
+
+  & .flex-row {
+    --gap: 1rem;
+    --block-margin: 2rem;
+  }
+
+  & .main-image img {
+    padding-block-start: var(--space-104);
+    border-radius: 410px 8px 8px 8px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center center;
+    max-height: 32rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  #post-header {
+    padding-block-end: var(--space-32);
+    & .main-image img {
+      padding-block-start: 0;
+    }
+
+    & h1 {
+      font-size: 2rem;
+    }
+  }
+}

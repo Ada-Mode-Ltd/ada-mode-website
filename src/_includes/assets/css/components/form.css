@@ -1,0 +1,48 @@
+label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+
+  & > input {
+    background-color: var(--ws-light-grey);
+    border-radius: var(--round-8);
+    border: 1px solid transparent;
+    padding: var(--space-16);
+  }
+
+  & > input:focus,
+  & > input:focus-within,
+  & > input:focus-visible {
+    border: 1px solid var(--ws-dark-green);
+    /* outline: var(--ws-bright-green) auto 1px; */
+  }
+}
+
+/* Label but not for anything starting  with mce- */
+.mc-field-group {
+  margin-block: var(--space-24);
+  & > label {
+    display: block;
+    color: var(--ws-grey);
+    margin-block-end: 0.5rem;
+  }
+}
+
+input[type="submit"] {
+  background-color: var(--ws-dark-green);
+  color: var(--ws-white);
+  border: none;
+  margin-block: var(--space-24);
+  &:hover {
+    background-color: var(--ws-bright-green);
+  }
+}
+
+select {
+  background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxNiAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik04IDkuNTMzMjdMMCAxLjUzMzI3TDEuNDMzMzMgMC4wOTk5MzM2TDggNi42NjY2TDE0LjU2NjcgMC4wOTk5MzM2TDE2IDEuNTMzMjdMOCA5LjUzMzI3WiIgZmlsbD0iIzJBMzI0NSIvPg0KPC9zdmc+)
+    no-repeat;
+  background-position: right 1.25rem top 50%;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}

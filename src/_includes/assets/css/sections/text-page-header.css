@@ -1,0 +1,23 @@
+.text-page-header {
+  /* padding-block-start: var(--space-56);
+  padding-block-end: var(--space-56); */
+  --flow-space: var(--space-24);
+
+  @media (max-width: 1024px) {
+    padding-block-start: 0;
+  }
+
+  & .timestamp {
+    color: var(--ws-grey);
+  }
+
+  & .key-visual {
+    margin-top: var(--space-48);
+  }
+
+  & .key-visual img {
+    margin-inline: auto;
+    aspect-ratio: 90/59;
+    height: auto;
+  }
+}

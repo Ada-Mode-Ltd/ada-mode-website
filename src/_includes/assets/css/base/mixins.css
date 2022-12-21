@@ -1,0 +1,51 @@
+/* Mixins for commonly used combinations */
+
+@define-mixin button $type, $bg-color: var(--ws-dark-green),
+  $bg-hover: var(--ws-bright-green), $color: var(--ws-white) {
+  .button.$(type) {
+    background: $bg-color;
+    color: $color;
+    @mixin-content;
+    &:hover,
+    &:focus {
+      background: $bg-hover;
+    }
+  }
+}
+
+@define-mixin text-link $type, $color, $hover-color {
+  .text-link.$(type) {
+    color: $color;
+    &:visited {
+      color: $color;
+    }
+    @mixin-content;
+    &:hover,
+    &:focus {
+      color: $hover-color;
+    }
+  }
+}
+
+@define-mixin flex-row $gap: var(--space-32), $align: center, $justify: center {
+  display: flex;
+  flex-direction: row;
+  gap: $gap;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@define-mixin font-weight $weight {
+  font-weight: 500;
+  font-variation-settings: "wght" $weight;
+}
+
+@define-mixin container-padding $block: var(--space-104),
+  $inline: var(--space-144) {
+  padding: $block $inline;
+}
+
+@define-mixin dark-bg {
+  background: var(--background-color-dark) !important;
+  color: var(--text-color-light) !important;
+}
