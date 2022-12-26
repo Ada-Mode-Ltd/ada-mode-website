@@ -20,8 +20,8 @@ description: AI and data driven solutions by engineers, for engineers.
   <div class="section blue _80vh wf-section">
     <div class="container w-container">
       <div data-w-id="a7926fdc-3e21-713d-58f6-abd55b1fb4cb" class="w-layout-grid _2-collum-grid">
-        <h2 style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="heading-2 white">Our mission</h2>
-        <h2 style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="heading-5 white">To improve the performance of complex industrial processes through artificial intelligence, data science, engineering expertise and design thinking.</h2>
+        <h2  class="heading-2 white">Our mission</h2>
+        <h2  class="heading-5 white">To improve the performance of complex industrial processes through artificial intelligence, data science, engineering expertise and design thinking.</h2>
       </div>
     </div>
   </div>
@@ -145,69 +145,21 @@ description: AI and data driven solutions by engineers, for engineers.
         <p class="paragraph-2">Our team comprises engineers, natural scientists, data scientists and designers. Our people have worked on some of the most challenging projects across the renewable energy, civil nuclear and manufacturing sectors.</p>
       </div>
       <div class="w-layout-grid team-grid">
-        <div class="w-layout-grid team-grid-content">
-          <div><img src="/images/Dan-Everrit.jpg" loading="lazy" sizes="(max-width: 767px) 90vw, (max-width: 1439px) 96vw, 1125px" srcset="/images/Dan-Everrit-p-500.jpeg 500w, /images/Dan-Everrit-p-800.jpeg 800w, /images/Dan-Everrit-p-1080.jpeg 1080w, /images/Dan-Everrit.jpg 1125w" alt="Black and white photo of team member Dan Everrit" class="image-8"></div>
-          <div>
-            <div class="_10-pad-div-block">
-              <h3 class="heading-5">Dan Everrit</h3>
+         {% assign people = allPeople %}
+         {% for person in people %}
+          {% capture imgUrl %}
+            {% sanityImageUrl person.photo %}
+            {% endcapture %}
+          <div class="w-layout-grid team-grid-content">
+            <div>{% image imgUrl, '' %}</div>
+            <div>
+              <div class="_10-pad-div-block">
+                <h3 class="heading-5">{{ person.name }}</h3>
+              </div>
+              <div class="text-block-5">{{ person.position}}</div>
             </div>
-            <div class="text-block-5">Title here</div>
           </div>
-        </div>
-        <div class="w-layout-grid team-grid-content">
-          <div><img src="/images/Gareth-Jones.jpg" loading="lazy" sizes="(max-width: 767px) 90vw, (max-width: 1439px) 96vw, (max-width: 1919px) 1160.015625px, 1460.015625px" srcset="/images/Gareth-Jones-p-500.jpeg 500w, /images/Gareth-Jones-p-800.jpeg 800w, /images/Gareth-Jones-p-1080.jpeg 1080w, /images/Gareth-Jones-p-1600.jpeg 1600w, /images/Gareth-Jones.jpg 1920w" alt="Black and white photo of team member Gareth Jones" class="image-8"></div>
-          <div>
-            <div class="_10-pad-div-block">
-              <h3 class="heading-5">Gareth Jones<br></h3>
-            </div>
-            <div class="text-block-5">Title here</div>
-          </div>
-        </div>
-        <div class="w-layout-grid team-grid-content">
-          <div><img src="/images/Jack-Lewis.jpg" loading="lazy" sizes="(max-width: 767px) 90vw, (max-width: 1439px) 96vw, (max-width: 1919px) 1160.015625px, 1460.015625px" srcset="/images/Jack-Lewis-p-500.jpeg 500w, /images/Jack-Lewis-p-800.jpeg 800w, /images/Jack-Lewis-p-1080.jpeg 1080w, /images/Jack-Lewis-p-1600.jpeg 1600w, /images/Jack-Lewis.jpg 1920w" alt="Black and white photo of team member Jack Lewis" class="image-8"></div>
-          <div>
-            <div class="_10-pad-div-block">
-              <h3 class="heading-5">Jack Lewis</h3>
-            </div>
-            <div class="text-block-5">Title here</div>
-          </div>
-        </div>
-        <div class="w-layout-grid team-grid-content">
-          <div><img src="/images/Joe-Donnelly.jpg" loading="lazy" sizes="(max-width: 767px) 90vw, (max-width: 1439px) 96vw, (max-width: 1919px) 1160.015625px, 1460.015625px" srcset="/images/Joe-Donnelly-p-500.jpeg 500w, /images/Joe-Donnelly-p-800.jpeg 800w, /images/Joe-Donnelly-p-1080.jpeg 1080w, /images/Joe-Donnelly-p-1600.jpeg 1600w, /images/Joe-Donnelly.jpg 1920w" alt="Black and white photo of team member Joe Donnelly" class="image-8"></div>
-          <div>
-            <div class="_10-pad-div-block">
-              <h3 class="heading-5">Joe Donnelly</h3>
-            </div>
-            <div class="text-block-5">Title here</div>
-          </div>
-        </div>
-        <div class="w-layout-grid team-grid-content">
-          <div><img src="/images/Nick-Barton.jpg" loading="lazy" sizes="(max-width: 767px) 90vw, (max-width: 1439px) 96vw, 1065px" srcset="/images/Nick-Barton-p-500.jpeg 500w, /images/Nick-Barton-p-800.jpeg 800w, /images/Nick-Barton.jpg 1065w" alt="Black and white photo of team member Nick Barton" class="image-8"></div>
-          <div>
-            <div class="_10-pad-div-block">
-              <h3 class="heading-5">Nick Barton</h3>
-            </div>
-            <div class="text-block-5">Title here</div>
-          </div>
-        </div>
-        <div class="w-layout-grid team-grid-content">
-          <div><img src="/images/Rebecca-Walton.jpg" loading="lazy" sizes="(max-width: 767px) 90vw, (max-width: 1439px) 96vw, (max-width: 1919px) 1160.015625px, 1460.015625px" srcset="/images/Rebecca-Walton-p-500.jpeg 500w, /images/Rebecca-Walton-p-800.jpeg 800w, /images/Rebecca-Walton-p-1080.jpeg 1080w, /images/Rebecca-Walton-p-1600.jpeg 1600w, /images/Rebecca-Walton.jpg 1920w" alt="Black and white photo of team member Rebecca Walton" class="image-8"></div>
-          <div>
-            <div class="_10-pad-div-block">
-              <h3 class="heading-5">Rebecca Walton</h3>
-            </div>
-            <div class="text-block-5">Title here</div>
-          </div>
-        </div>
-        <div class="w-layout-grid team-grid-content">
-          <div><img src="/images/Samara-Vazquez-Perez.jpg" loading="lazy" sizes="(max-width: 960px) 90vw, 864px" srcset="/images/Samara-Vazquez-Perez-p-500.jpeg 500w, /images/Samara-Vazquez-Perez-p-800.jpeg 800w, /images/Samara-Vazquez-Perez.jpg 864w" alt="Black and white photo of team member Samara Vazquez Perez" class="image-8"></div>
-          <div>
-            <div class="_10-pad-div-block">
-              <h3 class="heading-5">Samara Vazquez Perez</h3>
-            </div>
-            <div class="text-block-5">Title here</div>
-          </div>
-        </div>
+          {% endfor %}
       </div>
     </div>
   </div>
@@ -223,34 +175,34 @@ description: AI and data driven solutions by engineers, for engineers.
           <h2 class="heading-2 white">Our values</h2>
         </div>
         <div data-w-id="1ebecc4d-ee3c-74fe-8113-75e435c322ca" class="values-div-block">
-          <div style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="_20-pad-div-block">
+          <div  class="_20-pad-div-block">
             <h3 class="heading-4 white">People are the business</h3>
           </div>
-          <p style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="paragraph white">Our people are the most important part of the business. We must promote equality and diversity through collaboration and teamwork.</p>
+          <p  class="paragraph white">Our people are the most important part of the business. We must promote equality and diversity through collaboration and teamwork.</p>
         </div>
         <div data-w-id="6d9a5ec3-70f6-875b-c6cb-f783af622275" class="values-div-block">
-          <div style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="_20-pad-div-block">
+          <div  class="_20-pad-div-block">
             <h3 class="heading-4 white">Strive for better</h3>
           </div>
-          <p style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="paragraph white">Our work should result in an improvement for the planet or other people.</p>
+          <p  class="paragraph white">Our work should result in an improvement for the planet or other people.</p>
         </div>
         <div data-w-id="3229aba5-5d5a-d5bc-4a52-6b483ee17194" class="values-div-block">
-          <div style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="_20-pad-div-block">
+          <div  class="_20-pad-div-block">
             <h3 class="heading-4 white">There’s always a way, but not always</h3>
           </div>
-          <p style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="paragraph white">Innovate, create, test, improve - be brave but humble.</p>
+          <p  class="paragraph white">Innovate, create, test, improve - be brave but humble.</p>
         </div>
         <div data-w-id="acc316fa-c8bf-c747-e5a5-892afe23e2b4" class="values-div-block">
-          <div style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="_20-pad-div-block">
+          <div  class="_20-pad-div-block">
             <h3 class="heading-4 white">Sustain the good guys</h3>
           </div>
-          <p style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="paragraph white">Relationships are more important than our bottom-line.</p>
+          <p  class="paragraph white">Relationships are more important than our bottom-line.</p>
         </div>
         <div data-w-id="149510ad-eea1-5570-e221-03901ee637fa" class="values-div-block">
-          <div style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="_20-pad-div-block">
+          <div  class="_20-pad-div-block">
             <h3 class="heading-4 white">Help others do their best</h3>
           </div>
-          <p style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="paragraph white">Promote a creative approach to problem-solving through fostering an open-minded, energetic and inquisitive attitude.</p>
+          <p  class="paragraph white">Promote a creative approach to problem-solving through fostering an open-minded, energetic and inquisitive attitude.</p>
         </div>
       </div>
     </div>
@@ -258,10 +210,10 @@ description: AI and data driven solutions by engineers, for engineers.
   <div class="section wf-section">
     <div class="container w-container">
       <div data-w-id="a8d343cc-8298-4110-e9d4-81f910056832" class="_80-pad-div-block">
-        <div data-w-id="7d32fa8e-ae03-8e17-5c87-42285b8eb68f" style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="_40-pad-div-block">
+        <div data-w-id="7d32fa8e-ae03-8e17-5c87-42285b8eb68f"  class="_40-pad-div-block">
           <h2 class="heading-2">Our History</h2>
         </div>
-        <div data-w-id="ef1cfe73-047c-2b7b-bce2-f72f819ad2b3" style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="div-block-46">
+        <div data-w-id="ef1cfe73-047c-2b7b-bce2-f72f819ad2b3"  class="div-block-46">
           <h3 class="heading-3">Ada Mode’s founders wanted to set up a company that would challenge the archetype.</h3>
         </div>
       </div>
@@ -296,29 +248,34 @@ description: AI and data driven solutions by engineers, for engineers.
       </div>
       <div class="w-dyn-list">
         <div role="list" class="collection-list w-dyn-items">
-          <div id="w-node-_1c0c5ad2-e190-271f-2386-bed89ae3d81f-9ae3d818" role="listitem" class="collection-item-5 w-dyn-item">
-            <div class="w-layout-grid grid-70">
-              <a href="#" class="recent-blog-post-image-link-div w-inline-block">
-                <div class="blog-post-image-div"></div>
-              </a>
-              <div class="blog-category-div">
-                <div class="small-green-sub-heading"></div>
-                <div class="div-block-6">
-                  <div class="small-grey-sub-heading hide">|</div>
+          {% for post in allPosts.data limit:3 %}
+          {% capture imgUrl %}{% sanityImageUrl post.mainImage %}{% endcapture %}
+            <div id="w-node-c49082f0-865f-00a1-a627-0e89ebad9e4b-e4fd2b7f" role="listitem" class="collection-item-6 w-dyn-item">
+              <a href="/blog/{{post.slug.current}}" class="link-block w-inline-block">
+                <div class="w-layout-grid recent-blog-grid">
+                  <div id="w-node-c49082f0-865f-00a1-a627-0e89ebad9e4e-e4fd2b7f" class="blog-post-image-div" style="background-image: none;"><img src="{{ imgUrl }}" loading="lazy" alt="" class="image"></div>
+                  <div class="blog-category-div">
+                    {% assign category = post.categories | first %}
+                    <div class="small-green-sub-heading">{{ category.title }}</div>
+                    <div class="div-block-6">
+                      <div class="small-grey-sub-heading">|</div>
+                    </div>
+                    <div class="small-grey-sub-heading">{{ post.publishedAt | date: "%B %d, %Y" }}</div>
+                  </div>
+                  <div class="_20-pad-div-block">
+                    <h4 class="heading-4">{{ post.title }}</h4>
+                  </div>
                 </div>
-                <div class="small-grey-sub-heading"></div>
-              </div>
-              <div class="_40-pad-div-block">
-                <a href="#" class="heading-4"></a>
+              </a>
+              <div class="div-block-144">
+                <a href="/blog/{{post.slug.current}}" class="green-button w-button">Read more</a>
               </div>
             </div>
-            <div class="div-block-125">
-              <a href="#" class="green-outline-button w-button">Read more  →</a>
+          {% else %}
+            <div class="w-dyn-empty">
+              <div>No items found.</div>
             </div>
-          </div>
-        </div>
-        <div class="w-dyn-empty">
-          <div>No items found.</div>
+          {% endfor %}
         </div>
       </div>
     </div>
