@@ -16,23 +16,24 @@ description: Take a look at our case studies to learn how we help industrial fac
     <div class="xtra-large-container w-container">
       <div class="case-studies-collection-list-wrapper w-dyn-list">
         <div role="list" class="collection-list-5 w-dyn-items">
-          <div id="w-node-ab2ad35e-d35e-74a3-0423-fceae4f50edd-b586e2c8" role="listitem" class="collection-item-4 w-dyn-item">
-            <div class="case-study-image-thumbnaili"></div>
-            <div class="case-study-content-div">
-              <div class="_20-pad-div-block">
-                <div class="text-block-13"></div>
-              </div>
-              <div class="_40-pad-div-block">
-                <h2 class="heading-4"></h2>
-              </div>
-              <div class="div-block-74">
-                <a href="#" class="green-outline-button w-button"><span>View case study   →</span></a>
+          {% for case in allCaseStudies %}
+            <div role="listitem" class="collection-item-4 w-dyn-item">
+            {% capture imgUrl %}{% sanityImageUrl case.mainImage %}{% endcapture %}
+              <div class="case-study-image-thumbnaili" style="background-image:url('{{ imgUrl }}')"></div>
+              <div class="case-study-content-div">
+                <div class="_20-pad-div-block">
+                  {% assign category = case.categories | first %}
+                  <div class="text-block-13">{{ category.title }}</div>
+                </div>
+                <div class="_40-pad-div-block">
+                  <h2 class="heading-4">{{ case.title }}</h2>
+                </div>
+                <div class="div-block-74">
+                  <a href="/case-studies/{{case.slug.current}}" class="green-outline-button w-button"><span>View case study   →</span></a>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="w-dyn-empty">
-          <div>No items found.</div>
+          {% endfor %}
         </div>
       </div>
     </div>

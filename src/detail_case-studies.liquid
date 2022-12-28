@@ -1,0 +1,74 @@
+---
+layout: base.html
+# This is the case study page template
+pagination:
+    data: allCaseStudies
+    alias: case
+    size: 1
+permalink: 
+    build: /case-studies/{{ case.slug.current | slug }}/index.html
+    # preview: /case/preview/:id
+eleventyComputed:
+    pageTitle: '{{ case.title }}'
+    pageDescription: '{{ case.description }}'
+---
+
+  <div class="section extra-top-padding blue wf-section">
+    <div class="large-container w-container">
+      <div class="_20-pad-div-block">
+        {% assign category = case.categories | first %}
+        <div class="text-block-12">{{ category.title }}</div>
+        <div class="text-block-12 _15px">|   Case Study</div>
+      </div>
+      <div class="_100-pad-div-block">
+        <h1 class="feature-heading white">{{ case.title }}</h1>
+      </div>
+      <div class="div-block-70"><img src="/images/white-down-arrow.svg" loading="lazy" width="15" alt="White arrow pointing down"></div>
+    </div>
+  </div>
+  <div class="w-layout-grid grid-50 _2">
+    {% if case.mainImage.asset %}
+              {% capture imgUrl %}{% sanityImageUrl case.mainImage %}{% endcapture %}
+              {% else %}
+              {% capture imgUrl %}{% sanityImageUrl site.blogFallbackImage %}{% endcapture %}
+          {% endif %}
+    <div id="w-node-dfa32798-2dd5-3d13-02c1-aca4d8257a4f-139ba193" class="div-block-99"></div>
+    <div id="w-node-bd360d9f-3980-aee4-8f37-f32af54bec36-139ba193" class="div-block-68" style="background-image:url('{{ imgUrl }}')"></div>
+    <div id="w-node-_05d2cc48-d5a0-9f11-f054-d97ce0a503ca-139ba193" class="div-block-96">
+      <div class="w-layout-grid grid-58">
+        <div class="_40-pad-div-block">
+          <h2 class="heading-3 white">{{ case.byline }}</h2>
+        </div>
+        <p class="paragraph white">{{ case.intro }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="section wf-section">
+    <div class="container w-container">
+      <div class="w-layout-grid case-study-grid">
+        <div></div>
+        <div class="paragraph w-richtext flow">
+          {% portableText case.body.content %}
+        </div>
+        {% if case.slides.url %}
+        <div id="w-node-a08b0b93-ff7b-1acd-123f-4c8924f0633e-139ba193" class="case-study-resources-div">
+          <div class="_20-pad-div-block">
+            <h4 class="heading-4">Slides</h4>
+          </div>
+          <a href="{{ case.slides.url }}" class="download-resource-link-block w-inline-block">
+            <div class="text-block-11">{{ case.slides.title }}</div><img src="/images/green-download-arrow.png" loading="lazy" width="10" alt="green arrow pointing down" class="download-arrow-image">
+          </a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="section blue wf-section">
+    {%- assign relatedCaseStudies = allCaseStudies | getRelatedCaseStudies: case -%}
+    <div class="xtra-large-container w-container">
+      <div class="_100-pad-div-block">
+        <h3 class="heading-3 white">Other case studies</h3>
+      </div>
+      {% include 'partials/caseStudiesBlock.liquid' %}
+    </div>
+  </div>

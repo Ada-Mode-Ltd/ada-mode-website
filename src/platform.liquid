@@ -363,26 +363,33 @@ description: An AI-powered platform for industrial digital twin implementation. 
       </div>
       <div class="w-dyn-list">
         <div role="list" class="collection-list-3 w-dyn-items">
+          {% for case in allCaseStudies limit:4 %}
+          {% capture imgUrl %}{% sanityImageUrl case.mainImage %}{% endcapture %}
           <div role="listitem" class="collection-item-2 w-dyn-item">
             <div class="w-layout-grid grid-24">
-              <a id="w-node-_9df6eb0d-e6a2-1d61-df83-e8a21352e4e4-1352e4db" href="#" class="link-block-6 w-inline-block"></a>
+              <a href="/case-studies/{{ case.slug.current }}/" class="case-study-image-div w-inline-block">
+                <div class="div-block-98"><img src="{{ imgUrl }}" loading="lazy" alt="" class="image"></div>
+              </a>
               <div class="div-block-32">
                 <div>
-                  <div class="case-study-text">Case study</div>
-                  <div class="_40-pad-div-block">
-                    <h4 class="heading-4 white"></h4>
-                  </div>
+                  {% assign category = case.categories | first %}
+                  <div class="case-study-text">{{ category.title }}</div>
+                  <a href="/case-studies/{{ case.slug.current }}/" class="_40-pad-div-block w-inline-block">
+                    <h4 class="heading-4 white">{{ case.title }}</h4>
+                  </a>
                 </div>
-                <div class="div-block-129">
-                  <a data-w-id="41e2c7b3-80d1-9708-947d-d138cf729f39" href="#" class="green-outline-button w-button">Learn more  → </a>
+                <div class="div-block-67">
+                  <a href="/case-studies/{{ case.slug.current }}/" class="green-outline-button w-button">Learn more</a>
                 </div>
               </div>
             </div>
           </div>
+          {% else %}
+          <div class="w-dyn-empty">
+            <div>No items found.</div>
+            </div>
+          {% endfor %}
+          </div>
         </div>
-        <div class="w-dyn-empty">
-          <div>No items found.</div>
-        </div>
-      </div>
     </div>
   </div>

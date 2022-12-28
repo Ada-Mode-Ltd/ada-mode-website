@@ -48,6 +48,24 @@ module.exports = function (eleventyConfig) {
     return relatedPosts;
   });
 
+  eleventyConfig.addFilter("getRelatedCaseStudies", function (posts, post) {
+    // Get the tags from the post
+    const tags = post.categories.map((c) => c.title);
+    // Filter out the current post
+    const relatedPosts = posts
+      .filter((p) => p._id !== post._id)
+      .filter((p) => p.categories.some((t) => tags.includes(t.title)));
+    // Ensure that 3 related posts are returned, or add more if there are not enough
+    if (relatedPosts.length < 4) {
+      const morePosts = posts
+        .filter((p) => p._id !== post._id)
+        .filter((p) => !p.categories.some((t) => tags.includes(t.title)));
+      relatedPosts.push(...morePosts.slice(0, 4 - relatedPosts.length));
+    }
+
+    return relatedPosts;
+  });
+
 //   // Shortcodes
 //   eleventyConfig.addPairedShortcode("postcss",
 //   async code => {

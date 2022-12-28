@@ -66,3 +66,12 @@
   aspect-ratio: 1;
   border-radius: 8px;
 }
+
+.case-study-grid .paragraph.w-richtext {
+  min-height: 15rem;
+}
+
+.case-study-image-div img {
+  max-width: 100%;
+  height: 100%;
+}
