@@ -2,8 +2,6 @@
 layout: base.html
 title: Ada Mode Blog
 description: Read our latest views on industry, technology and everything else here.
-# TODO: Take make blog list with better symantic html, and remove background images for posts
-# TODO: Use filtering from the Windscope site instead of Webflow's implementation
 ---
 
   <div class="section hero _80vh wf-section">
@@ -18,23 +16,39 @@ description: Read our latest views on industry, technology and everything else h
   </div>
   <div class="section no-top-padding no-bottom-padding wf-section">
     <div class="_90vw-container w-container">
-      <div class="filter-wrapper mobile">
-        <a filter-by="*" href="#" class="filter-button w-inline-block">
-          <div filter-by="Machine Learning" class="filter-by-text">All posts</div>
-        </a>
-        {% for category in allPosts.categories %}
-          <a filter-by="{{category}}" href="#" class="filter-button w-inline-block">
-            <div filter-by="{{ category }}" class="filter-by-text">{{ category }}</div>
-          </a>
-        {% endfor %}
-      </div>
+      <div class="category-nav" role="navigation" aria-label="Post categories">
+        <div class="wrapper">
+            <ul class="flex-row" data-justify="start">
+                <li><button data-active class="text--regular" >All posts</button></li>
+                {% for category in allPosts.categories %}
+                    <li><button class="text--regular">{{ category }}</button></li>
+                {% endfor %}
+            </ul>
+        </div>
+        </div>
       <div class="w-layout-grid blog-post-page-grid">
         <div id="w-node-e272b7f5-b09a-5866-b965-eaf02a097450-1c9d9963" class="collection-list-wrapper w-dyn-list">
-          <div role="list" class="blog-post-page-collection-list">
+          <ul role="list" class="blog-post-page-collection-list">
             {% for post in allPosts.data %}
-              {% capture imgUrl %}{% sanityImageUrl post.mainImage %}{% endcapture %}
-              <div role="listitem" class="collection-list-item">
-              <a href="/blog/{{post.slug.current}}" class="blog-post-image-link-block w-inline-block" style="background-image:url('{{ imgUrl }}')"></a>
+              {%- capture categories -%}
+                {%- for cat in post.categories -%}
+                    {{cat.title}},
+                {%- endfor -%}
+            {%- endcapture -%}
+              <li role="listitem" class="collection-list-item"  data-category="{{ categories }}">
+              <a href="/blog/{{post.slug.current}}" class="blog-post-image-link-block w-inline-block">
+              {% if post.mainImage.asset %}
+                {% capture imgUrl %}
+                    {% sanityImageUrl post.mainImage %}
+                {% endcapture %}
+                {% image imgUrl, post.mainImage.altText %}
+                {% else %}
+           {% capture imgUrl %}
+                    {% sanityImageUrl site.blogFallbackImage %}
+                {% endcapture %}
+                {% image imgUrl, '' %}
+              {% endif %}
+              </a>
               <div class="post-content-div">
                 <div class="_20-pad-div-block _2">
                   <div>
@@ -58,33 +72,9 @@ description: Read our latest views on industry, technology and everything else h
                   <a href="/blog/{{post.slug.current}}" class="green-outline-button w-button"><span>Learn more   →</span></a>
                 </div>
               </div>
-            </div>
+            </li>
             {% endfor %}
-          </div>
-        </div>
-        <div id="w-node-_4c17e45c-f258-9cc0-4e37-5935c99391c2-1c9d9963" class="post-filter-div-block">
-          <div class="filter-wrapper">
-            <a filter-by="*" href="#" class="filter-button w-inline-block">
-          <div filter-by="Machine Learning" class="filter-by-text">All posts</div>
-        </a>
-        {% for category in allPosts.categories %}
-          <a filter-by="{{category}}" href="#" class="filter-button w-inline-block">
-            <div filter-by="{{ category }}" class="filter-by-text">{{ category }}</div>
-          </a>
-        {% endfor %}
-          </div>
-          <div class="subscribe-to-newsletter-form w-form">
-            <div class="_20-pad-div-block">
-              <h4>Subscribe to our newsletter</h4>
-            </div>
-            <form id="email-form" name="email-form" data-name="Email Form" action="https://ada-mode.us7.list-manage.com/subscribe/post?u=128abe21f0d2b9c0ecad5eafc&amp;amp;id=12c95837b7" method="post"><input type="email" class="text-field-2 w-input" maxlength="256" name="email" data-name="Email" placeholder="" id="email" required=""><input type="submit" value="Submit" data-wait="Please wait..." class="green-button w-button"></form>
-            <div class="w-form-done">
-              <div>Thank you! Your submission has been received!</div>
-            </div>
-            <div class="w-form-fail">
-              <div>Oops! Something went wrong while submitting the form.</div>
-            </div>
-          </div>
+          </ul>
         </div>
       </div>
     </div>
@@ -104,19 +94,50 @@ description: Read our latest views on industry, technology and everything else h
     </div>
   </div>
   
-  <script src="https://cdn.finsweet.com/files/cmslibrary-v1.8.js"></script>
-  <script>
-(function() {
-var fsComponent = new FsLibrary('.blog-post-page-collection-list')
-var myFilters = [
-  {
-    filterWrapper: '.filter-wrapper',
-    filterType: 'exclusive'
-  }
-]
-fsComponent.filter({
-  filterArray: myFilters,
-  activeClass: 'filter-active'	
-})
-})();
+  <script type="module">
+    const categoryNav = document.querySelector('.category-nav');
+    const categoryButtons = categoryNav.querySelectorAll('button');
+    const posts = document.querySelectorAll('ul.blog-post-page-collection-list li.collection-list-item');
+    const section = document.querySelector('.category-nav > .wrapper');
+    const categoryTags = document.querySelectorAll('[data-category-filter]');
+
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            categoryButtons.forEach(button => button.removeAttribute('data-active'));
+            button.setAttribute('data-active', '');
+            const category = button.textContent;
+            posts.forEach(post => {
+                if (category === 'All posts') {
+                    post.removeAttribute('data-hidden');
+                } else if (post.dataset.category.includes(category)) {
+                    post.removeAttribute('data-hidden');
+                } else {
+                    post.setAttribute('data-hidden', '');
+                }
+            });
+        });
+    });
+
+    categoryTags.forEach(tag => {
+        tag.addEventListener('click', () => {
+            categoryButtons.forEach(button => button.removeAttribute('data-active'));
+            const category = tag.textContent;
+            posts.forEach(post => {
+                if (category === 'All posts') {
+                    post.removeAttribute('data-hidden');
+                } else if (post.dataset.category.includes(category)) {
+                    post.removeAttribute('data-hidden');
+                } else {
+                    post.setAttribute('data-hidden', '');
+                }
+            });
+            // set data-active on the corresponding category button
+            categoryButtons.forEach(button => {
+                if (button.textContent === category) {
+                    button.setAttribute('data-active', '');
+                }
+            });
+        });
+    });
+    
 </script>
