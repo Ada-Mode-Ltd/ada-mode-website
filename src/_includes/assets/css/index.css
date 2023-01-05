@@ -96,7 +96,8 @@
   overflow-x: visible;
 }
 
-a.blog-post-image-link-block.w-inline-block img {
+a.blog-post-image-link-block.w-inline-block img,
+.blog-post-image-div img {
   object-fit: cover;
   height: 300px;
 }
@@ -105,8 +106,33 @@ ul.blog-post-page-collection-list li.collection-list-item[data-hidden] {
   display: none;
 }
 
-a.case-study-image-div.w-inline-block img {
+a.case-study-image-div.w-inline-block img,
+.case-study-image-thumbnaili img {
   height: auto;
   width: 100%;
+  object-fit: cover;
+}
+
+.case-study-image-thumbnaili {
+  overflow: hidden;
+}
+
+.w-layout-grid.team-grid-content img {
+  object-fit: cover;
+}
+
+.div-block-68 img {
+  object-fit: cover;
+  max-height: 700px;
+}
+
+.case-study-cta-image-div img {
+  object-fit: cover;
+  height: 80vh;
+  aspect-ration: 1;
+}
+
+.blog-post-feature-image img {
+  height: 500px;
   object-fit: cover;
 }

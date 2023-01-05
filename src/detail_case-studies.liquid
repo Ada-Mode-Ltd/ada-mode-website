@@ -33,7 +33,9 @@ eleventyComputed:
               {% capture imgUrl %}{% sanityImageUrl site.blogFallbackImage %}{% endcapture %}
           {% endif %}
     <div id="w-node-dfa32798-2dd5-3d13-02c1-aca4d8257a4f-139ba193" class="div-block-99"></div>
-    <div id="w-node-bd360d9f-3980-aee4-8f37-f32af54bec36-139ba193" class="div-block-68" style="background-image:url('{{ imgUrl }}')"></div>
+    <div id="w-node-bd360d9f-3980-aee4-8f37-f32af54bec36-139ba193" class="div-block-68">
+      {% image imgUrl, '' %}
+    </div>
     <div id="w-node-_05d2cc48-d5a0-9f11-f054-d97ce0a503ca-139ba193" class="div-block-96">
       <div class="w-layout-grid grid-58">
         <div class="_40-pad-div-block">

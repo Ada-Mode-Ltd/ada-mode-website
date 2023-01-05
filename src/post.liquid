@@ -27,12 +27,18 @@ eleventyComputed:
         </div>
       </div>
     </div>
-    {% if post.mainImage.asset %}
-              {% capture imgUrl %}{% sanityImageUrl post.mainImage %}{% endcapture %}
-              {% else %}
-              {% capture imgUrl %}{% sanityImageUrl site.blogFallbackImage %}{% endcapture %}
-          {% endif %}
-    <div class="blog-post-feature-image"  style="background-image:url('{{ imgUrl }}')">
+    <div class="blog-post-feature-image">
+      {% if post.mainImage.asset %}
+                {% capture imgUrl %}
+                    {% sanityImageUrl post.mainImage %}
+                {% endcapture %}
+                {% image imgUrl, post.mainImage.altText %}
+                {% else %}
+           {% capture imgUrl %}
+                    {% sanityImageUrl site.blogFallbackImage %}
+                {% endcapture %}
+                {% image imgUrl, '' %}
+              {% endif %}
     </div>
   </div>
   <div class="section wf-section">
@@ -59,13 +65,13 @@ eleventyComputed:
         <h3 class="heading-3">Related posts</h3>
       </div>
       <div class="w-dyn-list">
-        <div role="list" class="collection-list w-dyn-items">
+        <ul role="list" class="collection-list w-dyn-items">
           {% for post in relatedPosts limit:3 %}
           {% capture imgUrl %}{% sanityImageUrl post.mainImage %}{% endcapture %}
-            <div id="w-node-c49082f0-865f-00a1-a627-0e89ebad9e4b-e4fd2b7f" role="listitem" class="collection-item-6 w-dyn-item">
+            <li id="w-node-c49082f0-865f-00a1-a627-0e89ebad9e4b-e4fd2b7f" role="listitem" class="collection-item-6 w-dyn-item">
               <a href="/blog/{{post.slug.current}}" class="link-block w-inline-block">
                 <div class="w-layout-grid recent-blog-grid">
-                  <div id="w-node-c49082f0-865f-00a1-a627-0e89ebad9e4e-e4fd2b7f" class="blog-post-image-div" style="background-image: none;"><img src="{{ imgUrl }}" loading="lazy" alt="" class="image"></div>
+                  <div id="w-node-c49082f0-865f-00a1-a627-0e89ebad9e4e-e4fd2b7f" class="blog-post-image-div">{% image imgUrl, '' %}</div>
                   <div class="blog-category-div">
                     {% assign category = post.categories | first %}
                     <div class="small-green-sub-heading">{{ category.title }}</div>
@@ -82,13 +88,13 @@ eleventyComputed:
               <div class="div-block-144">
                 <a href="/blog/{{post.slug.current}}" class="green-button w-button">Read more</a>
               </div>
-            </div>
+            </li>
           {% else %}
             <div class="w-dyn-empty">
               <div>No items found.</div>
             </div>
           {% endfor %}
-        </div>
+        </ul>
       </div>
     </div>
   </div>

@@ -28,9 +28,9 @@ description: We are looking for talented people to join our growing team.
         </div>
         <div id="w-node-b4538a14-7aea-81c8-e276-cf45490f59f2-91e0a56c" class="live-roles-div-block">
           <div class="w-dyn-list">
-            <div role="list" class="collection-list-4 w-dyn-items">
+            <ul role="list" class="collection-list-4 w-dyn-items">
               {% for job in allJobs %}
-                <div role="listitem" class="w-dyn-item">
+                <li role="listitem" class="w-dyn-item">
                   <div class="div-block-53">
                     <div class="_20-pad-div-block">
                       <h3 class="heading-4">{{ job.title }}</h3>
@@ -39,13 +39,13 @@ description: We are looking for talented people to join our growing team.
                       <a href="/careers/{{ job.slug.current }}/" class="green-outline-button w-button">Learn more</a>
                     </div>
                   </div>
-                </div>
+                </li>
               {% else %}
               <div class="w-dyn-empty">
                 <div>No items found.</div>
               </div>
               {% endfor %}
-            </div>
+            </ul>
           </div>
         </div>
       </div>

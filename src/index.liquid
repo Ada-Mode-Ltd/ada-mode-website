@@ -271,7 +271,9 @@ layout: base.html
           <div class="w-dyn-list">
             <div role="list" class="w-dyn-items">
               <div role="listitem" class="w-dyn-item">
-                <div class="case-study-cta-image-div" style="background-image:url('{{ imgUrl }}')"></div>
+                <div class="case-study-cta-image-div">
+                  {% image imgUrl, '' %}
+                </div>
               </div>
             </div>
           </div>
@@ -328,7 +330,7 @@ layout: base.html
             <div id="w-node-c49082f0-865f-00a1-a627-0e89ebad9e4b-e4fd2b7f" role="listitem" class="collection-item-6 w-dyn-item">
               <a href="/blog/{{post.slug.current}}" class="link-block w-inline-block">
                 <div class="w-layout-grid recent-blog-grid">
-                  <div id="w-node-c49082f0-865f-00a1-a627-0e89ebad9e4e-e4fd2b7f" class="blog-post-image-div" style="background-image: none;"><img src="{{ imgUrl }}" loading="lazy" alt="" class="image"></div>
+                  <div id="w-node-c49082f0-865f-00a1-a627-0e89ebad9e4e-e4fd2b7f" class="blog-post-image-div">{% image imgUrl, '' %}</div>
                   <div class="blog-category-div">
                     {% assign category = post.categories | first %}
                     <div class="small-green-sub-heading">{{ category.title }}</div>

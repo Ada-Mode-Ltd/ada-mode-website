@@ -15,11 +15,13 @@ description: Take a look at our case studies to learn how we help industrial fac
     </div>
     <div class="xtra-large-container w-container">
       <div class="case-studies-collection-list-wrapper w-dyn-list">
-        <div role="list" class="collection-list-5 w-dyn-items">
+        <ul role="list" class="collection-list-5 w-dyn-items">
           {% for case in allCaseStudies %}
-            <div role="listitem" class="collection-item-4 w-dyn-item">
+            <li role="listitem" class="collection-item-4 w-dyn-item">
             {% capture imgUrl %}{% sanityImageUrl case.mainImage %}{% endcapture %}
-              <div class="case-study-image-thumbnaili" style="background-image:url('{{ imgUrl }}')"></div>
+              <div class="case-study-image-thumbnaili">
+                {% image imgUrl, '' %}
+              </div>
               <div class="case-study-content-div">
                 <div class="_20-pad-div-block">
                   {% assign category = case.categories | first %}
@@ -32,9 +34,9 @@ description: Take a look at our case studies to learn how we help industrial fac
                   <a href="/case-studies/{{case.slug.current}}" class="green-outline-button w-button"><span>View case study   →</span></a>
                 </div>
               </div>
-            </div>
+            </li>
           {% endfor %}
-        </div>
+        </ul>
       </div>
     </div>
   </div>
