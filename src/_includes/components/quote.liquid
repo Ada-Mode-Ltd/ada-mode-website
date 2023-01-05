@@ -1,13 +1,13 @@
-<li class="quote" id="quote-{{ quoteIndex }}" data-quote="{{ quoteIndex }}" aria-current="{{ current }}">
-    <p>{{ quote.text }}</p>
-    <small class="text--regular">
-        {{ quote.attribution.name }}
-        <br />
-        {{ quote.attribution.title }}
-    </small>
-    {% capture imgUrl %}
-    {% sanityImageUrl quote.partner.logo %}
-    {% endcapture %}
-
-    {% image imgUrl, '' %}
-</li>
+<div class="testimonial-section wf-section">
+    <div class="small-container w-container">
+      <div class="w-layout-grid testimonial-grid">
+        <div class="_10-pad-div-block"><img src="/images/“.svg" loading="lazy" width="65.5" alt="Quotation mark icon"></div>
+        <div>
+          <p class="heading-3">{{ quote.text }}</p>
+        </div>
+        <div>
+          <p class="text-block-3">- {{ quote.partner.name }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
