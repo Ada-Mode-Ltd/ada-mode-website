@@ -1,8 +1,8 @@
 <div class="w-dyn-list">
-        <div role="list" class="collection-list-3 w-dyn-items">
-          {% for case in allCaseStudies limit:4 %}
+        <ul role="list" class="collection-list-3 w-dyn-items">
+          {% for case in allCaseStudies limit:3 %}
           {% capture imgUrl %}{% sanityImageUrl case.mainImage %}{% endcapture %}
-          <div role="listitem" class="collection-item-2 w-dyn-item">
+          <li role="listitem" class="collection-item-2 w-dyn-item">
             <div class="w-layout-grid grid-24">
               <a href="/case-studies/{{ case.slug.current }}/" class="case-study-image-div w-inline-block">
                 <div class="div-block-98"><img src="{{ imgUrl }}" loading="lazy" alt="" class="image"></div>
@@ -20,11 +20,11 @@
                 </div>
               </div>
             </div>
-          </div>
+          </li>
           {% else %}
-          <div class="w-dyn-empty">
+          <li class="w-dyn-empty">
             <div>No items found.</div>
-            </div>
+            </li>
           {% endfor %}
-          </div>
+          </ul>
         </div>
