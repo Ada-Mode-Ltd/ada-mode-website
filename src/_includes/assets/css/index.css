@@ -95,3 +95,12 @@
   /* flex-wrap: wrap; */
   overflow-x: visible;
 }
+
+a.blog-post-image-link-block.w-inline-block img {
+  object-fit: cover;
+  height: 300px;
+}
+
+ul.blog-post-page-collection-list li.collection-list-item[data-hidden] {
+  display: none;
+}

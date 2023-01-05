@@ -9,19 +9,21 @@
         {% if content.showDate %}
             <p class="text--small timestamp">Last updated: <time datetime="{{ thisPage._updatedAt | w3cDate }}">{{ thisPage._updatedAt | dateFormat }}</time></p>
         {% endif %}
-       {% portableText content.title %}
-              {% if content.tagline %}
-       <p class="text--medium {{ textAlign }}">{{ content.tagline }}</p>
-       {% endif %}
-       {% if content.keyVisual.size > 0 %}
-         <div class="key-visual">
-              {% for image in content.keyVisual %}
-             {% capture imgUrl %}
-                        {% sanityImageUrl image %}
-                    {% endcapture %}
-                    {% image imgUrl, '' %}
-              {% endfor %}
-              </div>
-       {% endif %}
+        <div class="_40-pad-div-block {{ textAlign }}">
+          <div class="heading-1 {{ textAlign }}">{% portableText content.title %}</div>
+        </div>
+        {% if content.tagline %}
+        <div class="hero-sub-heading-div {{ textAlign }}">
+          <h2 class="heading-5 {{ textAlign }}">{{ content.tagline }}</h2>
+        </div>
+        {% endif %}
     </div>
-</section>   
+    {% if content.keyVisual %}    
+    <div class="hero-image-relative">
+        {% for image in content.keyVisual %}
+        {% capture imgUrl %}{% sanityImageUrl image %}{% endcapture %}
+            <div class="lower-hero-image _4" style="background-image:url('{{ imgUrl }}')"></div>
+        {% endfor %}
+    </div>
+    {% endif %}
+  </section>
