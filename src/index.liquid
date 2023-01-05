@@ -126,63 +126,18 @@ layout: base.html
       <div data-w-id="cf2dce07-b886-67db-2560-25a371db6f5c" style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="_75--width-div">
         <h2 class="heading-2 white"><strong>Combine human intelligence and contemporary AI for groundbreaking operational transformation </strong><br></h2>
       </div>
+      {% assign smallCaseStudies = homeContent.smallCaseStudies %}
       <div class="w-layout-grid _2-3-grid">
         <div class="spacer-div"></div>
         <div class="w-layout-grid use-case-study-grid">
-          <div id="w-node-_8133caf5-bc3a-6d7e-c2d2-e63c05e8543d-0e0b77f1" class="use-study-div-block">
-            <p class="paragraph-2 wihte"><strong>Monitor Health</strong><br><br>Establish and sustain a deep understanding of plant health, beyond SCADA data, to direct intervention and maintenance activity</p>
-            <div class="view-case-study-button-div">
-              <a href="/case-studies/generator-system-health-determination-for-maintenance-optimisation" class="underline-only-button w-button"><span>View case study   →</span></a>
+          {% for case in smallCaseStudies %}
+            <div class="use-study-div-block">
+              <p class="paragraph-2 wihte"><strong>{{ case.title }}</strong><br><br>{{ case.description }}</p>
+              <div class="view-case-study-button-div">
+                <a href="/case-studies/{{ case.caseStudy.slug.current }}/" class="underline-only-button w-button"><span>View case study   →</span></a>
+              </div>
             </div>
-          </div>
-          <div id="w-node-aa83c113-c3cd-6020-03ec-843d48c17e88-0e0b77f1" class="use-study-div-block">
-            <p class="paragraph-2 wihte"><strong>Prevent Failure</strong><br><br>Prevent catastrophic machine failure through automatic detection of anomalous behaviour prior to the event</p>
-            <div class="view-case-study-button-div">
-              <a href="/case-studies/machine-learning-for-leak-detection-in-large-rotating-plant" class="underline-only-button w-button"><span>View case study   →</span></a>
-            </div>
-          </div>
-          <div class="use-study-div-block">
-            <p class="paragraph-2 wihte"><strong>Guide Operators</strong><br><br>Support operators by receiving automated recommendations on process parameter adjustment to boost output, reduce waste and reduce emissions</p>
-            <div class="view-case-study-button-div">
-              <a href="/case-studies/optimisation-of-biogas-upgrade-plant-performance" class="underline-only-button w-button"><span>View case study   →</span></a>
-            </div>
-          </div>
-          <div class="use-study-div-block">
-            <p class="paragraph-2 wihte"><strong>Dynamic Optimisation</strong><br><br>Reduce energy demand and control energy supply through dynamic optimisation of power consumers and producers</p>
-            <div class="view-case-study-button-div">
-              <a href="/case-studies/optimisation-of-biogas-upgrade-plant-performance" class="underline-only-button w-button"><span>View case study   →</span></a>
-            </div>
-          </div>
-          <div class="use-study-div-block">
-            <p class="paragraph-2 wihte"><strong>Advanced Diagnostics</strong><br><br>Understand plant behaviour and performance against design to guide investment decisions and warranty claims</p>
-            <div class="view-case-study-button-div">
-              <a href="/case-studies/generator-system-health-determination-for-maintenance-optimisation" class="underline-only-button w-button"><span>View case study   →</span></a>
-            </div>
-          </div>
-          <div class="use-study-div-block">
-            <p class="paragraph-2 wihte"><strong>Reduce Calibration Burden</strong><br><br>Monitor critical sensor health to prevent adverse quality events and reduce calibration burden</p>
-            <div class="view-case-study-button-div">
-              <a href="/case-studies/soft-sensor-development" class="underline-only-button w-button"><span>View case study   →</span></a>
-            </div>
-          </div>
-          <div class="use-study-div-block">
-            <p class="paragraph-2 wihte"><strong>Forecast Performance<br></strong><br>Forecast future system performance and model different operational scenarios to inform decision making</p>
-            <div class="view-case-study-button-div">
-              <a href="/case-studies/optimisation-of-nuclear-reactor-coolant-chemistry" class="underline-only-button w-button"><span>View case study   →</span></a>
-            </div>
-          </div>
-          <div class="use-study-div-block">
-            <p class="paragraph-2 wihte"><strong>Scalable Insight</strong><br><br>Scale monitoring from component to portfolio level across the enterprise to guide CAPEX investment decisions</p>
-            <div class="view-case-study-button-div">
-              <a href="#" class="underline-only-button w-button"><span>View case study   →</span></a>
-            </div>
-          </div>
-          <div class="use-study-div-block">
-            <p class="paragraph-2 wihte"><strong>Exploit Disparate Data</strong><br><br>Integrate unstructured contextual data, such as maintenance records, alongside time series data to boost analytical capability</p>
-            <div class="view-case-study-button-div">
-              <a href="/case-studies/nuclear-power-station-outage-optimisation" class="underline-only-button w-button"><span>View case study   →</span></a>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -270,52 +225,21 @@ layout: base.html
         </div>
         <div id="w-node-_3847447d-1f80-4052-7daf-3c2eb5a71e1f-0e0b77f1">
           <div class="w-layout-grid sectors-grid">
-            <div style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="sector-div-block">
-              <div class="w-layout-grid grid-8">
-                <div id="w-node-bc81804e-ccaa-a3f1-556a-e7fcec87d679-0e0b77f1" class="sector-icon-div-block"><img src="/images/nuclear-icon.svg" loading="lazy" width="45" alt="Civil nuclear power icon" class="sector-icon"></div>
-                <h3 class="heading-4 white">Civil Nuclear Power</h3>
+            {% for industry in allIndustries %}
+            {% capture imgUrl %}{% sanityImageUrl industry.logo %}{% endcapture %}
+              <div style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="sector-div-block">
+                <div class="w-layout-grid grid-8">
+                  <div id="w-node-bc81804e-ccaa-a3f1-556a-e7fcec87d679-0e0b77f1" class="sector-icon-div-block"><img src="{{ imgUrl }}" loading="lazy" width="45" alt=" " class="sector-icon"></div>
+                  <h3 class="heading-4 white">{{ industry.title }}</h3>
+                </div>
               </div>
-            </div>
-            <div style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="green-line-div"></div>
-            <div style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="sector-div-block">
-              <div class="w-layout-grid grid-8">
-                <div id="w-node-_65853860-813c-cf12-39f9-8b60a551f3c4-0e0b77f1" class="sector-icon-div-block"><img src="/images/wind-icon.svg" loading="lazy" width="45" alt="Wind power icon" class="sector-icon"></div>
-                <h4 class="heading-4 white">Wind</h4>
-              </div>
-            </div>
-            <div style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="green-line-div"></div>
-            <div style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="sector-div-block">
-              <div class="w-layout-grid grid-8">
-                <div id="w-node-_46bce7ab-11f9-72f2-db30-f50361ef175c-0e0b77f1" class="sector-icon-div-block"><img src="/images/solar-icon.svg" loading="lazy" width="45" alt="Solar power icon" class="sector-icon"></div>
-                <h4 class="heading-4 white">Solar</h4>
-              </div>
-            </div>
-            <div style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="green-line-div"></div>
-            <div style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="sector-div-block">
-              <div class="w-layout-grid grid-8">
-                <div id="w-node-_95b422cb-63fb-ae0f-a0f4-5af259bec4ab-0e0b77f1" class="sector-icon-div-block"><img src="/images/water-icon.svg" loading="lazy" width="45" alt="Water power icon" class="sector-icon"></div>
-                <h4 class="heading-4 white">Water</h4>
-              </div>
-            </div>
-            <div style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="green-line-div"></div>
-            <div style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="sector-div-block">
-              <div class="w-layout-grid grid-8">
-                <div id="w-node-e41890f4-1298-6f91-7864-f0d0a9e13fd3-0e0b77f1" class="sector-icon-div-block"><img src="/images/Built-environment-icon.svg" loading="lazy" width="45" alt="Built Environment icon" class="sector-icon"></div>
-                <h4 class="heading-4 white">Built Environment</h4>
-              </div>
-            </div>
-            <div style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="green-line-div"></div>
-            <div style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="sector-div-block">
-              <div class="w-layout-grid grid-8">
-                <div id="w-node-_04309533-abdb-3b7e-39f3-2fca74ea637c-0e0b77f1" class="sector-icon-div-block"><img src="/images/manufacturing-icon.svg" loading="lazy" width="45" alt="Manufacturing icon" class="sector-icon"></div>
-                <h4 class="heading-4 white">Manufacturing</h4>
-              </div>
-            </div>
+              <div style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="green-line-div"></div>
+            {% endfor %}
           </div>
         </div>
       </div>
       <div class="div-block-91">
-        <a href="industries.html" class="green-button w-button">Learn more</a>
+        <a href="/industries/" class="green-button w-button">Learn more</a>
       </div>
     </div>
   </div>
@@ -340,74 +264,38 @@ layout: base.html
     </div>
   </div>
   <div class="section no-padding _0px-padding wf-section">
-    <div class="w-layout-grid _2-3rd-grid">
-      <div class="w-dyn-list">
-        <div role="list" class="w-dyn-items">
-          <div role="listitem" class="w-dyn-item">
-            <div class="case-study-cta-image-div"></div>
+    {% assign featureCaseStudies = homeContent.featuredCaseStudies %}
+    {% for case in featureCaseStudies %}
+      {% capture imgUrl %}{% sanityImageUrl case.mainImage %}{% endcapture %}
+        <div class="w-layout-grid _2-3rd-grid">
+          <div class="w-dyn-list">
+            <div role="list" class="w-dyn-items">
+              <div role="listitem" class="w-dyn-item">
+                <div class="case-study-cta-image-div" style="background-image:url('{{ imgUrl }}')"></div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="w-dyn-empty">
-          <div>No items found.</div>
-        </div>
-      </div>
-      <div id="w-node-_65a3be1a-b473-6436-d3ee-3c942a3995e2-0e0b77f1" class="div-block blue">
-        <div class="collection-list-wrapper w-dyn-list">
-          <div role="list" class="w-dyn-items">
-            <div role="listitem" class="w-dyn-item">
-              <div class="_20-pad-div-block">
-                <div class="text-block-2">Case study</div>
-              </div>
-              <div class="_80-pad-div-block">
-                <h2 class="heading-2 white"></h2>
-              </div>
-              <div class="div-block-16">
-                <div class="div-block-141">
-                  <a href="#" class="green-outline-button w-button"><span>View case study   →</span></a>
+          <div id="w-node-_65a3be1a-b473-6436-d3ee-3c942a3995e2-0e0b77f1" class="div-block blue">
+            <div class="collection-list-wrapper w-dyn-list">
+              <div role="list" class="w-dyn-items">
+                <div role="listitem" class="w-dyn-item">
+                  <div class="_20-pad-div-block">
+                    <div class="text-block-2">Case study</div>
+                  </div>
+                  <div class="_80-pad-div-block">
+                    <h2 class="heading-2 white">{{ case.title }}</h2>
+                  </div>
+                  <div class="div-block-16">
+                    <div class="div-block-141">
+                      <a href="/case-studies/{{case.slug.current}}" class="green-outline-button w-button"><span>View case study   →</span></a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="w-dyn-empty">
-            <div>No items found.</div>
-          </div>
         </div>
-      </div>
-    </div>
-    <div class="w-layout-grid _2-3rd-grid">
-      <div id="w-node-_8d454680-7cd4-6f0b-0d4a-c71c6ccdbb9d-0e0b77f1" class="w-dyn-list">
-        <div role="list" class="w-dyn-items">
-          <div role="listitem" class="w-dyn-item">
-            <div class="case-study-cta-image-div"></div>
-          </div>
-        </div>
-        <div class="w-dyn-empty">
-          <div>No items found.</div>
-        </div>
-      </div>
-      <div id="w-node-_8d454680-7cd4-6f0b-0d4a-c71c6ccdbba5-0e0b77f1" class="div-block">
-        <div class="collection-list-wrapper-2 w-dyn-list">
-          <div role="list" class="w-dyn-items">
-            <div role="listitem" class="w-dyn-item">
-              <div class="_20-pad-div-block">
-                <div class="text-block-2">Case study</div>
-              </div>
-              <div class="_80-pad-div-block">
-                <h2 class="heading-2"></h2>
-              </div>
-              <div class="div-block-16">
-                <div class="div-block-140">
-                  <a href="#" class="green-outline-button w-button"><span>View case study   →</span></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="w-dyn-empty">
-            <div>No items found.</div>
-          </div>
-        </div>
-      </div>
-    </div>
+    {% endfor %}
   </div>
   <div class="section grey _75vh wf-section">
     <div data-w-id="04f4228a-9dae-41c6-9731-d295d8aec445" style="-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="w-container">

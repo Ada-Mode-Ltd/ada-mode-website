@@ -18,19 +18,15 @@ async function getHomepage() {
             }
         },
         "quote": quote[]->{..., partner->{...}},
-        tabs{
+        "smallCaseStudies": smallCaseStudies[]{
             ...,
-            sectionLink{
+            caseStudy->{
                 ...,
-                internalLink{
-                    ...,
-                    _type == 'reference' => {
-                        "title": @->title,
-                        "slug": @->slug.current,
-                    },
-                },
-            }, 
+            },
         },
+        "featuredCaseStudies": featuredCaseStudies[]->{
+            ...,
+        }
      }`
     let docs = await client.fetch(query).catch(err => console.error(err));
     return docs;

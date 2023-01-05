@@ -75,3 +75,11 @@
   max-width: 100%;
   height: 100%;
 }
+
+.w-layout-grid._2-3rd-grid:nth-child(even) > .w-dyn-list {
+  grid-column: 3;
+}
+.w-layout-grid._2-3rd-grid:nth-child(even) > .div-block {
+  grid-column: 1/3 !important;
+  grid-row: 1 !important;
+}
