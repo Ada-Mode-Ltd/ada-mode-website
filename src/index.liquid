@@ -1,6 +1,19 @@
 ---
 layout: base.html
 ---
+
+{% assign id = eleventy.serverless.path.id %}
+
+{% if eleventy.serverless.path %}
+{% for hp in preview.homepage %}
+    {% if hp._id == id %}
+        {% assign homeContent = hp %}
+        {% break %}
+    {% endif %}
+{% endfor %}
+{% else %}
+    {% assign homeContent = homepage %}
+{% endif %}
   
   <div class="home-page-hero-section wf-section">
     <div class="homepage-hero-content-div">
@@ -106,19 +119,8 @@ layout: base.html
       </div>
     </div>
   </div>
-  <div class="testimonial-section wf-section">
-    <div class="small-container w-container">
-      <div class="w-layout-grid testimonial-grid">
-        <div class="_10-pad-div-block"><img src="/images/“.svg" loading="lazy" width="65.5" alt="Quotation mark icon"></div>
-        <div>
-          <h2 class="heading-3">Ada Mode’s machine health AI enabled us to significantly reduce our turbine maintenance costs and reduce outage duration. This technology is now central to our long-term maintenance strategy. </h2>
-        </div>
-        <div>
-          <div class="text-block-3">- EDF Energy</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  {% assign quote = homeContent.quote | first %}
+  {% include 'components/quote.liquid' %}
   <div class="section blue wf-section">
     <div class="large-container w-container">
       <div data-w-id="cf2dce07-b886-67db-2560-25a371db6f5c" style="opacity:0;-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="_75--width-div">
