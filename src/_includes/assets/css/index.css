@@ -5,7 +5,7 @@
 @import "./base/_reset.css";
 @import "./base/variables.css";
 @import "./base/mixins.css";
-@import "./base/typography.css";
+/* @import "./base/typography.css"; */
 
 /* Utility classes*/
 @import "./utilities/spacing.css";
