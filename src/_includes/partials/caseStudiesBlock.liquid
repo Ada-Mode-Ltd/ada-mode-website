@@ -5,7 +5,9 @@
           <li role="listitem" class="collection-item-2 w-dyn-item">
             <div class="w-layout-grid grid-24">
               <a href="/case-studies/{{ case.slug.current }}/" class="case-study-image-div w-inline-block">
-                <div class="div-block-98"><img src="{{ imgUrl }}" loading="lazy" alt="" class="image"></div>
+                <div class="div-block-98">
+                  {% image imgUrl, '' %}
+                </div>
               </a>
               <div class="div-block-32">
                 <div>

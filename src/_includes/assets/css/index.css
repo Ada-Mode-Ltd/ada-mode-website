@@ -104,3 +104,9 @@ a.blog-post-image-link-block.w-inline-block img {
 ul.blog-post-page-collection-list li.collection-list-item[data-hidden] {
   display: none;
 }
+
+a.case-study-image-div.w-inline-block img {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+}
