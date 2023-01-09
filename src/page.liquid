@@ -22,34 +22,35 @@ eleventyComputed:
 {% endfor %}
 {% endif %}
 
-<section class="section wf-section">
     {% for content in thisPage.body %}
         {% if content._type == 'pageHeading' %}
             {% include "components/pageHeading.liquid" %}
         {% endif %}
     
         {% if content._type == 'blockContent' %}
-        <div class="wrapper">
-            <article class="flow">
+        <div class="section wf-section">
+            <article class="wrapper flow paragraph">
                 {% portableText content.content %}
             </article>
         </div>
         {% endif %}
     
         {% if content._type == 'blockLayout' %}
-            <section class="">
-                <div class="wrapper columns">
-                    {% assign textPlacement = content.layout %}
-                        {% capture imgUrl %}
-                            {% sanityImageUrl content.image %}
-                        {% endcapture %}
-                    {% if textPlacement == 'right' %}
-                        {% image imgUrl, content.image.altText %}
-                        <div class="flow text-content">{% portableText content.text.content %}</div>
-                    {% else %}
-                        <div class="flow text-content">{% portableText content.text.content %}</div>
-                        {% image imgUrl, content.image.altText %}
-                    {% endif %}
+            <section class="section wf-section">
+                <div class="large-container full-width w-container">
+                        <div class="flex-row">
+                            {% assign textPlacement = content.layout %}
+                                {% capture imgUrl %}
+                                    {% sanityImageUrl content.image %}
+                                {% endcapture %}
+                            {% if textPlacement == 'right' %}
+                                <div class="div-block-36">{% image imgUrl, content.image.altText %}</div>
+                                <div class="flow text-content paragraph">{% portableText content.text.content %}</div>
+                            {% else %}
+                                <div class="flow text-content paragraph">{% portableText content.text.content %}</div>
+                                <div class="div-block-36">{% image imgUrl, content.image.altText %}</div>
+                            {% endif %}
+                        </div>
                 </div>
             </section>
         {% endif %}
@@ -276,6 +277,20 @@ eleventyComputed:
     </section>
             {% endif %}
         {% endif %}
+
+        {% if content._type == 'caseStudies' %}
+        <div class="section blue wf-section">
+            <div class="large-container w-container">
+              <div class="_100-pad-div-block">
+                <h3 class="heading-3 white">{{ content.title | default: "Our work" }}</h3>
+              </div>
+              {% unless content.showLatest %}
+              {% assign caseStudyList = content.caseStudies %}
+            {% endunless %}
+            {% include 'partials/caseStudiesBlock.liquid' %}
+            </div>
+          </div>
+        {% endif %}
     
         {% if content._type == 'ctaSection' %}
             {% if content.blockLayout %}
@@ -286,4 +301,3 @@ eleventyComputed:
             {% include 'components/cta-section.liquid' %}
         {% endif %}
     {% endfor %}
-</section>

@@ -1,6 +1,12 @@
+{% if caseStudyList %}
+  {% assign cases = caseStudyList %}
+  {% else %}
+  {% assign cases = allCaseStudies %}
+{% endif %}
+
 <div class="w-dyn-list">
         <ul role="list" class="collection-list-3 w-dyn-items">
-          {% for case in allCaseStudies limit:3 %}
+          {% for case in cases limit:3 %}
           {% capture imgUrl %}{% sanityImageUrl case.mainImage %}{% endcapture %}
           <li role="listitem" class="collection-item-2 w-dyn-item">
             <div class="w-layout-grid grid-24">

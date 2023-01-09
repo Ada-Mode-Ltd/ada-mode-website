@@ -51,6 +51,12 @@ async function getPages() {
                 ...,
             },
         },
+        _type == 'caseStudies' => {
+            ...,
+            caseStudies[]->{
+                ...,
+            },
+        },
         _type == 'quoteCarousel' => {
             ...,
             quotes[]->{

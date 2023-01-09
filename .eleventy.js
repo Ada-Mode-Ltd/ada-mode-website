@@ -191,11 +191,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("public/assets/**/*");
 
 
-  eleventyConfig.on("eleventy.after", async () => {
   if(!dev || !isServerless) {
+  eleventyConfig.on("eleventy.after", async () => {
       await copy("public/assets/img/remote", "_site/assets/img/remote");
-    }
-  })
+    })
+  }
 
   // Return your Object options:
   return {
