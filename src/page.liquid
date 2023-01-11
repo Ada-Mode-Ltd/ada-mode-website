@@ -40,9 +40,7 @@ eleventyComputed:
                 <div class="large-container full-width w-container">
                         <div class="flex-row">
                             {% assign textPlacement = content.layout %}
-                                {% capture imgUrl %}
-                                    {% sanityImageUrl content.image %}
-                                {% endcapture %}
+                                {% capture imgUrl %}{% sanityImageUrl content.image %}{% endcapture %}
                             {% if textPlacement == 'right' %}
                                 <div class="div-block-36">{% image imgUrl, content.image.altText %}</div>
                                 <div class="flow text-content paragraph">{% portableText content.text.content %}</div>
@@ -276,6 +274,33 @@ eleventyComputed:
         </div>
     </section>
             {% endif %}
+        {% endif %}
+
+        {% if content._type == 'industries' %}
+        <div class="section blue wf-section">
+            <div class="large-container w-container">
+              <div class="_100-pad-div-block">
+                <h3 class="heading-3 white">{{ content.title }}</h3>
+              </div>
+              {% unless content.showAll %}
+              {% assign industryList = content.industries %}
+              {% else %}
+                {% assign industryList = allIndustries %}
+            {% endunless %}
+            <div class="w-layout-grid industries-grid">
+            {% for industry in industryList %}
+            {% capture imgUrl %}{% sanityImageUrl industry.logo %}{% endcapture %}
+                    <div class="w-layout-grid individual-industries-grid">
+                        <div class="industries-icon-div">{% image imgUrl, '' %}</div>
+                        <div  class="industries-heading-div">
+                            <h3 class="heading-3 white">{{ industry.title }}</h3>
+                        </div>
+                        <p  class="paragraph white">{{ industry.text }}</p>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+          </div>
         {% endif %}
 
         {% if content._type == 'caseStudies' %}
