@@ -2,20 +2,24 @@
     <div class="nav-bar-container w-container">
       <a href="/" aria-current="page" class="brand w-nav-brand w--current"><img src="/images/ada-mode-logo---dark-wire-horizontal-logo.svg" loading="lazy" width="150" alt="Ada Mode logo"></a>
       <nav role="navigation" class="nav-menu w-nav-menu">
-        <a href="/platform/" class="nav-link w-nav-link">Product</a>
-        <a href="/services/" class="nav-link w-nav-link">Services</a>
-        <a href="/industries/" class="nav-link w-nav-link">Industries</a>
-        <div data-hover="false" data-delay="0" class="dropdown w-dropdown">
-          <div class="nav-link w-dropdown-toggle">
-            <div class="icon w-icon-dropdown-toggle"></div>
-            <div class="text-block-14">About</div>
+        
+        {% for item in site.topMenu %}
+          {% unless item.children %}
+          <a href="{{ item.page.slug.current }}" class="nav-link w-nav-link">{{ item.page.title }}</a>
+          {% else %}
+          <div data-hover="false" data-delay="0" class="dropdown w-dropdown">
+            <div class="nav-link w-dropdown-toggle">
+              <div class="icon w-icon-dropdown-toggle"></div>
+              <div class="text-block-14">{{ item.dropdownTitle }}</div>
+            </div>
+            <nav class="dropdown-list w-dropdown-list">
+              {% for child in item.children %}
+              <a href="{{ child.slug }}" class="nav-dropdown-link w-dropdown-link">{{ child.title }}</a>
+              {% endfor %}
+            </nav>
           </div>
-          <nav class="dropdown-list w-dropdown-list">
-            <a href="/about-us/" class="nav-dropdown-link w-dropdown-link">About us</a>
-            <a href="/case-studies/" class="nav-dropdown-link w-dropdown-link">Case studies</a>
-            <a href="/careers/" class="nav-dropdown-link w-dropdown-link">Careers</a>
-          </nav>
-        </div>
+          {% endunless %}
+        {% endfor %}
         <a href="/blog/" class="nav-link w-nav-link">Blog</a>
         <a href="/contact-us/" class="nav-link w-nav-link">Contact</a>
       </nav>

@@ -6,10 +6,18 @@ async function getSite() {
         ...,
         topMenu[]{
             ...,
-            _type == 'reference' => {
-                "title": @->title,
-                "slug": @->slug.current,
-            },
+            _type == 'topMenuLink' => {
+               page->{
+                    title,
+                    slug,
+                },
+                children[]{
+                    _type == 'reference' => {
+                        "title": @->title,
+                        "slug": @->slug.current,
+                    },
+                }
+            }
         },
         footerLinks[]{
             ...,
