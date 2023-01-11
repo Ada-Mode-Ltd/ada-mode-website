@@ -7,6 +7,12 @@
 <section id="page-heading" class="section wf-section">
     <div class="{% if content.keyVisual %}section hero _2 wf-section{% endif %}">
         <div class="wrapper flow text-page-header {{ textAlign }}">
+            {% if content.logo %}
+                <div class="div-block-77">
+                    {% capture imgUrl %}{% sanityImageUrl content.logo %}{% endcapture %}
+                        <img src="{{ imgUrl }}" alt="">
+                </div>
+            {% endif %}    
             {% if content.showDate %}
                 <p class="text--small timestamp">Last updated: <time datetime="{{ thisPage._updatedAt | w3cDate }}">{{ thisPage._updatedAt | dateFormat }}</time></p>
             {% endif %}

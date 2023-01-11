@@ -4,7 +4,7 @@
       <nav role="navigation" class="nav-menu w-nav-menu">
         
         {% for item in site.topMenu %}
-          {% unless item.children %}
+          {% if item.page %}
           <a href="{{ item.page.slug.current }}" class="nav-link w-nav-link">{{ item.page.title }}</a>
           {% else %}
           <div data-hover="false" data-delay="0" class="dropdown w-dropdown">
@@ -18,8 +18,20 @@
               {% endfor %}
             </nav>
           </div>
-          {% endunless %}
+            {% endif %}
         {% endfor %}
+        <div data-hover="false" data-delay="0" class="dropdown w-dropdown">
+          <div class="nav-link w-dropdown-toggle">
+            <div class="icon w-icon-dropdown-toggle"></div>
+            <div class="text-block-14">About</div>
+          </div>
+          <nav class="dropdown-list w-dropdown-list">
+            <a href="/about-us/" class="nav-dropdown-link w-dropdown-link">About us</a>
+            <a href="/case-studies/" class="nav-dropdown-link w-dropdown-link">Case studies</a>
+            <a href="/careers/" class="nav-dropdown-link w-dropdown-link">Careers</a>
+          </nav>
+        </div>
+
         <a href="/blog/" class="nav-link w-nav-link">Blog</a>
         <a href="/contact-us/" class="nav-link w-nav-link">Contact</a>
       </nav>

@@ -13,48 +13,52 @@
     {% endif %}
 {% endif %}
 
-
-<section class="cta section wf-section">
-    <div class="wrapper {% if cols == 2 %}columns{% endif %}" data-cols="{{ cols }}">
-        {% if cols == 2 %}
-            {% if content.media.mediaType == 'image' %}
-                {% capture imgUrl %}
-                    {% sanityImageUrl content.media.image %}
-                {% endcapture %}
-                {% if content.blockLayout == 'left' %}
-                    {% include 'components/cta-section/content.liquid' %}
-                    {% image imgUrl, '' %}
-                {% else %}
-                    {% image imgUrl, '' %}
-                    {% include 'components/cta-section/content.liquid' %}
-                {% endif %}
-            {% elsif content.media.mediaType == 'video' %}
-                {% assign service = content.media.video.service %}
-                {% assign id = content.media.video.id %}
-                {% if service == 'youtube' %}
-                    {% if content.blockLayout == 'left' %}
-                    {% include 'components/cta-section/content.liquid' %}
-                    <div class="video-wrapper"><lite-youtube videoid="{{ id }}" autoload></lite-youtube></div>
-                    {% else %}
-                    <div class="video-wrapper"><lite-youtube videoid="{{ id }}" autoload></lite-youtube></div>
-                    {% include 'components/cta-section/content.liquid' %}
-                    {% endif %}
-<script src="/assets/js/lite-youtube.js" type="module"></script>
-                {% elsif service == 'vimeo' %}
-                    {% if content.blockLayout == 'left' %}
-                    {% include 'components/cta-section/content.liquid' %}
-                    <div class="video-wrapper"><lite-vimeo videoid="{{ id }}" autoload></lite-vimeo></div>
-                    {% else %}
-                    <div class="video-wrapper"><lite-vimeo videoid="{{ id }}" autoload></lite-vimeo></div>
-                    {% include 'components/cta-section/content.liquid' %}
-                    {% endif %}
-                                        <script src="/assets/js/lite-vimeo.js" type="module"></script>
-                {% endif %}
-        {% else %}        
+  <div class="section no-padding wf-section">
+    <div class="w-layout-grid _2-collum-grid grey-smoke-bg" style="grid-row-gap: 0;">
+        {% if content.media.mediaType == 'image' %}
+        {% capture imgUrl %}
+            {% sanityImageUrl content.media.image %}
+        {% endcapture %}
+        {% if content.blockLayout == 'left' %}
             {% include 'components/cta-section/content.liquid' %}
-            {% endif %}
-        {% else %}        
+            {% image imgUrl, '' %}
+        {% else %}
+            {% image imgUrl, '' %}
             {% include 'components/cta-section/content.liquid' %}
         {% endif %}
+    {% elsif content.media.mediaType == 'video' %}
+        {% assign service = content.media.video.service %}
+        {% assign id = content.media.video.id %}
+        {% if service == 'youtube' %}
+            {% if content.blockLayout == 'left' %}
+            {% include 'components/cta-section/content.liquid' %}
+            <div id="w-node-_73d3a544-0e30-83ca-d3b2-e215e160ef9b-2db407ac" class="video-div-block-2">
+<div style="padding-top:56.17021276595745%" class="w-video w-embed"><div class="media full"><lite-youtube videoid="{{ id }}" autoload></lite-youtube></div></div>
+</div>
+            <div class="video-wrapper"></div>
+            {% else %}
+            <div id="w-node-_73d3a544-0e30-83ca-d3b2-e215e160ef9b-2db407ac" class="video-div-block-2">
+                <div style="padding-top:56.17021276595745%" class="w-video w-embed"><div class="media full"><lite-youtube videoid="{{ id }}" autoload></lite-youtube></div></div>
+              </div>
+            {% include 'components/cta-section/content.liquid' %}
+            {% endif %}
+<script src="/assets/js/lite-youtube.js" type="module"></script>
+        {% elsif service == 'vimeo' %}
+            {% if content.blockLayout == 'left' %}
+            {% include 'components/cta-section/content.liquid' %}
+            <div id="w-node-_73d3a544-0e30-83ca-d3b2-e215e160ef9b-2db407ac" class="video-div-block-2">
+<div style="padding-top:56.17021276595745%" class="w-video w-embed"><div class="media full"><lite-vimeo videoid="{{ id }}" autoload></lite-vimeo></div></div>
+</div>
+            {% else %}
+            <div id="w-node-_73d3a544-0e30-83ca-d3b2-e215e160ef9b-2db407ac" class="video-div-block-2">
+                <div style="padding-top:56.17021276595745%" class="w-video w-embed"><div class="media full"><lite-vimeo videoid="{{ id }}" autoload></lite-vimeo></div></div>
+              </div>
+            {% include 'components/cta-section/content.liquid' %}
+            {% endif %}
+                                <script src="/assets/js/lite-vimeo.js" type="module"></script>
+        {% endif %}
+{% else %}        
+    {% include 'components/cta-section/content.liquid' %}
+    {% endif %}
     </div>
-</section>
+  </div>
