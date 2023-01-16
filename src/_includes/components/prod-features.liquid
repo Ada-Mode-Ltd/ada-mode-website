@@ -37,4 +37,46 @@
       </div>
     </div>
   </div>
+{% elsif featureType == 'large' %}
+    <div class="section extra-bottom-padding xtra wf-section">
+    <div class="large-container w-container">
+        <div class="w-layout-grid grid-72">
+            {% for feature in features %}
+                {% assign featureStyle = feature.featureType %}
+            
+                        {% if featureStyle == "large" %}
+                        {% assign featureImage = feature.largeImage %}
+                        {% assign featureTitle = feature.longTitle %}
+                        {% assign featureText = feature.largeText %}
+                        {% assign featureImagePlacement = "left" %}
+                        {% assign secondaryTitle = feature.secondaryTitle %}
+                        {% elsif featureStyle == "medium" %}
+                        {% assign featureImage = feature.mediumImage %}
+                        {% assign featureTitle = feature.mediumTitle %}
+                        {% assign featureText = feature.mediumText %}
+                        {% assign secondaryTitle = null %}
+                        {% assign featureImagePlacement = null %}
+                        {% else %}
+                        {% assign featureImage = feature.smallImage %}
+                        {% assign featureTitle = feature.smallTitle %}
+                        {% assign featureText = feature.smallText %}
+                        {% assign secondaryTitle = null %}
+                        {% assign featureImagePlacement = null %}
+                        {% endif %}
+                        {% capture imgUrl %}
+                            {% sanityImageUrl featureImage %}
+                        {% endcapture %}
+                        <div class="">
+                            <div class="w-layout-grid grid-74">
+                                <div id="w-node-_7b3706d9-1d6f-4b76-5e4d-53247644e612-2db407ac">
+                                  <h2 class="heading-3">{% portableText featureTitle %}</h2>
+                                </div>
+                                  <div class="paragraph-2">{% portableText featureText %}</div>
+                            </div>
+                              <div id="w-node-_9d002deb-4a3a-355c-d041-a118ec72b17d-2db407ac" class="div-block-128">{% image imgUrl, featureImage.altText %}</div>
+                        </div>
+            {% endfor %}
+        </div>
+    </div>
+  </div>
 {% endif %}

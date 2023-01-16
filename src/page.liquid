@@ -206,11 +206,10 @@ eleventyComputed:
         {% assign featureType = content.featureType %}
             {% if content.allFeatures %}
             {% assign features = allFeatures[featureType] %}
-            
             {% else %}
             {% assign features = content.features %}
-            {% include 'components/prod-features.liquid' %}
-            {% endif %}
+        {% endif %}
+        {% include 'components/prod-features.liquid' %}
         {% endif %}
 
         {% if content._type == 'industries' %}
