@@ -162,3 +162,7 @@ a.case-study-image-div.w-inline-block img,
 .div-block-77 img {
   max-width: 120px;
 }
+
+.slide w-slide img {
+  height: auto;
+}

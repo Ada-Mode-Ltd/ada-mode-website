@@ -26,12 +26,32 @@
             {% endif %}
         </div>
         {% if content.keyVisual %}    
+        {% unless content.keyVisual.size > 1 %}
         <div class="hero-image-relative">
             {% for image in content.keyVisual %}
             {% capture imgUrl %}{% sanityImageUrl image %}{% endcapture %}
                 <div class="lower-hero-image _4" style="background-image:url('{{ imgUrl }}')"></div>
             {% endfor %}
         </div>
+        {% else %}
+        <div class="section no-padding wf-section">
+            <div data-delay="4000" data-animation="slide" class="_w-slider product-page w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="500" data-infinite="true">
+              <div class="mask w-slider-mask">
+                {% for image in content.keyVisual %}
+                {% capture imgUrl %}{% sanityImageUrl image %}{% endcapture %}
+                    <div class="slide w-slide">{% image imgUrl, image.altText %}</div>
+                {% endfor %}
+              </div>
+              <div class="left-arrow-3 w-slider-arrow-left">
+                <div class="icon-3 w-icon-slider-left"></div>
+              </div>
+              <div class="right-arrow-3 w-slider-arrow-right">
+                <div class="icon-4 w-icon-slider-right"></div>
+              </div>
+              <div class="_w-slider-nav-w-round w-slider-nav w-slider-nav-invert w-round"></div>
+            </div>
+          </div>
+        {% endunless %}
         {% endif %}
     </div>
   </section>
