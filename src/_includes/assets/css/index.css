@@ -163,6 +163,21 @@ a.case-study-image-div.w-inline-block img,
   max-width: 120px;
 }
 
-.slide w-slide img {
+.slide.w-slide img {
   height: auto;
+}
+
+._40-pad-div-block img {
+  display: inline-block;
+  max-width: 50%;
+  margin-bottom: 0px;
+  height: auto;
+}
+
+._40-pad-div-block h3 {
+  font-weight: 600;
+}
+
+.section.blue h3 {
+  color: #fff;
 }

@@ -1,0 +1,40 @@
+{% if featureType == "medium" %}
+<div class="section blue wf-section">
+    <div class="xtra-large-container w-container">
+      <div class="w-layout-grid grid-21">
+        {% for feature in features %}
+            {% assign featureStyle = feature.featureType %}
+    
+                {% if featureStyle == "large" %}
+                {% assign featureImage = feature.largeImage %}
+                {% assign featureTitle = feature.longTitle %}
+                {% assign featureText = feature.largeText %}
+                {% assign featureImagePlacement = "left" %}
+                {% assign secondaryTitle = feature.secondaryTitle %}
+                {% elsif featureStyle == "medium" %}
+                {% assign featureImage = feature.mediumImage %}
+                {% assign featureTitle = feature.mediumTitle %}
+                {% assign featureText = feature.mediumText %}
+                {% assign secondaryTitle = null %}
+                {% assign featureImagePlacement = null %}
+                {% else %}
+                {% assign featureImage = feature.smallImage %}
+                {% assign featureTitle = feature.smallTitle %}
+                {% assign featureText = feature.smallText %}
+                {% assign secondaryTitle = null %}
+                {% assign featureImagePlacement = null %}
+                {% endif %}
+
+                {% capture imgUrl %}
+                    {% sanityImageUrl featureImage %}
+                {% endcapture %}
+                <div id="w-node-_1ecab970-ddda-e104-d333-a27cd5acb0a6-2db407ac" class="div-block-126">
+                  <div class="_40-pad-div-block">{% image imgUrl, featureImage.altText %}</div>
+                  <div class="_40-pad-div-block">{% portableText featureTitle %}</div>
+                  <div class="heading-5 white">{% portableText featureText %}</div>
+                </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endif %}

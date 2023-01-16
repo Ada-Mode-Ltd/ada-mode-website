@@ -203,76 +203,13 @@ eleventyComputed:
         {% endif %}
     
         {% if content._type == 'productFeatures' %}
+        {% assign featureType = content.featureType %}
             {% if content.allFeatures %}
-            {% assign featureType = content.featureType %}
             {% assign features = allFeatures[featureType] %}
-            <section class="">
-        <div class="wrapper product-feature-holder" data-style="{{ content.featureType }}">
-            {% for feature in features %}
-                {% assign featureStyle = featureType %}
-                {% if featureStyle == "large" %}
-                    {% assign featureImage = feature.largeImage %}
-                    {% assign featureTitle = feature.longTitle %}
-                    {% assign featureText = feature.largeText %}
-                    {% assign featureImagePlacement = "left" %}
-                    {% assign secondaryTitle = feature.secondaryTitle %}
-                {% elsif featureStyle == "medium" %}
-                    {% assign featureImage = feature.mediumImage %}
-                    {% assign featureTitle = feature.mediumTitle %}
-                    {% assign featureText = feature.mediumText %}
-                    {% assign secondaryTitle = false %}
-                    {% assign featureImagePlacement = false %}
-                {% else %}
-                    {% assign featureImage = feature.smallImage %}
-                    {% assign featureTitle = feature.smallTitle %}
-                    {% assign featureText = feature.smallText %}
-                    {% assign secondaryTitle = false %}
-                    {% assign featureImagePlacement = false %}
-                {% endif %}
-    
-                {% assign floatImage = false %}
-                {% if featureImage.offset %}
-                {% assign floatImage = featureImage.offset %}
-                {% endif %}
-    
-                <article>{% include 'components/prod-feature.liquid' %}</article>
-            {% endfor %}
-        </div>
-    </section>
+            
             {% else %}
-                <section class="">
-        <div class="wrapper product-feature-holder" data-style="{{content.featureType}}">
-            {% for feature in content.features %}
-                {% assign featureStyle = feature.featureType %}
-    
-                {% if featureStyle == "large" %}
-                {% assign featureImage = feature.largeImage %}
-                {% assign featureTitle = feature.longTitle %}
-                {% assign featureText = feature.largeText %}
-                {% assign featureImagePlacement = "left" %}
-                {% assign secondaryTitle = feature.secondaryTitle %}
-                {% elsif featureStyle == "medium" %}
-                {% assign featureImage = feature.mediumImage %}
-                {% assign featureTitle = feature.mediumTitle %}
-                {% assign featureText = feature.mediumText %}
-                {% assign secondaryTitle = null %}
-                {% assign featureImagePlacement = null %}
-                {% else %}
-                {% assign featureImage = feature.smallImage %}
-                {% assign featureTitle = feature.smallTitle %}
-                {% assign featureText = feature.smallText %}
-                {% assign secondaryTitle = null %}
-                {% assign featureImagePlacement = null %}
-                {% endif %}
-    
-                {% assign floatImage = false %}
-                {% if featureImage.offset %}
-                {% assign floatImage = featureImage.offset %}
-                {% endif %}
-                <article>{% include 'components/prod-feature.liquid' %}</article>
-            {% endfor %}
-        </div>
-    </section>
+            {% assign features = content.features %}
+            {% include 'components/prod-features.liquid' %}
             {% endif %}
         {% endif %}
 
