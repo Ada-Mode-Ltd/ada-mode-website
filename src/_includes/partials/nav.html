@@ -5,7 +5,7 @@
         
         {% for item in site.topMenu %}
           {% if item.page %}
-          <a href="{{ item.page.slug.current }}" class="nav-link w-nav-link">{{ item.page.title }}</a>
+          <a href="/{{ item.page.slug.current }}/" class="nav-link w-nav-link">{{ item.page.title }}</a>
           {% else %}
           <div data-hover="false" data-delay="0" class="dropdown w-dropdown">
             <div class="nav-link w-dropdown-toggle">
@@ -14,7 +14,7 @@
             </div>
             <nav class="dropdown-list w-dropdown-list">
               {% for child in item.children %}
-              <a href="{{ child.slug }}" class="nav-dropdown-link w-dropdown-link">{{ child.title }}</a>
+              <a href="/{{ child.slug }}/" class="nav-dropdown-link w-dropdown-link">{{ child.title }}</a>
               {% endfor %}
             </nav>
           </div>
