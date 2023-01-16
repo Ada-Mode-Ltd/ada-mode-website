@@ -181,3 +181,8 @@ a.case-study-image-div.w-inline-block img,
 .section.blue h3 {
   color: #fff;
 }
+
+.atlas-features-icon img {
+  height: 50px;
+  margin-bottom: 20px;
+}
