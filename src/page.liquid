@@ -111,8 +111,9 @@ eleventyComputed:
         {% assign rows = content.left.size | minus: 1 %}
         {% assign left = content.left %}
         {% assign right = content.right %}
-        <section class="">
-        <div class="wrapper columns comparison" style="--comparison-rows: {{rows}};">
+        <div class="overlap-section blue wf-section">
+            <div class="container-2 w-container">
+              <div class="div-block-4 columns comparison" style="--comparison-rows: {{rows}};">
             <div>
                 <p class="column-title color-secondary">{{ left.title }}</p>
                 <ul data-marker="{{ left.icon}}">
@@ -129,8 +130,9 @@ eleventyComputed:
                     {% endfor %}
                 </ul>
             </div>
-        </div>
-    </section>
+</div>
+</div>
+</div>
     {% endif %}
     
         {% if content._type == 'sectionHeading' %}

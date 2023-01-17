@@ -47,8 +47,8 @@
       &::before {
         content: "";
         display: block;
-        width: 1rem;
-        height: 1rem;
+        width: 2.25rem;
+        height: 2.25rem;
         aspect-ratio: 1;
         background-size: contain;
         background-repeat: no-repeat;
@@ -58,6 +58,12 @@
 
     &[data-marker="cross"] > li::before {
       background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2048%2048%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M12.4501%2037.6501L10.3501%2035.5501L21.9001%2024.0001L10.3501%2012.4501L12.4501%2010.3501L24.0001%2021.9001L35.5501%2010.3501L37.6501%2012.4501L26.1001%2024.0001L37.6501%2035.5501L35.5501%2037.6501L24.0001%2026.1001L12.4501%2037.6501Z%22%20fill%3D%22%232A3245%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2Fsvg%3E");
+    }
+    &[data-marker="down"] > li::before {
+      background-image: url("/images/reduce.svg");
+    }
+    &[data-marker="up"] > li::before {
+      background-image: url("/images/increase.svg");
     }
     &[data-marker="check"] > li::before {
       color: var(--ws-bright-green);
