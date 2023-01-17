@@ -5,7 +5,12 @@
         
         {% for item in site.topMenu %}
           {% if item.page %}
-          <a href="/{{ item.page.slug.current }}/" class="nav-link w-nav-link">{{ item.page.title }}</a>
+          {% if item.altTitle %}
+            {% assign pageMenuTitle = item.altTitle %}
+          {% else %}
+            {% assign pageMenuTitle = item.page.title %}
+          {% endif %}
+          <a href="/{{ item.page.slug.current }}/" class="nav-link w-nav-link">{{ pageMenuTitle }}</a>
           {% else %}
           <div data-hover="false" data-delay="0" class="dropdown w-dropdown">
             <div class="nav-link w-dropdown-toggle">
