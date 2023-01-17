@@ -28,11 +28,32 @@ layout: base.html
       </div>
     </div>
     <div class="video-colour-overlay"></div>
-    <div data-poster-url="https://uploads-ssl.webflow.com/60ab68115056b0b8490b77f0/60d5dc95a725949d946a2e24_Home Page 2 ‐ Made with Clipchamp (1)-poster-00001.jpg" data-video-urls="https://uploads-ssl.webflow.com/60ab68115056b0b8490b77f0/60d5dc95a725949d946a2e24_Home Page 2 ‐ Made with Clipchamp (1)-transcode.mp4,https://uploads-ssl.webflow.com/60ab68115056b0b8490b77f0/60d5dc95a725949d946a2e24_Home Page 2 ‐ Made with Clipchamp (1)-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="background-video w-background-video w-background-video-atom"><video id="aeeaf313-6605-14db-fabb-657e852f1897-video" autoplay="" loop="" style="background-image:url(&quot;https://uploads-ssl.webflow.com/60ab68115056b0b8490b77f0/60d5dc95a725949d946a2e24_Home Page 2 ‐ Made with Clipchamp (1)-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
+    <div data-poster-url="https://uploads-ssl.webflow.com/60ab68115056b0b8490b77f0/60d5dc95a725949d946a2e24_Home Page 2 ‐ Made with Clipchamp (1)-poster-00001.jpg" data-video-urls="https://uploads-ssl.webflow.com/60ab68115056b0b8490b77f0/60d5dc95a725949d946a2e24_Home Page 2 ‐ Made with Clipchamp (1)-transcode.mp4,https://uploads-ssl.webflow.com/60ab68115056b0b8490b77f0/60d5dc95a725949d946a2e24_Home Page 2 ‐ Made with Clipchamp (1)-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="background-video w-background-video w-background-video-atom"><video id="aeeaf313-6605-14db-fabb-657e852f1897-video" autoplay="" loop="" poster="https://uploads-ssl.webflow.com/60ab68115056b0b8490b77f0/60d5dc95a725949d946a2e24_Home Page 2 ‐ Made with Clipchamp (1)-poster-00001.jpg" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
         <source src="https://uploads-ssl.webflow.com/60ab68115056b0b8490b77f0/60d5dc95a725949d946a2e24_Home Page 2 ‐ Made with Clipchamp (1)-transcode.mp4" data-wf-ignore="true">
         <source src="https://uploads-ssl.webflow.com/60ab68115056b0b8490b77f0/60d5dc95a725949d946a2e24_Home Page 2 ‐ Made with Clipchamp (1)-transcode.webm" data-wf-ignore="true">
       </video></div>
   </div>
+  <script>
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection || {};
+    const video = document.getElementsByTagName("video")[0];
+    const getDeviceType = () => {
+  const ua = navigator.userAgent;
+  if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+    return "tablet";
+  }
+  if (
+    /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+      ua
+    )
+  ) {
+    return "mobile";
+  }
+  return "desktop";
+};
+    if (connection.effectiveType === '3g' || connection.effectiveType === '2g' || getDeviceType() === 'mobile') { // prevent loading resources and other data saving measures
+        video.removeAttribute("autoplay");
+    }
+</script>
   <div class="section _100-vh wf-section">
     <div data-w-id="9c3da80c-8e6e-975b-7188-1ee03d00cad8" class="container w-container">
       <div style="" class="_20-pad-div-block">
