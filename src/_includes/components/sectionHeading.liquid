@@ -7,6 +7,10 @@
 {% endif %}
 
     <div class="flow text-section-header section wf-section">
-        <h2 class="text-center">{{ sectionTitle }}</h2>
-        <p class="text-center">{{ sectionText }}</p>
+        <div class="large-container w-container">
+            <h2 class="heading-2">{{ sectionTitle }}</h2>
+            {% if sectionText %}
+            <p class="text-center">{{ sectionText }}</p>
+            {% endif %}
+        </div>
     </div>

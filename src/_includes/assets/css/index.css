@@ -197,3 +197,11 @@ a.case-study-image-div.w-inline-block img,
 .faq-wrapper .plus-icon {
   transition: all 0.2s;
 }
+
+.text-section-header + .overlap-section {
+  margin-top: 12rem;
+}
+
+.overlap-section {
+  max-height: initial;
+}

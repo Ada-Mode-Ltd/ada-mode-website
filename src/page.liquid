@@ -115,7 +115,9 @@ eleventyComputed:
             <div class="container-2 w-container">
               <div class="div-block-4 columns comparison" style="--comparison-rows: {{rows}};">
             <div>
+                {% if left.title %}
                 <p class="column-title color-secondary">{{ left.title }}</p>
+                {% endif %}
                 <ul data-marker="{{ left.icon}}">
                     {% for item in left.items %}
                         <li>{{ item }}</li>
@@ -123,7 +125,9 @@ eleventyComputed:
                 </ul>
             </div>
             <div>
+                {% if right.title %}
                 <p class="column-title color-accent">{{ right.title }}</p>
+                {% endif %}
                 <ul data-marker="{{ right.icon }}">
                     {% for item in right.items %}
                         <li>{{ item }}</li>

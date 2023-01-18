@@ -50,8 +50,12 @@ section#posts {
   }
 }
 
+.text-section-header + .section:not(.overlap-section) {
+  padding-top: 1rem;
+}
+
 .text-section-header {
-  padding: 0 var(--space-32);
+  padding-bottom: 1rem;
 }
 
 section + section {

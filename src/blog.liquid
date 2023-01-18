@@ -16,12 +16,13 @@ description: Read our latest views on industry, technology and everything else h
   </div>
   <div class="section no-top-padding no-bottom-padding wf-section">
     <div class="_90vw-container w-container">
-      <div class="category-nav" role="navigation" aria-label="Post categories">
-        <div class="wrapper">
+      <div class="section category-nav" role="navigation" aria-label="Post categories">
+        <div class="large-container">
             <ul class="flex-row" data-justify="start">
-                <li><button data-active class="text--regular" >All posts</button></li>
+                <li class="paragraph"><b>Filter: </b></li>
+                <li><button data-active class="paragraph" >All posts</button></li>
                 {% for category in allPosts.categories %}
-                    <li><button class="text--regular">{{ category }}</button></li>
+                    <li><button class="paragraph">{{ category }}</button></li>
                 {% endfor %}
             </ul>
         </div>
@@ -66,7 +67,7 @@ description: Read our latest views on industry, technology and everything else h
                   <h3 class="heading-4">{{ post.title }}</h3>
                 </a>
                 <div class="_40-pad-div-block">
-                  <p>{{ post.blurb  }}</p>
+                  <p class="paragraph">{{ post.blurb  }}</p>
                 </div>
                 <div class="div-block-143">
                   <a href="/blog/{{post.slug.current}}" class="green-outline-button w-button"><span>Learn more   →</span></a>
