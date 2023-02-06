@@ -205,3 +205,13 @@ a.case-study-image-div.w-inline-block img,
 .overlap-section {
   max-height: initial;
 }
+
+.blog-post-image-div {
+  background-position: 50% 50%;
+  background-size: cover;
+  border-radius: 5px;
+  display: block;
+  margin-bottom: 40px;
+  max-height: 350px;
+  min-height: 300px;
+}
