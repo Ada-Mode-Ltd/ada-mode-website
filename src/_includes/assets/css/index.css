@@ -215,3 +215,14 @@ a.case-study-image-div.w-inline-block img,
   max-height: 350px;
   min-height: 300px;
 }
+
+@media screen and (max-width: 479px) {
+  .case-study-cta-image-div img {
+    height: 100%;
+    max-height: 30vh;
+  }
+
+  ._2-3rd-grid {
+    display: block;
+  }
+}
