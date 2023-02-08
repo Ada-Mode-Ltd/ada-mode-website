@@ -241,3 +241,7 @@ a.case-study-image-div.w-inline-block img,
 .section.hero {
   padding-top: 70px;
 }
+
+.flow.text-content h2 + p {
+  --flow-space: 2rem;
+}
