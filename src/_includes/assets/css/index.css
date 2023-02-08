@@ -223,6 +223,14 @@ a.case-study-image-div.w-inline-block img,
   min-height: 300px;
 }
 
+.text-page-header {
+  max-width: 75%;
+}
+
+.section.hero {
+  padding-top: 70px;
+}
+
 @media screen and (max-width: 479px) {
   .case-study-cta-image-div img {
     height: 100%;
@@ -234,12 +242,15 @@ a.case-study-image-div.w-inline-block img,
   }
 }
 
-.text-page-header {
-  max-width: 75%;
-}
+@media screen and (max-width: 756px) {
+  .text-page-header {
+    max-width: 100%;
+  }
 
-.section.hero {
-  padding-top: 70px;
+  .section.hero,
+  .section.hero._2 {
+    padding-top: 25px;
+  }
 }
 
 .flow.text-content h2 + p {
