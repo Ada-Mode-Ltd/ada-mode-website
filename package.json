@@ -57,5 +57,8 @@
   },
   "eslintConfig": {
     "extends": "eslint-config-postcss"
+  },
+  "devDependencies": {
+    "sal.js": "^0.8.5"
   }
 }

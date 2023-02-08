@@ -44,6 +44,8 @@
 @import "./components/category-nav.css";
 @import "./components/post-content.css";
 
+@import "./sal.css";
+
 @import "./components/cead.css";
 
 .w-slider-dot {
@@ -255,4 +257,12 @@ a.case-study-image-div.w-inline-block img,
 
 .flow.text-content h2 + p {
   --flow-space: 2rem;
+}
+
+.verticle-green-line {
+  height: 85%;
+}
+
+.team-grid {
+  grid-template-areas: none;
 }

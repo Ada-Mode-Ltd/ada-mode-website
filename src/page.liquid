@@ -42,11 +42,15 @@ eleventyComputed:
                             {% assign textPlacement = content.layout %}
                                 {% capture imgUrl %}{% sanityImageUrl content.image %}{% endcapture %}
                             {% if textPlacement == 'right' %}
-                                <div class="div-block-36">{% image imgUrl, content.image.altText %}</div>
-                                <div class="flow text-content paragraph">{% portableText content.text.content %}</div>
+                                <div class="div-block-36" data-sal="slide-up"
+                        data-sal-duration="500">{% image imgUrl, content.image.altText %}</div>
+                                <div class="flow text-content paragraph" data-sal="slide-up"
+                        data-sal-duration="500">{% portableText content.text.content %}</div>
                             {% else %}
-                                <div class="flow text-content paragraph">{% portableText content.text.content %}</div>
-                                <div class="div-block-36">{% image imgUrl, content.image.altText %}</div>
+                                <div class="flow text-content paragraph" data-sal="slide-up"
+                        data-sal-duration="500">{% portableText content.text.content %}</div>
+                                <div class="div-block-36" data-sal="slide-up"
+                        data-sal-duration="500">{% image imgUrl, content.image.altText %}</div>
                             {% endif %}
                         </div>
                 </div>
@@ -233,11 +237,14 @@ eleventyComputed:
             {% for industry in industryList %}
             {% capture imgUrl %}{% sanityImageUrl industry.logo %}{% endcapture %}
                     <div class="w-layout-grid individual-industries-grid">
-                        <div class="industries-icon-div">{% image imgUrl, '' %}</div>
-                        <div  class="industries-heading-div">
+                        <div class="industries-icon-div" data-sal="slide-up"
+                        data-sal-duration="500">{% image imgUrl, '' %}</div>
+                        <div  class="industries-heading-div" data-sal="slide-up"
+                        data-sal-duration="500">
                             <h3 class="heading-3 white">{{ industry.title }}</h3>
                         </div>
-                        <p  class="paragraph white">{{ industry.text }}</p>
+                        <p  class="paragraph white" data-sal="slide-up"
+                        data-sal-duration="500" data-sal-delay="200">{{ industry.text }}</p>
                     </div>
                 {% endfor %}
                 </div>
