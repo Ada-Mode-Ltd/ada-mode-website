@@ -233,3 +233,11 @@ a.case-study-image-div.w-inline-block img,
     display: block;
   }
 }
+
+.text-page-header {
+  max-width: 75%;
+}
+
+.section.hero {
+  padding-top: 70px;
+}
