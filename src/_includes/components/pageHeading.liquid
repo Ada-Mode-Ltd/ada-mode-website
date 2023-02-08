@@ -39,7 +39,7 @@
               <div class="mask w-slider-mask">
                 {% for image in content.keyVisual %}
                 {% capture imgUrl %}{% sanityImageUrl image %}{% endcapture %}
-                    <div class="slide w-slide">{% image imgUrl, image.altText %}</div>
+                    <div class="slide w-slide">{% image imgUrl, image.altText, "auto" %}</div>
                 {% endfor %}
               </div>
               <div class="left-arrow-3 w-slider-arrow-left">

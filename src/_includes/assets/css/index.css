@@ -164,8 +164,14 @@ a.case-study-image-div.w-inline-block img,
   max-width: 120px;
 }
 
+.slide.w-slide[aria-hidden] img {
+  opacity: 0;
+}
+
 .slide.w-slide img {
   height: auto;
+  opacity: 1;
+  transition: opacity 2s ease-out;
 }
 
 ._40-pad-div-block img {
