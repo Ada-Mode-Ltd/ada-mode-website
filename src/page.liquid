@@ -38,8 +38,8 @@ eleventyComputed:
         {% if content._type == 'blockLayout' %}
             <section class="section wf-section">
                 <div class="large-container full-width w-container">
-                        <div class="flex-row">
-                            {% assign textPlacement = content.layout %}
+                    {% assign textPlacement = content.layout %}
+    <div class="flex-row" {% if textPlacement !="right"%}data-flex-reverse{%endif%}>
                                 {% capture imgUrl %}{% sanityImageUrl content.image %}{% endcapture %}
                             {% if textPlacement == 'right' %}
                                 <div class="div-block-36" data-sal="slide-up"

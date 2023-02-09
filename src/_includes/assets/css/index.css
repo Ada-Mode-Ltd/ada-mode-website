@@ -266,3 +266,7 @@ a.case-study-image-div.w-inline-block img,
 .team-grid {
   grid-template-areas: none;
 }
+
+.section + .text-section-header {
+  padding-top: 0;
+}
