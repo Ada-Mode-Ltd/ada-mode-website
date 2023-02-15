@@ -44,7 +44,7 @@
 @import "./components/category-nav.css";
 @import "./components/post-content.css";
 
-@import "./sal.css";
+/* @import "./sal.css"; */
 
 @import "./components/cead.css";
 
@@ -164,6 +164,10 @@ a.case-study-image-div.w-inline-block img,
 
 .div-block-77 img {
   max-width: 120px;
+}
+
+.slide.w-slide {
+  transition: opacity 0.2s ease-out;
 }
 
 .slide.w-slide[aria-hidden] img {

@@ -39,18 +39,36 @@
               <div class="mask w-slider-mask">
                 {% for image in content.keyVisual %}
                 {% capture imgUrl %}{% sanityImageUrl image %}{% endcapture %}
-                    <div class="slide w-slide">{% image imgUrl, image.altText, "auto" %}</div>
-                {% endfor %}
-              </div>
-              <div class="left-arrow-3 w-slider-arrow-left">
-                <div class="icon-3 w-icon-slider-left"></div>
-              </div>
-              <div class="right-arrow-3 w-slider-arrow-right">
-                <div class="icon-4 w-icon-slider-right"></div>
-              </div>
-              <div class="_w-slider-nav-w-round w-slider-nav w-slider-nav-invert w-round"></div>
-            </div>
-          </div>
+                    <div style="opacity: 0" class="slide w-slide">{% image imgUrl, image.altText, "auto" %}</div>
+                  {% endfor %}
+                  </div>
+                  <div class="left-arrow-3 w-slider-arrow-left">
+                    <div class="icon-3 w-icon-slider-left"></div>
+                    </div>
+                    <div class="right-arrow-3 w-slider-arrow-right">
+                      <div class="icon-4 w-icon-slider-right"></div>
+                      </div>
+                      <div class="_w-slider-nav-w-round w-slider-nav w-slider-nav-invert w-round"></div>
+                      </div>
+                      </div>
+                      <script>
+                        var imageHolder = document.querySelectorAll('.slide.w-slide')
+                        var img = document.querySelectorAll('.slide.w-slide img')
+      
+      function loaded(i) {
+        // Change the opacity from 0 to 1
+        imageHolder[i].style.opacity = 1
+      }
+      
+      // For each image check if it is complete
+      for (var i = 0; i < img.length; i++) {
+      if (img[i].complete) {
+        loaded(i))
+      } else {
+        img[i].addEventListener('load', loaded(i))
+      }
+      }
+                      </script>
         {% endunless %}
         {% endif %}
     </div>
