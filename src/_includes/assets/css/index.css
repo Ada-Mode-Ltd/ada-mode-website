@@ -274,3 +274,12 @@ a.case-study-image-div.w-inline-block img,
 .section + .text-section-header {
   padding-top: 0;
 }
+
+.section.wf-section .flex-row {
+  margin-block-start: 0;
+}
+
+.section.wf-section {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
