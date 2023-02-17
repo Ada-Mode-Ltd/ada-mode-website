@@ -196,6 +196,10 @@ a.case-study-image-div.w-inline-block img,
   color: #fff;
 }
 
+.overlap-section.blue {
+  max-height: none;
+}
+
 .atlas-features-icon img {
   height: 50px;
   margin-bottom: 20px;
