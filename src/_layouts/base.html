@@ -47,12 +47,34 @@
 !function(e,r,a){if(!e.__Marker){e.__Marker={};var t=[],n={__cs:t};["show","hide","isVisible","capture","cancelCapture","unload","reload","isExtensionInstalled","setReporter","setCustomData","on","off"].forEach(function(e){n[e]=function(){var r=Array.prototype.slice.call(arguments);r.unshift(e),t.push(r)}}),e.Marker=n;var s=r.createElement("script");s.async=1,s.src="https://edge.marker.io/latest/shim.js";var i=r.getElementsByTagName("script")[0];i.parentNode.insertBefore(s,i)}}(window,document);
 </script>
 <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=60ab68115056b0b8490b77f0" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="/assets/js/sal.js"></script>
 </head>
 <body class="body">
   {% include 'partials/nav.html' %}
   {{ content }}
   {% include 'partials/footer.html' %}
   <script src="/assets/js/webflow.js" type="text/javascript" defer></script>
+  <script>
+    sal();
+  </script>
+  <noscript>
+  <style type="text/css">
+    [data-sal|='fade'] {
+      opacity: 1;
+    }
+
+    [data-sal|='slide'],
+    [data-sal|='zoom'] {
+      opacity: 1;
+      transform: none;
+    }
+
+    [data-sal|='flip'] {
+      transform: none;
+    }
+  </style>
+</noscript>
+
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>
 </html>
