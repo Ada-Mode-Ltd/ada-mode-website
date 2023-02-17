@@ -178,6 +178,7 @@ a.case-study-image-div.w-inline-block img,
   height: auto;
   opacity: 1;
   transition: opacity 2s ease-out;
+  margin-inline: auto;
 }
 
 ._40-pad-div-block img {
