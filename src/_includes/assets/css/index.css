@@ -288,3 +288,8 @@ a.case-study-image-div.w-inline-block img,
   padding-top: 120px;
   padding-bottom: 120px;
 }
+
+.recent-blog-grid .blog-post-image-div,
+.recent-blog-grid .blog-category-div {
+  margin-bottom: 0;
+}
