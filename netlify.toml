@@ -1,4 +1,18 @@
 [[redirects]]
+from = "/preview/:type/:id"
+to = "/.netlify/functions/preview"
+status = 200
+force = true
+_generated_by_eleventy_serverless = "preview"
+
+[[redirects]]
+from = "/caseStudy/preview/:id"
+to = "/.netlify/functions/preview"
+status = 200
+force = true
+_generated_by_eleventy_serverless = "preview"
+
+[[redirects]]
 from = "/post/preview/:id"
 to = "/.netlify/functions/preview"
 status = 200

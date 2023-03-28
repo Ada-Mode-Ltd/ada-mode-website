@@ -13,6 +13,17 @@ eleventyComputed:
     pageDescription: '{{ post.description | default: post.blurb }}'
 ---
 
+{% assign id = eleventy.serverless.path.id %}
+
+{% if eleventy.serverless.path %}
+{% for p in preview.post %}
+    {% if p._id == id %}
+        {% assign post = p %}
+        {% break %}
+    {% endif %}
+{% endfor %}
+{% endif %}
+
   <div class="section reduced-bottom-padding wf-section">
     <div class="large-container w-container">
       <div class="div-block-108">

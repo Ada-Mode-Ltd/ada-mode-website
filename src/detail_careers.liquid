@@ -13,6 +13,16 @@ eleventyComputed:
     description: '{{ job.description }}'
 ---
   
+{% assign id = eleventy.serverless.path.id %}
+
+{% if eleventy.serverless.path %}
+{% for page in preview.job %}
+    {% if page._id == id %}
+        {% assign job = page %}
+        {% break %}
+    {% endif %}
+{% endfor %}
+{% endif %}
 
   <div class="section hero wf-section">
     <div class="large-container w-container">
