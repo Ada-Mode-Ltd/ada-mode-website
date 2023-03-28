@@ -7,7 +7,7 @@ pagination:
     size: 1
 permalink: 
     build: /careers/{{ job.slug.current | slug }}/index.html
-    # preview: /job/preview/:id
+    preview: /job/preview/:id
 eleventyComputed:
     title: '{{ job.title }}'
     description: '{{ job.description }}'

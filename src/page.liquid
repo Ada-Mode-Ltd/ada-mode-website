@@ -6,7 +6,7 @@ pagination:
     size: 1
 permalink: 
     build: '{% if thisPage.policyPage %}/policies/{% endif %}{{ thisPage.slug.current | slug }}/index.html'
-    # preview: /page/preview/:id
+    preview: /page/preview/:id
 eleventyComputed:
     title: '{{ thisPage.title }}'
     description: '{{ thisPage.description | default: "Ada Mode build human-in-the-loop AI for machine health and industrial process optimisation. Making industrial plants greener, safer and more efficient." }}'

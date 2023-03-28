@@ -66,22 +66,22 @@ module.exports = function (eleventyConfig) {
     return relatedPosts;
   });
 
-//   // Shortcodes
-//   eleventyConfig.addPairedShortcode("postcss",
-//   async code => {
+  // Shortcodes
+  eleventyConfig.addPairedShortcode("postcss",
+  async code => {
 
-//   // for relative path CSS imports
-//   const filepath = path.join(
-//     __dirname,
-//     "src/_includes/assets/css/index.css");
+  // for relative path CSS imports
+  const filepath = path.join(
+    __dirname,
+    "src/_includes/assets/css/index.css");
 
-//   return await postcss([
-//     autoprefixer, postcssMixins, postcssNested, postcssImport
-//   ]).process(
-//     code,
-//     { from: filepath })
-//   .then(result => result.css);
-// });
+  return await postcss([
+    autoprefixer, postcssMixins, postcssNested, postcssImport
+  ]).process(
+    code,
+    { from: filepath })
+  .then(result => result.css);
+});
 
   eleventyConfig.addShortcode("image", imageShortcode); // Because copyright text in the footer ...
   eleventyConfig.addShortcode(
@@ -109,17 +109,17 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(EleventyPluginNavigation);
 
-  // eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
-  // 	name: 'preview',
-  // 	functionsDir: './netlify/functions/',
-  //   })
+  eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
+  	name: 'preview',
+  	functionsDir: './netlify/functions/',
+    })
 
-  // eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
-  //   name: "preview", // The serverless function name from your permalink object
-  //   functionsDir: "./netlify/functions/",
-  //   copy: ['src/_includes/assets/css/build.css', {from: 'src/_includes/assets/js'}],
-  //   excludeDependencies: ["rollup-plugin-critical"],
-  // });
+  eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
+    name: "preview", // The serverless function name from your permalink object
+    functionsDir: "./netlify/functions/",
+    copy: ['src/_includes/assets/css/build.css', {from: 'src/_includes/assets/js'}],
+    excludeDependencies: ["rollup-plugin-critical"],
+  });
 
   eleventyConfig.addPlugin(EleventyVitePlugin, {
     tempFolderName: ".11ty-vite", // Default name of the temp folder
