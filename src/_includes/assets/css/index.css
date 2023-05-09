@@ -293,3 +293,13 @@ a.case-study-image-div.w-inline-block img,
 .recent-blog-grid .blog-category-div {
   margin-bottom: 0;
 }
+
+.client-logo-grid {
+  justify-content: center;
+  align-items: center;
+}
+
+.client-logo {
+  width: 100%;
+  filter: grayscale(1);
+}

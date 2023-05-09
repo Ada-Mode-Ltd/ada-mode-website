@@ -188,17 +188,23 @@ layout: base.html
       </div>
     </div>
   </div>
+  {% if homeContent.partners.showAll %}
+      {% assign partners = allPartners %}
+  {% else %}
+      {% assign partners = homeContent.partnerArray %}
+  {% endif %}
   <div class="section no-top-padding wf-section">
     <div class="large-container w-container">
       <div class="_40-pad-div-block">
-        <div class="small-grey-sub-heading">Partners and customers</div>
+        <div class="small-grey-sub-heading">{{ homeContent.partners.title }}</div>
       </div>
       <div class="w-layout-grid client-logo-grid">
-        <div id="w-node-a7cb7642-c38f-2697-01d7-e937a28f2932-0e0b77f1"><img src="/images/edf-logo.svg" loading="lazy" alt="EDF energy logo" class="client-logo"></div>
-        <div id="w-node-_1e560942-e834-37f2-7784-eddf02fe6a44-0e0b77f1"><img src="/images/cavendish-nuclear-logo.svg" loading="lazy" alt="Cavendish nuclear logo" class="client-logo"></div>
-        <div id="w-node-_0d6a1c44-658d-d8a2-9839-ec26de46249d-0e0b77f1"><img src="/images/catapult-logo.svg" loading="lazy" alt="Catapult offshore renewable energy logo" class="client-logo"></div>
-        <div id="w-node-ec8abe4e-91d2-ed58-527f-7e33135a6b2f-0e0b77f1"><img src="/images/hydrock-logo.svg" loading="lazy" alt="Hydrock logo" class="client-logo"></div>
-        <div id="w-node-_1d355e31-8b51-d877-192e-13e81303aff7-0e0b77f1" class="div-block-103"><img src="/images/MM-logo.svg" loading="lazy" alt="Matt Macdonald logo" class="client-logo"></div>
+        {% if partners.size > 0 %}
+              {% for partner in partners %}
+              {% capture imgUrl %}{% sanityImageUrl partner.logo %}{% endcapture %}
+              <div><img src="{{ imgUrl  }}" loading="lazy" alt="" class="client-logo" /></div>
+              {% endfor %}
+          {% endif %}
       </div>
     </div>
   </div>

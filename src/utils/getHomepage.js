@@ -17,6 +17,7 @@ async function getHomepage() {
                 },
             }
         },
+        "partnerArray": partners.partners[]->{...},
         "quote": quote[]->{..., partner->{...}},
         "smallCaseStudies": smallCaseStudies[]{
             ...,
