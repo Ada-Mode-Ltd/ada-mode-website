@@ -16,6 +16,20 @@ The frontend website is built using the [Eleventy](https://www.11ty.dev/) static
 
 All webpage code is in the `/src` folder.
 
+### To run:
+
+```
+npm start
+```
+
+### To build:
+
+```
+npm run build
+```
+
+_It takes a few minutes to build, don’t worry if nothing happens straight away_
+
 ### Data files
 
 The `/src/_data` folder contains a number of files that pull in content from the Sanity backend. This data is then used by the page template files to generate page content.
