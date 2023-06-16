@@ -95,17 +95,14 @@ module.exports = function (eleventyConfig) {
     if (dev || isServerless) return "";
     return `
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-213481953-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N389YBX6VY"></script>
     <script>
-    if(window.location.host === 'winscope.io')
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments)};
-  gtag('js', new Date());
-
-  gtag('config', 'UA-213481953-1');
-  }
-</script>
-    `})
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
+    gtag('config', 'G-N389YBX6VY');
+    </script>
+    `;
+  });
 
   eleventyConfig.addPlugin(EleventyPluginNavigation);
 
