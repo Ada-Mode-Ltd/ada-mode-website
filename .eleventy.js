@@ -12,7 +12,7 @@ const { copy } = require("fs-extra");
 
 const dev = process.env.NODE_ENV === "production" ? false : true;
 // console.log("dev", dev);
-const isServerless = process.env.ELEVENTY_SERVERLESS || false
+const isServerless = process.env.ELEVENTY_SERVERLESS || false;
 
 module.exports = function (eleventyConfig) {
   // Filters
@@ -67,21 +67,19 @@ module.exports = function (eleventyConfig) {
   });
 
   // Shortcodes
-  eleventyConfig.addPairedShortcode("postcss",
-  async code => {
+  eleventyConfig.addPairedShortcode("postcss", async (code) => {
+    // for relative path CSS imports
+    const filepath = path.join(__dirname, "src/_includes/assets/css/index.css");
 
-  // for relative path CSS imports
-  const filepath = path.join(
-    __dirname,
-    "src/_includes/assets/css/index.css");
-
-  return await postcss([
-    autoprefixer, postcssMixins, postcssNested, postcssImport
-  ]).process(
-    code,
-    { from: filepath })
-  .then(result => result.css);
-});
+    return await postcss([
+      autoprefixer,
+      postcssMixins,
+      postcssNested,
+      postcssImport,
+    ])
+      .process(code, { from: filepath })
+      .then((result) => result.css);
+  });
 
   eleventyConfig.addShortcode("image", imageShortcode); // Because copyright text in the footer ...
   eleventyConfig.addShortcode(
@@ -110,14 +108,17 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyPluginNavigation);
 
   eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
-  	name: 'preview',
-  	functionsDir: './netlify/functions/',
-    })
+    name: "preview",
+    functionsDir: "./netlify/functions/",
+  });
 
   eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
     name: "preview", // The serverless function name from your permalink object
     functionsDir: "./netlify/functions/",
-    copy: ['src/_includes/assets/css/build.css', {from: 'src/_includes/assets/js'}],
+    copy: [
+      "src/_includes/assets/css/build.css",
+      { from: "src/_includes/assets/js" },
+    ],
     excludeDependencies: ["rollup-plugin-critical"],
   });
 
@@ -190,11 +191,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("public/images/*");
   eleventyConfig.addPassthroughCopy("public/assets/**/*");
 
-
-  if(!dev || !isServerless) {
-  eleventyConfig.on("eleventy.after", async () => {
+  if (!dev || !isServerless) {
+    eleventyConfig.on("eleventy.after", async () => {
       await copy("public/assets/img/remote", "_site/assets/img/remote");
-    })
+    });
   }
 
   // Return your Object options:
