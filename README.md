@@ -12,6 +12,10 @@ The frontend website is built using the [Eleventy](https://www.11ty.dev/) static
 
 - SANITY_READ_TOKEN
 
+### To get a token
+
+Open your project's management console, go to Settings > API > Tokens, and use the Add new token button to open the token creation dialog.
+
 ## Local development
 
 All webpage code is in the `/src` folder.
