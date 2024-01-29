@@ -1,52 +1,52 @@
-@import "./normalize.css";
-@import "./webflow.css";
-@import "./ada-mode-website.webflow.css";
+@import './normalize.css';
+@import './webflow.css';
+@import './ada-mode-website.webflow.css';
 
-@import "./base/_reset.css";
-@import "./base/variables.css";
-@import "./base/mixins.css";
-@import "./base/typography.css";
+@import './base/_reset.css';
+@import './base/variables.css';
+@import './base/mixins.css';
+@import './base/typography.css';
 
 /* Utility classes*/
-@import "./utilities/spacing.css";
-@import "./utilities/visibility.css";
-@import "./utilities/flex-row.css";
-@import "./utilities/content-col.css";
-@import "./utilities/border-box.css";
-@import "./utilities/flex-grid.css";
-@import "./utilities/post-tags.css";
+@import './utilities/spacing.css';
+@import './utilities/visibility.css';
+@import './utilities/flex-row.css';
+@import './utilities/content-col.css';
+@import './utilities/border-box.css';
+@import './utilities/flex-grid.css';
+@import './utilities/post-tags.css';
 
 /* Defines whole sections of a page */
-@import "./sections/wrapper.css";
-@import "./sections/header.css";
-@import "./sections/main.css";
-@import "./sections/footer.css";
-@import "./sections/homepage-hero.css";
-@import "./sections/article.css";
-@import "./sections/section.css";
-@import "./sections/text-page-header.css";
-@import "./sections/post-head.css";
-@import "./sections/cta-page.css";
+@import './sections/wrapper.css';
+@import './sections/header.css';
+@import './sections/main.css';
+@import './sections/footer.css';
+@import './sections/homepage-hero.css';
+@import './sections/article.css';
+@import './sections/section.css';
+@import './sections/text-page-header.css';
+@import './sections/post-head.css';
+@import './sections/cta-page.css';
 
 /* Components */
-@import "./components/buttons.css";
-@import "./components/quote.css";
-@import "./components/columns.css";
-@import "./components/form.css";
-@import "./components/person.css";
-@import "./components/cta-section.css";
-@import "./components/prod-feature.css";
-@import "./components/stacked-tabs.css";
-@import "./components/styled-ol.css";
-@import "./components/comparison.css";
-@import "./components/blog-feature.css";
-@import "./components/index-post.css";
-@import "./components/category-nav.css";
-@import "./components/post-content.css";
+@import './components/buttons.css';
+@import './components/quote.css';
+@import './components/columns.css';
+@import './components/form.css';
+@import './components/person.css';
+@import './components/cta-section.css';
+@import './components/prod-feature.css';
+@import './components/stacked-tabs.css';
+@import './components/styled-ol.css';
+@import './components/comparison.css';
+@import './components/blog-feature.css';
+@import './components/index-post.css';
+@import './components/category-nav.css';
+@import './components/post-content.css';
 
-@import "./sal.css";
+@import './sal.css';
 
-@import "./components/cead.css";
+@import './components/cead.css';
 
 .w-slider-dot {
   height: 6px;

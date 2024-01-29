@@ -1,5 +1,18 @@
 :root {
   /* Colours */
+  --am-green-dark: #1bc691;
+  --am-green-light: #5ce68f;
+  --am-blue-deep: #082a3a;
+  --am-blue-dark: #105474;
+  --am-orange-deep: #d8452e;
+  --am-orange-dark: #f15a24;
+  --am-orange-mid: #f7931e;
+  --am-orange: #f7931e;
+  --am-orange-light: #fbb03b;
+  --am-grey-xlight: #f8f8f8;
+  --black: #0c0c0c;
+  --white: #ffffff;
+
   --ws-bright-blue: #3065fb;
   --ws-bright-blue-dark: linear-gradient(
       0deg,
