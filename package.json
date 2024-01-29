@@ -38,7 +38,6 @@
     "cssnano": "^5.1.13",
     "dayjs": "^1.11.5",
     "del-cli": "^5.0.0",
-    "eslint": "^8.56.0",
     "eslint-config-postcss": "^4.0.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.29.1",
@@ -59,6 +58,10 @@
     "extends": "eslint-config-postcss"
   },
   "devDependencies": {
+    "@shopify/prettier-plugin-liquid": "^1.4.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.4",
     "sal.js": "^0.8.5"
   }
 }
