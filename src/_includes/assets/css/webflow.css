@@ -9,15 +9,11 @@
 [class*=' w-icon-'] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'webflow-icons' !important;
-  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 .w-icon-slider-right:before {
   content: '\e600';
@@ -211,16 +207,6 @@ h1 {
   line-height: 44px;
   margin-top: 20px;
 }
-h2 {
-  font-size: 32px;
-  line-height: 36px;
-  margin-top: 20px;
-}
-h3 {
-  font-size: 24px;
-  line-height: 30px;
-  margin-top: 20px;
-}
 h4 {
   font-size: 18px;
   line-height: 24px;
@@ -239,13 +225,6 @@ h6 {
 p {
   margin-top: 0;
   margin-bottom: 10px;
-}
-blockquote {
-  margin: 0 0 10px 0;
-  padding: 10px 20px;
-  border-left: 5px solid #e2e2e2;
-  font-size: 18px;
-  line-height: 22px;
 }
 figure {
   margin: 0;
@@ -1622,23 +1601,8 @@ textarea.w-select {
   text-decoration: none;
   color: #333333;
 }
-.w-nav-link {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  text-decoration: none;
-  color: #222222;
-  padding: 20px;
-  text-align: left;
-  margin-left: auto;
-  margin-right: auto;
-}
-.w-nav-link.w--current {
-  color: #0082f3;
-}
 .w-nav-menu {
   position: relative;
-  float: right;
 }
 [data-nav-menu-open] {
   display: block !important;
@@ -1692,8 +1656,6 @@ textarea.w-select {
   font-size: 24px;
   display: none;
   cursor: pointer;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

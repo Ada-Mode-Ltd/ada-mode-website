@@ -1,3 +1,17 @@
+body {
+  font-weight: 300;
+}
+
+@media (min-width: 992px) {
+  body {
+    font-size: 1.2rem;
+  }
+}
+
+small {
+  font-size: 0.7rem;
+}
+
 .text-center {
   text-align: center;
   margin-inline: auto;
@@ -6,4 +20,40 @@
 .heading-1 > * {
   font-size: inherit;
   line-height: inherit;
+}
+
+h2,
+.heading-2 {
+  font-size: var(--h2);
+  line-height: 1.25;
+}
+
+h3,
+.heading-3 {
+  font-size: var(--h3);
+  line-height: 1.25;
+}
+
+.preheading {
+  font-size: var(--text-regular);
+  font-weight: 300;
+}
+
+@media (min-width: 992px) {
+  .preheading {
+    font-size: var(--h5);
+  }
+}
+
+blockquote cite {
+  font-style: normal;
+  display: block;
+}
+
+blockquote > * + cite {
+  margin-top: var(--space-s);
+}
+
+blockquote p {
+  max-width: 75ch;
 }

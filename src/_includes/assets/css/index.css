@@ -24,9 +24,14 @@
 @import './sections/homepage-hero.css';
 @import './sections/article.css';
 @import './sections/section.css';
+@import './sections/case-studies.css';
 @import './sections/text-page-header.css';
 @import './sections/post-head.css';
 @import './sections/cta-page.css';
+@import './sections/sectors.css';
+@import './sections/services.css';
+@import './sections/humans.css';
+@import './sections/collection.css';
 
 /* Components */
 @import './components/buttons.css';
@@ -47,6 +52,10 @@
 @import './sal.css';
 
 @import './components/cead.css';
+
+a {
+  color: inherit;
+}
 
 .w-slider-dot {
   height: 6px;
@@ -76,7 +85,7 @@
 .case-study-image-div img {
   max-width: 100%;
   width: 100%;
-  height: auto%;
+  height: auto;
 }
 
 .w-layout-grid._2-3rd-grid:nth-child(even) > .w-dyn-list {
@@ -132,7 +141,7 @@ a.case-study-image-div.w-inline-block img,
 .case-study-cta-image-div img {
   object-fit: cover;
   height: 80vh;
-  aspect-ration: 1;
+  aspect-ratio: 1;
 }
 
 .blog-post-feature-image img {
@@ -285,8 +294,8 @@ a.case-study-image-div.w-inline-block img,
 }
 
 .section.wf-section:not(.no-padding) {
-  padding-top: 120px;
-  padding-bottom: 120px;
+  padding-top: clamp(3rem, 120px, 10vw);
+  padding-bottom: clamp(3rem, 120px, 10vw);
 }
 
 .recent-blog-grid .blog-post-image-div,
@@ -302,4 +311,9 @@ a.case-study-image-div.w-inline-block img,
 .client-logo {
   width: 100%;
   filter: grayscale(1);
+}
+
+.section__services-grid {
+  display: grid;
+  gap: 1rem;
 }
