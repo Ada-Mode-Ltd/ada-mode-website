@@ -1,3 +1,43 @@
+.home-page-hero-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(
+    45deg,
+    var(--am-blue-deep),
+    var(--am-blue-dark),
+    var(--am-green-light)
+  );
+  background-color: var(--am-blue-dark);
+  color: var(--white);
+  padding-top: calc(80px + var(--space-xl-3xl));
+  overflow: hidden;
+}
+
 .homepage-hero__button-wrapper {
   display: flex;
+  margin-top: var(--space-l);
+}
+
+.home-page-hero-section__heading {
+  max-width: min(80vw, 65%);
+  margin-bottom: var(--space-m);
+}
+
+.home-page-hero-section__subheading {
+  max-width: 45ch;
+}
+
+.hero-svg {
+  position: absolute;
+  bottom: -30%;
+  right: -20%;
+  width: 70%;
+}
+
+.homepage-hero__content {
+  position: relative;
+  z-index: 1;
 }

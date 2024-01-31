@@ -15,16 +15,17 @@ layout: base.html
   {% assign homeContent = homepage %}
 {% endif %}
 
-<section class="home-page-hero-section wf-section">
+<section class="home-page-hero-section">
+
+  {% include 'components/hero-svg.liquid' %}
+
   <div class="container">
-    <div class="div-block-138">
-      <h1 class="hero-heading">Industrial AI, data and automation</h1>
-    </div>
-    <div class="div-block-134">
-      <p class="subheading">We help operators, OEMs and government bodies with AI adoption to drive industrial decarbonisation.</p>
-    </div>
-    <div class="homepage-hero__button-wrapper">
-      <a href="platform.html" class="am-button am-button--on-dark">Learn more</a>
+    <div class="homepage-hero__content">
+      <h1 class="heading-1 home-page-hero-section__heading">Industrial AI, data and automation</h1>
+      <p class="subheading home-page-hero-section__subheading">We help operators, OEMs and government bodies with AI adoption to drive industrial decarbonisation.</p>
+      <div class="homepage-hero__button-wrapper">
+        <a href="platform.html" class="am-button am-button--on-dark">Learn more</a>
+      </div>
     </div>
   </div>
 </section>
