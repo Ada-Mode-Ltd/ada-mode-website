@@ -22,6 +22,12 @@ small {
   line-height: inherit;
 }
 
+h1,
+.heading-1 {
+  font-size: var(--h1);
+  line-height: 1.2;
+}
+
 h2,
 .heading-2 {
   font-size: var(--h2);
