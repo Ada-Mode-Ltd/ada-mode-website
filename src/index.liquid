@@ -107,64 +107,6 @@ layout: base.html
 {% assign quote = homeContent.quote | first %}
 {% include 'components/quote.liquid' %}
 
-{% comment %} <section class="section blue">
-  <div class="container">
-    <div
-      data-w-id="cf2dce07-b886-67db-2560-25a371db6f5c"
-      style=""
-      class="_75--width-div">
-      <h2 class="heading-2 white">
-        <strong>Combine human intelligence and contemporary AI for groundbreaking operational transformation
-        </strong><br></h2>
-    </div>
-    {% assign smallCaseStudies = homeContent.smallCaseStudies %}
-    <div class="w-layout-grid _2-3-grid">
-      <div class="spacer-div"></div>
-      <div class="w-layout-grid use-case-study-grid">
-        {% for case in smallCaseStudies %}
-          <div class="use-study-div-block">
-            <p class="paragraph-2 wihte">
-              <strong>{{ case.title }}</strong><br><br>{{ case.description }}</p>
-            <div class="view-case-study-button-div">
-              <a href="/case-studies/{{ case.caseStudy.slug.current }}/" class="am-button am-button--sm am-button--green-outline">
-                View case study   →
-              </a>
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-</section> {% endcomment %}
-
-{% comment %} <div class="section wf-section">
-  <div class="container w-container">
-    <div data-w-id="0163a965-3418-88af-c371-2a45e555caf0" class="w-layout-grid grid-19">
-      <div
-        id="w-node-_77664776-5a7a-9f31-54f1-a8cc6c889447-0e0b77f1"
-        style=""
-        class="_60-pad-div-block">
-        <h2 class="heading-1">Increase operational efficiency</h2>
-      </div>
-      <div data-w-id="c1ced169-cb32-e188-4001-c04c2240f937">
-        <div class="_20-pad-div-block">
-          <h3 class="heading-3">Machine Health</h3>
-        </div>
-        <div>
-          <p class="paragraph">AI technology used by major industrial operators to increase plant availability and optimise maintenance strategies. Eliminate unplanned downtime and reduce cost of maintenance.</p>
-        </div>
-      </div>
-      <div data-w-id="55eb17ca-7156-f6e9-7bc3-a9b14c05d034">
-        <div class="_20-pad-div-block">
-          <h3 class="heading-3">Process Optimisation</h3>
-        </div>
-        <div>
-          <p class="paragraph">Advanced machine learning control technology to boost output and minimise waste. Achieve better quality, reduce emissions and increase throughput without major CAPEX.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> {% endcomment %}
 <section class="section blue">
   <div class="container">
     <div class="sectors__grid">
@@ -178,18 +120,51 @@ layout: base.html
       </div>
       <div>
         <ul class="sectors__list">
-          {% for industry in allIndustries %}
-            {% capture imgUrl %}{% sanityImageUrl industry.logo %}{% endcapture %}
-            <li class="sectors__item">
-                <img
-                    src="{{ imgUrl }}"
-                    loading="lazy"
-                    width="45"
-                    alt=" "
-                    class="sector-icon">
-                <p class="heading-4">{{ industry.title }}</p>
-            </li>
-          {% endfor %}
+          <li class="sectors__item">
+            <img
+              src="/images/icon-nuclear.svg"
+              loading="lazy"
+              width="45"
+              alt=""
+              class="sector-icon">
+            <p class="heading-4">Civil Nuclear</p>
+          </li>
+          <li class="sectors__item">
+            <img
+              src="/images/icon-wind.svg"
+              loading="lazy"
+              width="45"
+              alt=""
+              class="sector-icon">
+            <p class="heading-4">Renewables</p>
+          </li>
+          <li class="sectors__item">
+            <img
+              src="/images/icon-manufacturing.svg"
+              loading="lazy"
+              width="45"
+              alt=""
+              class="sector-icon">
+            <p class="heading-4">Manufacturing</p>
+          </li>
+          <li class="sectors__item">
+            <img
+              src="/images/icon-buildings.svg"
+              loading="lazy"
+              width="45"
+              alt=""
+              class="sector-icon">
+            <p class="heading-4">Utilities</p>
+          </li>
+          <li class="sectors__item">
+            <img
+              src="/images/icon-water.svg"
+              loading="lazy"
+              width="45"
+              alt=""
+              class="sector-icon">
+            <p class="heading-4">Marine</p>
+          </li>
         </ul>
       </div>
     </div>
@@ -205,11 +180,11 @@ layout: base.html
     <div class="humans__grid">
       <div class="humans__img-wrapper">
       <img
-        src="/images/home-data-science-and-DT.jpg"
+        src="/images/becca-and-joe_900.jpg"
         loading="lazy"
-        srcset="/images/home-data-science-and-DT-p-1080.jpeg 1080w, /images/home-data-science-and-DT-p-1600.jpeg 1600w, /images/home-data-science-and-DT-p-2000.jpeg 2000w, /images/home-data-science-and-DT-p-2600.jpeg 2600w, /images/home-data-science-and-DT.jpg 3000w"
+        srcset="/images/becca-and-joe_1200.jpg 1200w, /images/becca-and-joe_900.jpg 900w, /images/becca-and-joe_600.jpg 600w"
         sizes="(max-width: 479px) 86vw, (max-width: 767px) 100vw, (max-width: 991px) 68vw, 674.6484375px"
-        alt="Red haired lady looking at multiple screens with code" >
+        alt="Woman and man sat at a table looking seriously at a laptop" >
       </div>
       <div>
         <h2 class="heading-2">Data science and digital transformation</h2>
