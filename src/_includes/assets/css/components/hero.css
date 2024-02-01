@@ -1,0 +1,16 @@
+.hero--page {
+  padding-top: calc(var(--space-2xl) + var(--header-height));
+}
+
+.hero__title {
+  max-width: 22ch;
+  margin-bottom: var(--space-l);
+}
+
+.hero__subheading {
+  max-width: 60ch;
+}
+
+.hero .offset-image {
+  margin-top: var(--space-xl);
+}

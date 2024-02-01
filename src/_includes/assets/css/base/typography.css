@@ -24,8 +24,15 @@ small {
 
 h1,
 .heading-1 {
-  font-size: var(--h1);
+  font-size: var(--h2);
   line-height: 1.2;
+}
+
+@media (min-width: 992px) {
+  h1,
+  .heading-1 {
+    font-size: var(--h1);
+  }
 }
 
 h2,

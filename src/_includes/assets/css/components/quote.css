@@ -1,5 +1,5 @@
 .quote-holder > ul {
-  @mixin flex-row var(--space-48), center, flex-start;
+  /* @mixin flex-row var(--space-48), center, flex-start; */
   overflow-x: hidden;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
@@ -64,7 +64,7 @@
 }
 
 .quote-nav {
-  @mixin flex-row var(--space-32), center, center;
+  /* @mixin flex-row var(--space-32), center, center; */
   margin-top: var(--space-48);
   display: flex;
   flex-wrap: wrap;

@@ -36,25 +36,7 @@ eleventyComputed:
         {% endif %}
     
         {% if content._type == 'blockLayout' %}
-            <section class="section wf-section">
-                <div class="large-container full-width w-container">
-                    {% assign textPlacement = content.layout %}
-    <div class="flex-row" {% if textPlacement !="right"%}data-flex-reverse{%endif%}>
-                                {% capture imgUrl %}{% sanityImageUrl content.image %}{% endcapture %}
-                            {% if textPlacement == 'right' %}
-                                <div class="div-block-36" data-sal="slide-up"
-                        data-sal-duration="500">{% image imgUrl, content.image.altText %}</div>
-                                <div class="flow text-content paragraph" data-sal="slide-up"
-                        data-sal-duration="500">{% portableText content.text.content %}</div>
-                            {% else %}
-                                <div class="flow text-content paragraph" data-sal="slide-up"
-                        data-sal-duration="500">{% portableText content.text.content %}</div>
-                                <div class="div-block-36" data-sal="slide-up"
-                        data-sal-duration="500">{% image imgUrl, content.image.altText %}</div>
-                            {% endif %}
-                        </div>
-                </div>
-            </section>
+            {%  include 'components/block-layout.liquid' %}
         {% endif %}
     
         {% if content._type == 'quote' %}
@@ -115,31 +97,31 @@ eleventyComputed:
         {% assign rows = content.left.size | minus: 1 %}
         {% assign left = content.left %}
         {% assign right = content.right %}
-        <div class="overlap-section blue wf-section">
-            <div class="container-2 w-container">
-              <div class="div-block-4 columns comparison" style="--comparison-rows: {{rows}};">
-            <div>
-                {% if left.title %}
-                <p class="column-title color-secondary">{{ left.title }}</p>
-                {% endif %}
-                <ul data-marker="{{ left.icon}}">
-                    {% for item in left.items %}
-                        <li>{{ item }}</li>
-                    {% endfor %}
-                </ul>
+        <div class="section section--overlap">
+            <div class="container container--sm">
+              <div class="comparison" style="--comparison-rows: {{rows}};">
+                <div>
+                    {% if left.title %}
+                        <h3 class="heading-4">{{ left.title }}</h3>
+                    {% endif %}
+                    <ul data-marker="{{ left.icon }}">
+                        {% for item in left.items %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div>
+                    {% if right.title %}
+                        <h3 class="heading-4">{{ right.title }}</h3>
+                    {% endif %}
+                    <ul data-marker="{{ right.icon }}">
+                        {% for item in right.items %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
-            <div>
-                {% if right.title %}
-                <p class="column-title color-accent">{{ right.title }}</p>
-                {% endif %}
-                <ul data-marker="{{ right.icon }}">
-                    {% for item in right.items %}
-                        <li>{{ item }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-</div>
-</div>
+        </div>
 </div>
     {% endif %}
     
@@ -223,47 +205,42 @@ eleventyComputed:
         {% endif %}
 
         {% if content._type == 'industries' %}
-        <div class="section blue wf-section">
-            <div class="large-container w-container">
-              <div class="_100-pad-div-block">
-                <h3 class="heading-3 white">{{ content.title }}</h3>
-              </div>
-              {% unless content.showAll %}
-              {% assign industryList = content.industries %}
-              {% else %}
-                {% assign industryList = allIndustries %}
-            {% endunless %}
-            <div class="w-layout-grid industries-grid">
-            {% for industry in industryList %}
-            {% capture imgUrl %}{% sanityImageUrl industry.logo %}{% endcapture %}
-                    <div class="w-layout-grid individual-industries-grid">
-                        <div class="industries-icon-div" data-sal="slide-up"
-                        data-sal-duration="500">{% image imgUrl, '' %}</div>
-                        <div  class="industries-heading-div" data-sal="slide-up"
+        <div class="section grey">
+            <div class="container">
+                <h2 class="section__heading">Industries we work in</h2>
+
+                {% assign industryList = industriesList %}
+                <div class="industries__grid">
+                    {% for industry in industryList %}
+                        <div class="industries__item-grid" data-sal="slide-up"
                         data-sal-duration="500">
-                            <h3 class="heading-3 white">{{ industry.title }}</h3>
+                            <img src="{{ industry.imageUrl }}" alt="" width="100" height="auto">
+                            <div>
+                                <h3 class="heading-3">{{ industry.title }}</h3>
+                                <ul class="industries__item-list">
+                                    {% for item in industry.items %}
+                                        <li>{{ item }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
                         </div>
-                        <p  class="paragraph white" data-sal="slide-up"
-                        data-sal-duration="500" data-sal-delay="200">{{ industry.text }}</p>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
           </div>
         {% endif %}
 
         {% if content._type == 'caseStudies' %}
-        <div class="section blue wf-section">
-            <div class="large-container w-container">
-              <div class="_100-pad-div-block">
-                <h3 class="heading-3 white">{{ content.title | default: "Our work" }}</h3>
-              </div>
-              {% unless content.showLatest %}
-              {% assign caseStudyList = content.caseStudies %}
-            {% endunless %}
-            {% include 'partials/caseStudiesBlock.liquid' %}
+        <div class="section blue">
+            <div class="container">
+                <h2 class="heading-3 section__heading">{{ content.title | default: "Our work" }}</h2>
+                {% unless content.showLatest %}
+                    {% assign caseStudyList = content.caseStudies %}
+                {% endunless %}
+
+                {% include 'partials/caseStudiesBlock.liquid' %}
             </div>
-          </div>
+        </div>
         {% endif %}
         
         {% if content._type == 'accordion' %}

@@ -4,55 +4,52 @@ title: Careers at Ada Mode
 description: We are looking for talented people to join our growing team.
 ---
 
-<section id="page-heading" class="section wf-section">
-  <div class="section hero wf-section">
-    <div class="large-container w-container">
-      <div data-w-id="a6ccca85-8697-c2ef-4d98-8bcda436b377" class="hero-content-div-block">
-        <div class="_100-pad-div-block">
-          <h1 class="heading-1">Help make industry better</h1>
-        </div>
-      </div>
+<section id="page-heading" class="section hero hero--page">
+  <div class="container">  
+    <div class="hero__title heading-1">
+      <h1>Help make industry better</h1>
     </div>
-    <div data-w-id="7be9cb49-3412-9ba0-f9ae-5da1afffa28a" class="w-layout-grid grid-37">
-      <div id="w-node-_429bede7-37dd-5a3a-4b8e-14f374474c0f-91e0a56c" class="div-block-87"></div>
-      <div id="w-node-a100700b-36ab-eaf5-5ed8-c0026dcd756b-91e0a56c" class="div-block-56">
-        <h2 class="heading-2">We are looking for talented people to join our growing team.</h2>
-      </div>
+    <p class="subheading hero__subheading">{{ description }}</p>
+  </div>
+  <div class="offset-image">
+    <div class="offset-image__img-wrapper">
+      <img src="/images/team_1200.jpg" srcset="/images/team_1600.jpg 1600w, /images/team_1200.jpg 1200w, /images/team_900.jpg 900w, /images/team_600.jpg 600w" sizes="75vw" alt="Two members of the Ada Mode team in front of a large window">
     </div>
   </div>
 </section>
-  <div class="section wf-section">
-    <div class="large-container w-container">
-      <div data-w-id="3cbb1c93-0ffd-1dc4-dd7a-40a87da409f2" class="w-layout-grid live-roles-grid">
-        <div class="_20-pad-div-block">
-          <h2 class="heading-2">Live roles</h2>
-        </div>
-        <div id="w-node-b4538a14-7aea-81c8-e276-cf45490f59f2-91e0a56c" class="live-roles-div-block">
-          <div class="w-dyn-list">
-            <ul role="list" class="collection-list-4 w-dyn-items">
-              {% for job in allJobs %}
-                <li role="listitem" class="w-dyn-item">
-                  <div class="div-block-53" data-sal="slide-up"
-                  data-sal-duration="300">
-                    <div class="_20-pad-div-block">
-                      <h3 class="heading-4">{{ job.title }}</h3>
-                    </div>
-                    <div class="div-block-142">
-                      <a href="/careers/{{ job.slug.current }}/" class="green-outline-button w-button">Learn more</a>
-                    </div>
+
+<div class="section">
+  <div class="container">
+    <div class="w-layout-grid live-roles-grid">
+      <div class="_20-pad-div-block">
+        <h2 class="heading-2">Live roles</h2>
+      </div>
+      <div class="live-roles-div-block">
+        <div class="w-dyn-list">
+          <ul role="list" class="collection-list-4 w-dyn-items">
+            {% for job in allJobs %}
+              <li role="listitem" class="w-dyn-item">
+                <div class="div-block-53" data-sal="slide-up"
+                data-sal-duration="300">
+                  <div class="_20-pad-div-block">
+                    <h3 class="heading-4">{{ job.title }}</h3>
                   </div>
-                </li>
-              {% else %}
-              <div class="w-dyn-empty">
-                <div>No items found.</div>
-              </div>
-              {% endfor %}
-            </ul>
-          </div>
+                  <div class="div-block-142">
+                    <a href="/careers/{{ job.slug.current }}/" class="am-button am-button--green-outline">Learn more</a>
+                  </div>
+                </div>
+              </li>
+            {% else %}
+            <div class="w-dyn-empty">
+              <div>No items found.</div>
+            </div>
+            {% endfor %}
+          </ul>
         </div>
       </div>
     </div>
   </div>
+</div>
   <div class="section blue wf-section">
     <div class="large-container w-container">
       <div data-w-id="ac984de9-6770-f24a-0f8b-dc456d6fca08" class="w-layout-grid live-roles-grid">

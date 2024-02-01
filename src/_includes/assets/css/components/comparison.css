@@ -1,73 +1,44 @@
 .comparison {
-  --comparison-row-gap: var(--space-144);
-  row-gap: var(--comparison-row-gap);
-  align-items: start;
-  > div {
-    & :last-child {
-      border-radius: 0 0 8px 8px;
-    }
-
-    & :not(ul > li):first-child {
-      border-radius: 8px 8px 0 0;
-    }
-  }
-
-  p,
-  li {
-    padding: var(--space-32) var(--space-24);
-    /* border: 1px solid var(--ws-light-grey); */
-  }
-
-  p.column-title {
-    font-size: 1.5rem;
-    font-weight: 500;
-  }
+  background-color: var(--am-grey-xlight);
+  color: var(--am-blue-deep);
+  padding: var(--space-s-l);
+  display: grid;
+  gap: var(--space-s-l);
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
 
   ul {
     list-style: none;
     padding: 0;
-    border: none;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(var(--comparison-rows, 3), 1fr);
-    font-size: var(--text-medium);
-    position: relative;
 
-    @media (max-width: 1024px) {
-      display: flex;
-      flex-direction: column;
+    &[data-marker='cross'] > li::before {
+      background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2048%2048%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M12.4501%2037.6501L10.3501%2035.5501L21.9001%2024.0001L10.3501%2012.4501L12.4501%2010.3501L24.0001%2021.9001L35.5501%2010.3501L37.6501%2012.4501L26.1001%2024.0001L37.6501%2035.5501L35.5501%2037.6501L24.0001%2026.1001L12.4501%2037.6501Z%22%20fill%3D%22%232A3245%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2Fsvg%3E');
     }
-
-    & > li {
-      display: flex;
-      align-items: flex-start;
-      gap: var(--space-24);
-      position: relative;
-
-      &::before {
-        content: "";
-        display: block;
-        width: 2.25rem;
-        height: 2.25rem;
-        aspect-ratio: 1;
-        background-size: contain;
-        background-repeat: no-repeat;
-        margin-top: 0.275rem;
-      }
+    &[data-marker='down'] > li::before {
+      background-image: url('/images/reduce.svg');
     }
-
-    &[data-marker="cross"] > li::before {
-      background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2048%2048%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M12.4501%2037.6501L10.3501%2035.5501L21.9001%2024.0001L10.3501%2012.4501L12.4501%2010.3501L24.0001%2021.9001L35.5501%2010.3501L37.6501%2012.4501L26.1001%2024.0001L37.6501%2035.5501L35.5501%2037.6501L24.0001%2026.1001L12.4501%2037.6501Z%22%20fill%3D%22%232A3245%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2Fsvg%3E");
+    &[data-marker='up'] > li::before {
+      background-image: url('/images/increase.svg');
     }
-    &[data-marker="down"] > li::before {
-      background-image: url("/images/reduce.svg");
-    }
-    &[data-marker="up"] > li::before {
-      background-image: url("/images/increase.svg");
-    }
-    &[data-marker="check"] > li::before {
+    &[data-marker='check'] > li::before {
       color: var(--ws-bright-green);
-      background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2048%2048%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%09%3Cpath%20d%3D%22M18.9002%2035.7L7.7002%2024.5L9.8502%2022.35L18.9002%2031.4L38.1002%2012.2L40.2502%2014.35L18.9002%2035.7Z%22%20fill%3D%22%231fca51%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
+      background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2048%2048%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%09%3Cpath%20d%3D%22M18.9002%2035.7L7.7002%2024.5L9.8502%2022.35L18.9002%2031.4L38.1002%2012.2L40.2502%2014.35L18.9002%2035.7Z%22%20fill%3D%22%231fca51%22%20%2F%3E%0A%3C%2Fsvg%3E%0A');
     }
   }
+}
+
+.comparison li {
+  display: flex;
+  gap: var(--space-xs);
+  align-items: start;
+}
+
+.comparison li::before {
+  content: '';
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+}
+
+.comparison li + li {
+  margin-top: var(--space-s);
 }

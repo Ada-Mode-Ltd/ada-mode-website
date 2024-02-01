@@ -1,0 +1,20 @@
+.atlas-features__item {
+  border: 1px solid var(--am-green-dark);
+  padding: var(--space-s-l);
+  border-radius: 0.4rem;
+}
+
+.atlas-features__heading {
+  margin-bottom: var(--space-s);
+  margin-top: var(--space-s);
+}
+
+.atlas-features__heading h3 {
+  font-size: 1.4rem;
+}
+
+.atlas-features__grid {
+  display: grid;
+  gap: var(--space-s-l);
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+}

@@ -50,14 +50,33 @@ section#posts {
   }
 }
 
-.text-section-header + .section:not(.overlap-section) {
-  padding-top: 1rem;
-}
-
-.text-section-header {
-  padding-bottom: 1rem;
-}
-
 section + section {
   padding-block-start: var(--space-32);
+}
+
+.section--overlap {
+  background: linear-gradient(
+    to bottom,
+    transparent var(--space-3xl),
+    var(--am-blue-deep) 0
+  );
+}
+
+.section--header {
+  padding-bottom: 0;
+}
+
+.section--header + .section {
+  margin-top: var(--space-l);
+  padding-top: 0;
+}
+
+.section__heading {
+  margin-bottom: var(--space-s-l);
+}
+
+.section__subheading {
+  font-size: var(--h3);
+  font-weight: 700;
+  max-width: 40ch;
 }

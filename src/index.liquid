@@ -187,7 +187,7 @@ layout: base.html
         alt="Woman and man sat at a table looking seriously at a laptop" >
       </div>
       <div>
-        <h2 class="heading-2">Data science and digital transformation</h2>
+        <h2 class="heading-2 humans__heading">Data science and digital transformation</h2>
         <p>Supporting operators with AI adoption, digital twin strategy and analytical support for complex operational problems</p>
         <a href="services.html" class="humans__button am-button">Find Out More</a>
       </div>
@@ -207,28 +207,5 @@ layout: base.html
     </div>
   </div>
 </section>
-{% if allPosts.data %}
-  <section class="section">
-    <div class="container">
-      <h3 class="heading-3 collection__heading">Recent blog posts</h3>
-      <ul role="list" class="collection__list">
-        {% for post in allPosts.data limit: 3 %}
-          {% capture imgUrl %}{% sanityImageUrl post.mainImage %}{% endcapture %}
-          <li
-            class="collection__item">
-            <div class="collection__img-wrapper">{% image imgUrl , '' %}</div>
-            <div class="collection__item-content">
-              <p class="pretitle collection__pretitle">
-                {% assign category = post.categories | first %}
-                <span>{{ category.title }}</span>
-                <span> | {{ post.publishedAt | date: "%B %d, %Y" }}</span>
-              </p>
-              <h4 class="collection__post-heading">{{ post.title }}</h4>
-              <a href="/blog/{{post.slug.current}}" class="collection__item-button am-button am-button--sm am-button--green-outline">Read more</a>
-            </div>
-          </li>
-        {% endfor %}
-      <ul>
-    </div>
-  </section>
-{% endif %}
+
+{% include 'components/blog-posts.liquid' %}

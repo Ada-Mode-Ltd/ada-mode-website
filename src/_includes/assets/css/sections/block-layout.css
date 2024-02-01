@@ -1,0 +1,65 @@
+.block-layout__row {
+  display: grid;
+  gap: var(--space-s-l);
+}
+
+.block-layout__content > * + * {
+  margin-top: var(--space-s);
+}
+
+@media (min-width: 762px) {
+  .block-layout__row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .block-layout__row > * {
+    grid-row: 1;
+  }
+
+  .block-layout__row--reverse .block-layout__img-wrapper {
+    grid-column: 2;
+  }
+}
+
+.block-layout__img-wrapper {
+  aspect-ratio: 3 / 2;
+  position: relative;
+}
+
+.section--block-layout img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.section--block-layout ul {
+  list-style: none;
+  padding: 0;
+}
+
+.section--block-layout li {
+  display: flex;
+  align-items: start;
+}
+
+.section--block-layout li::before {
+  content: '';
+  width: 1.5em;
+  height: 1.5em;
+  flex: 0 0 auto;
+  margin-right: 1em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' data-name='Layer 1' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='%231bc691' stroke-linecap='round' stroke-linejoin='round' stroke-width='6' d='m40.51 71.5-20.01-21M95.67 44.44c.22 1.82.33 3.68.33 5.56 0 25.41-20.59 46-46 46S4 75.41 4 50 24.59 4 50 4c16.18 0 30.41 8.35 38.61 20.99l-48.1 46.52'/%3E%3C/svg%3E");
+}
+
+.section--block-layout li + li {
+  margin-top: var(--space-xs);
+}
+
+.section--block-layout h2 {
+  font-size: var(--h3);
+}

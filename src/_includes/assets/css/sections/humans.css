@@ -12,6 +12,10 @@
   overflow: hidden;
 }
 
+.humans__heading {
+  margin-bottom: var(--space-s);
+}
+
 @media (min-width: 992px) {
   .humans__grid {
     grid-template-columns: 1fr 1fr;

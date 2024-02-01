@@ -2,7 +2,9 @@
   /* Colours */
   --am-green-dark: #1bc691;
   --am-green-light: #5ce68f;
+  --am-blue-deep-d: #042433;
   --am-blue-deep: #082a3a;
+  --am-blue-deep-l: #0b3346;
   --am-blue-dark: #105474;
   --am-orange-deep: #d8452e;
   --am-orange-dark: #f15a24;
@@ -66,7 +68,8 @@
   --text-large: 1.6rem;
   --h5: 1.25rem; /* 20px */
   --h4: clamp(1.5rem, calc(1.36rem + 0.71vw), 2rem); /* 32px */
-  --h3: clamp(1.5rem, calc(1.07rem + 2.14vw), 3rem); /* 48px */
+  /* --h3: clamp(1.5rem, calc(1.07rem + 2.14vw), 3rem); */
+  --h3: clamp(1.44rem, 1.1936rem + 1.2321vi, 2.1484rem);
   --h2: clamp(1.75rem, calc(1.36rem + 1.96vw), 3.13rem); /* 50px */
   --h1: clamp(2.986rem, 2.2002rem + 3.9291vi, 5.2452rem);
 
@@ -102,6 +105,7 @@
   /* Layout */
   --container-width: 1250px;
   --container-width-sm: 960px;
+  --container-width-lg: 1600px;
 }
 
 /* Utopia.fyi */

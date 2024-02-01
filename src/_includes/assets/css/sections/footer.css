@@ -1,3 +1,8 @@
+.footer {
+  background-color: var(--am-blue-deep-d);
+  color: var(--white);
+}
+
 .footer__main {
   display: grid;
   justify-items: start;

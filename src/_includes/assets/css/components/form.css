@@ -28,16 +28,6 @@ label {
   }
 }
 
-input[type="submit"] {
-  background-color: var(--ws-dark-green);
-  color: var(--ws-white);
-  border: none;
-  margin-block: var(--space-24);
-  &:hover {
-    background-color: var(--ws-bright-green);
-  }
-}
-
 select {
   background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxNiAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik04IDkuNTMzMjdMMCAxLjUzMzI3TDEuNDMzMzMgMC4wOTk5MzM2TDggNi42NjY2TDE0LjU2NjcgMC4wOTk5MzM2TDE2IDEuNTMzMjdMOCA5LjUzMzI3WiIgZmlsbD0iIzJBMzI0NSIvPg0KPC9zdmc+)
     no-repeat;

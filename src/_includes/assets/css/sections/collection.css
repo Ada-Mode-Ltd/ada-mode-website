@@ -39,6 +39,12 @@
 .collection__item {
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.collection__item:where(:hover, :focus) .collection__item-button {
+  background-color: var(--am-green-dark);
+  color: var(--white);
 }
 
 .collection__post-heading {
@@ -52,4 +58,33 @@
 
 .collection__pretitle span:first-child {
   color: var(--am-green-dark);
+}
+
+.collection__link {
+  text-decoration: none;
+}
+
+.collection__link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.collection__item--dark {
+  background-color: var(--am-blue-deep-l);
+  color: var(--white);
+  border-radius: 0.4rem;
+  overflow: hidden;
+}
+
+.collection__item--dark .collection__img-wrapper img {
+  border-radius: 0;
+}
+
+.collection__item--dark .collection__item-content {
+  padding: 0 var(--space-s) var(--space-s) var(--space-s);
+}
+
+.collection__item[data-hidden] {
+  display: none;
 }
