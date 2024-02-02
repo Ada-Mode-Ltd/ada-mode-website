@@ -43,13 +43,12 @@
 
 @media (min-width: 992px) {
   .history__grid {
-    --col: calc(
-      (min(var(--container-width), (100% - var(--space-s-l) * 2) / 2)) -
-        (var(--space-s-l) * 1.5)
-    );
+    --col: calc((var(--container-width) / 2) - (var(--space-s-l) * 1.5));
+    --min: calc((100% - (var(--space-s-l) * 3)) / 2);
+    display: grid;
     grid-template-columns:
-      minmax(var(--space-s-l), 1fr) repeat(2, minmax(var(--col), 1fr))
-      minmax(var(--space-s-l), 1fr);
+      minmax(0, 1fr) repeat(2, minmax(min(var(--col), var(--min)), 1fr))
+      minmax(0, 1fr);
   }
 
   .history__image {

@@ -66,6 +66,10 @@ section + section {
   padding-bottom: 0;
 }
 
+.section--post-content {
+  padding-block: 0;
+}
+
 .section--header + .section {
   margin-top: var(--space-l);
   padding-top: 0;

@@ -71,3 +71,9 @@
 .case-studies__section {
   padding-top: 0;
 }
+
+@media (min-width: 992px) {
+  .case-study-grid {
+    padding-top: var(--space-l);
+  }
+}

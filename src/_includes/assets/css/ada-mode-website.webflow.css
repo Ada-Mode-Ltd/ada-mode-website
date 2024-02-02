@@ -1991,16 +1991,6 @@ body {
   align-self: center;
 }
 
-.case-study-grid {
-  margin-top: 150px;
-  grid-column-gap: 75px;
-  grid-row-gap: 125px;
-  -ms-grid-columns: 0.5fr 1fr;
-  grid-template-columns: 0.5fr 1fr;
-  -ms-grid-rows: auto auto auto auto;
-  grid-template-rows: auto auto auto auto;
-}
-
 .download-resource-link-block {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2114,11 +2104,8 @@ body {
 
 .blog-post-feature-image {
   width: 100vw;
-  height: 550px;
-  margin-top: 150px;
-
-  background-position: 50% 50%;
-  background-size: cover;
+  aspect-ratio: 16 / 9;
+  margin-top: var(--space-s-l);
 }
 
 .grid-51 {
@@ -5309,12 +5296,6 @@ body {
     margin: 75px 30px 75px 20px;
   }
 
-  .case-study-grid {
-    margin-top: 80px;
-    grid-column-gap: 25px;
-    grid-row-gap: 120px;
-  }
-
   .div-block-68 {
     top: 0px;
     height: 650px;
@@ -5328,10 +5309,6 @@ body {
   .grid-50._2 {
     -ms-grid-rows: 50px minmax(auto, 0.5fr) auto;
     grid-template-rows: 50px minmax(auto, 0.5fr) auto;
-  }
-
-  .blog-post-feature-image {
-    height: 450px;
   }
 
   .grid-51 {
@@ -6160,10 +6137,6 @@ body {
     width: 50ch;
   }
 
-  .case-study-grid {
-    grid-column-gap: 30px;
-  }
-
   .div-block-68 {
     overflow: hidden;
     height: 250px;
@@ -6179,10 +6152,6 @@ body {
     padding-left: 0px;
     -ms-grid-columns: 1fr 1fr 0.5fr;
     grid-template-columns: 1fr 1fr 0.5fr;
-  }
-
-  .blog-post-feature-image {
-    margin-top: 75px;
   }
 
   .grid-51 {
@@ -7304,16 +7273,6 @@ body {
     width: 100%;
   }
 
-  .case-study-grid {
-    margin-top: 0px;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr;
-    -ms-grid-rows: auto auto auto auto auto auto;
-    grid-template-rows: auto auto auto auto auto auto;
-  }
-
   .div-block-68 {
     top: 0px;
     overflow: hidden;
@@ -7350,11 +7309,6 @@ body {
 
   .blog-post-category-text {
     font-size: 13px;
-  }
-
-  .blog-post-feature-image {
-    height: 350px;
-    margin-top: 50px;
   }
 
   .grid-51 {
