@@ -14,6 +14,7 @@
   color: var(--white);
   padding-top: calc(80px + var(--space-xl-3xl));
   overflow: hidden;
+  animation: bgMove 10000ms infinite alternate;
 }
 
 .homepage-hero__button-wrapper {
@@ -32,12 +33,29 @@
 
 .hero-svg {
   position: absolute;
-  bottom: -30%;
-  right: -20%;
+  top: 4rem;
+  right: -2rem;
   width: 70%;
+  animation: ry 6000ms infinite alternate;
+  transform-style: preserve-3d;
+  perspective: 100px;
+}
+
+@media (min-width: 992px) {
+  .hero-svg {
+    bottom: -30%;
+    right: -20%;
+    top: auto;
+  }
 }
 
 .homepage-hero__content {
   position: relative;
   z-index: 1;
+}
+
+@keyframes ry {
+  to {
+    transform: rotateY(20deg);
+  }
 }
