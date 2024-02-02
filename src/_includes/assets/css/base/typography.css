@@ -1,5 +1,24 @@
+@font-face {
+  font-family: 'Roboto Light';
+  src: url('../fonts/Roboto-Light.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Regular';
+  src: url('../fonts/Roboto-Regular.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Bold';
+  src: url('../fonts/Roboto-Bold.woff2') format('woff2');
+  font-display: swap;
+}
+
 body {
-  font-weight: 300;
+  font-family: var(--light);
+  font-weight: 400;
 }
 
 @media (min-width: 992px) {
@@ -20,6 +39,20 @@ small {
 .heading-1 > * {
   font-size: inherit;
   line-height: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.heading-1,
+.heading-2,
+.heading-3,
+.heading-4,
+.heading-5 {
+  font-family: var(--bold);
+  font-weight: 400;
 }
 
 h1,
@@ -49,7 +82,7 @@ h3,
 
 .preheading {
   font-size: var(--text-regular);
-  font-weight: 300;
+  font-family: var(--light);
 }
 
 @media (min-width: 992px) {
@@ -69,4 +102,16 @@ blockquote > * + cite {
 
 blockquote p {
   max-width: 75ch;
+}
+
+.font-bold {
+  font-family: var(--bold);
+}
+
+.font-regular {
+  font-family: var(--regular);
+}
+
+.font-light {
+  font-family: var(--light);
 }

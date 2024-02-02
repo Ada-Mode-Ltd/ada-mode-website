@@ -144,6 +144,7 @@ module.exports = function (eleventyConfig) {
   // }
   eleventyConfig.addPassthroughCopy('src/_includes/assets/css')
   eleventyConfig.addPassthroughCopy('src/_includes/assets/js')
+  eleventyConfig.addPassthroughCopy('src/_includes/assets/fonts')
   eleventyConfig.addPassthroughCopy('public/images/*')
   eleventyConfig.addPassthroughCopy('public/assets/**/*')
 

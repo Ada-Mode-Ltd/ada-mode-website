@@ -31,7 +31,7 @@
 
 .history__content > p:first-child {
   font-size: var(--text-large);
-  font-weight: 700;
+  font-family: var(--bold);
   max-width: 45ch;
 }
 
