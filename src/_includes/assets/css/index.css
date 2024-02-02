@@ -249,11 +249,6 @@ a.case-study-image-div.w-inline-block img,
   .text-page-header {
     max-width: 100%;
   }
-
-  .section.hero,
-  .section.hero._2 {
-    padding-top: 25px;
-  }
 }
 
 .flow.text-content h2 + p {

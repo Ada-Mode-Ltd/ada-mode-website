@@ -1,10 +1,17 @@
 .hero--page {
-  padding-top: calc(var(--space-2xl) + var(--header-height));
+  padding-top: calc(var(--space-s-l) + var(--header-height));
+}
+
+.hero--contact {
+  padding-bottom: var(--space-s-l);
 }
 
 .hero__title {
   max-width: 65rem;
-  margin-bottom: var(--space-l);
+}
+
+.hero__title + * {
+  margin-top: var(--space-l);
 }
 
 .hero__subheading {
