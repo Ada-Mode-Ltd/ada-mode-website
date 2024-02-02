@@ -91,12 +91,12 @@ layout: base.html
       <div class="case-studies__img-wrapper">
         {% image imgUrl, '' %}
       </div>
-      <div class="case-studies__content">
-        <h2 class="case-studies__heading" data-sal="slide-up" data-sal-duration="600">
+      <div class="case-studies__content" data-sal="slide-up" data-sal-duration="600">
+        <h2 class="case-studies__heading">
           <span class="preheading">Case study</span>
           <span class="heading-2">{{ case.title }}</span>
         </h2>
-        <a href="/case-studies/{{case.slug.current}}" class="am-button am-button--sm am-button--green-outline" data-sal="slide-up" data-sal-duration="600">
+        <a href="/case-studies/{{case.slug.current}}" class="am-button am-button--sm am-button--green-outline">
           <span>View case study →</span>
         </a>
       </div>
