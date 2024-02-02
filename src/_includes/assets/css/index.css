@@ -55,6 +55,7 @@
 @import './components/atlas-features.css';
 @import './components/offset-image.css';
 @import './components/history.css';
+@import './components/faq.css';
 
 @import './sal.css';
 
@@ -217,11 +218,6 @@ a.case-study-image-div.w-inline-block img,
 .media.full lite-youtube {
   width: 100%;
   height: 100%;
-}
-
-.faq-content,
-.faq-wrapper .plus-icon {
-  transition: all 0.2s;
 }
 
 .blog-post-image-div {

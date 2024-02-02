@@ -244,64 +244,36 @@ eleventyComputed:
         {% endif %}
         
         {% if content._type == 'accordion' %}
-         <div class="section blue wf-section">
-    <div class="container w-container">
-      <div>
-        <h2 class="heading-2 white">{{ content.title }}</h2>
-      </div>
-    </div>
-    <div class="container w-container">
-      <div class="container-52"></div>
-      <div class="w-layout-grid grid-54">
-        <div class="hide"></div>
-        <div id="w-node-fb50ddc8-a99f-56ab-a760-845ee0a39bcd-2db407ac" class="w-layout-grid faq-grid">
-            <div id="w-node-fb50ddc8-a99f-56ab-a760-845ee0a39bce-2db407ac" class="faq-wrapper">
-                {% for item in content.list %}
-                <div data-w-id="fb50ddc8-a99f-56ab-a760-845ee0a39bcf" class="faq-question-wrap">
-                    <a href="#" class="faq-question-bar w-inline-block">
-                      <div class="question-title">{{ item.title }}</div><img src="https://uploads-ssl.webflow.com/5f30fd5278e7e1bf6d6f311b/606f391793aed1d5d3c5e5ec_plus.svg" alt="" class="plus-icon">
-                    </a>
-                    <div style="height:0PX" class="faq-content">
-                      <p class="faq-paragraph">{{ item.text }}</p>
-                      <div class="div-block-78"></div>
+            <div class="section blue">
+                <div class="container">
+                    <h2 class="section__heading">{{ content.title }}</h2>
+                    <div class="faq" data-component="accordion">
+                        {% for item in content.list %}
+                            {% assign id = item.title | split: " " | join: "_" %}
+                            <div data-item>
+                                <h3 class="faq__title">
+                                    <button data-btn="{{ id }}" class="faq__button">
+                                        {{ item.title }}
+                                    </button>
+                                </h3>
+                                <div class="faq__content" id="{{ id }}" data-content>
+                                    <div class="faq__content-inner" data-inner-content>
+                                        <p>{{ item.text }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
                     </div>
-                    </div>
-                {% endfor %}
                 </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const question = document.querySelectorAll('.faq-question-wrap');
-
-    question.forEach((item) => {
-        const content = item.querySelector('.faq-content');
-        const icon = item.querySelector('.plus-icon');
-      item.addEventListener('click', () => {
-        item.classList.toggle('active');
-
-        if (item.classList.contains('active')) {
-          content.style.height = content.scrollHeight + 'px';
-          // rotate icon 45deg
-            icon.style.transform = 'rotate(45deg)';
-        } else {
-            // rotate icon back to 0deg
-                icon.style.transform = 'rotate(0deg)';
-          content.style.height = 0;
-        }
-      });
-    });
-  </script>
+            </div>
         {% endif %}
-    
-        {% if content._type == 'ctaSection' %}
-            {% if content.blockLayout %}
-            {% unless content.blockLayout == 'noimage' %}
-                {% assign ctaCols = 2 %}
-            {% endunless %}
-            {% endif %}
-            {% include 'components/cta-section.liquid' %}
+
+    {% if content._type == 'ctaSection' %}
+        {% if content.blockLayout %}
+        {% unless content.blockLayout == 'noimage' %}
+            {% assign ctaCols = 2 %}
+        {% endunless %}
         {% endif %}
-    {% endfor %}
+        {% include 'components/cta-section.liquid' %}
+    {% endif %}
+{% endfor %}

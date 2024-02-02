@@ -1,0 +1,60 @@
+.faq__button {
+  background: transparent;
+  font-size: var(--text-large);
+  padding-block: var(--space-s);
+  border-bottom: 1px solid var(--am-green-dark);
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq__button::after {
+  content: '';
+  margin-left: 1rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  transition: transform 200ms;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='#FFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-plus'%3E%3Cline x1='12' y1='5' x2='12' y2='19'/%3E%3Cline x1='5' y1='12' x2='19' y2='12'/%3E%3C/svg%3E");
+}
+
+.is-open .faq__button::after {
+  transform: rotate(45deg);
+}
+
+.faq__button > * {
+  pointer-events: none;
+}
+
+.faq__content {
+  overflow: hidden;
+  height: 0px;
+  transition: height 200ms;
+  will-change: height;
+}
+
+.faq__content-inner {
+  opacity: 0;
+  transition: opacity 200ms;
+  padding-block: var(--space-s);
+}
+
+.no-js .faq-content {
+  height: auto;
+}
+
+.no-js .faq__content-inner,
+.is-open .faq__content-inner {
+  opacity: 1;
+}
+
+.no-js .faq__button::after {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .faq {
+    padding-left: 25%;
+  }
+}
