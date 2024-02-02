@@ -19,7 +19,7 @@ description: We help industrial facilities with AI adoption, digital twin strate
       {% for case in allCaseStudies %}
         {% capture imgUrl %}{% sanityImageUrl case.mainImage %}{% endcapture %}
         <li
-          class="collection__item collection__item--dark">
+          class="collection__item collection__item--dark" data-sal="slide-up" data-sal-duration="600">
           <div class="collection__img-wrapper">{% image imgUrl , '' %}</div>
           <div class="collection__item-content">
             <p class="pretitle collection__pretitle">

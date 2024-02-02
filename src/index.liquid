@@ -21,9 +21,9 @@ layout: base.html
 
   <div class="container">
     <div class="homepage-hero__content">
-      <h1 class="heading-1 home-page-hero-section__heading">Industrial AI, data and automation</h1>
-      <p class="subheading home-page-hero-section__subheading">We help operators, OEMs and government bodies with AI adoption to drive industrial decarbonisation.</p>
-      <div class="homepage-hero__button-wrapper">
+      <h1 class="heading-1 home-page-hero-section__heading" data-sal="slide-up" data-sal-duration="300">Industrial AI, data and automation</h1>
+      <p class="subheading home-page-hero-section__subheading" data-sal="slide-up" data-sal-duration="300" data-sal-delay="100">We help operators, OEMs and government bodies with AI adoption to drive industrial decarbonisation.</p>
+      <div class="homepage-hero__button-wrapper" data-sal="slide-up" data-sal-duration="300" data-sal-delay="200">
         <a href="platform.html" class="am-button am-button--on-dark">Learn more</a>
       </div>
     </div>
@@ -34,7 +34,7 @@ layout: base.html
   <div class="container">
     <h2 class="heading-2 services__heading">What we do</h2>
     <div class="services__grid">
-      <div class="services__grid-col">
+      <div class="services__grid-col" data-sal="slide-up" data-sal-duration="600">
         <h3 class="heading-4">Consultancy</h3>
         <ul class="services__list">
           <li>AI Adoption</li>
@@ -45,7 +45,7 @@ layout: base.html
         </ul>
         <a href="/services" class="am-button services__button">Explore our services</a>
       </div>
-      <div class="services__grid-col">
+      <div class="services__grid-col" data-sal="slide-up" data-sal-duration="600" data-sal-delay="100">
         <h3 class="heading-4">Application development</h3>
         <ul class="services__list">
           <li>Autonomous Systems</li>
@@ -65,7 +65,7 @@ layout: base.html
   {% assign partners = homeContent.partnerArray %}
 {% endif %}
 
-<section class="section no-top-padding">
+<section class="section no-top-padding" data-sal="slide-up" data-sal-duration="600">
   <div class="container">
     <h2 class="heading-2">{{ homeContent.partners.title }}</h2>
     <div class="w-layout-grid client-logo-grid">
@@ -92,11 +92,11 @@ layout: base.html
         {% image imgUrl, '' %}
       </div>
       <div class="case-studies__content">
-        <h2 class="case-studies__heading">
+        <h2 class="case-studies__heading" data-sal="slide-up" data-sal-duration="600">
           <span class="preheading">Case study</span>
           <span class="heading-2">{{ case.title }}</span>
         </h2>
-        <a href="/case-studies/{{case.slug.current}}" class="am-button am-button--sm am-button--green-outline">
+        <a href="/case-studies/{{case.slug.current}}" class="am-button am-button--sm am-button--green-outline" data-sal="slide-up" data-sal-duration="600">
           <span>View case study →</span>
         </a>
       </div>
@@ -110,7 +110,7 @@ layout: base.html
 <section class="section blue">
   <div class="container">
     <div class="sectors__grid">
-      <div>
+      <div data-sal="slide-up" data-sal-duration="600">
         <h2 class="heading-2">Sectors we work in</h2>
         <a
           href="industries.html"
@@ -120,7 +120,7 @@ layout: base.html
       </div>
       <div>
         <ul class="sectors__list">
-          <li class="sectors__item">
+          <li class="sectors__item" data-sal="slide-up" data-sal-duration="600">
             <img
               src="/images/icon-nuclear.svg"
               loading="lazy"
@@ -129,7 +129,7 @@ layout: base.html
               class="sector-icon">
             <p class="heading-4">Civil Nuclear</p>
           </li>
-          <li class="sectors__item">
+          <li class="sectors__item" data-sal="slide-up" data-sal-duration="600">
             <img
               src="/images/icon-wind.svg"
               loading="lazy"
@@ -138,7 +138,7 @@ layout: base.html
               class="sector-icon">
             <p class="heading-4">Renewables</p>
           </li>
-          <li class="sectors__item">
+          <li class="sectors__item" data-sal="slide-up" data-sal-duration="600">
             <img
               src="/images/icon-manufacturing.svg"
               loading="lazy"
@@ -147,7 +147,7 @@ layout: base.html
               class="sector-icon">
             <p class="heading-4">Manufacturing</p>
           </li>
-          <li class="sectors__item">
+          <li class="sectors__item" data-sal="slide-up" data-sal-duration="600">
             <img
               src="/images/icon-buildings.svg"
               loading="lazy"
@@ -156,7 +156,7 @@ layout: base.html
               class="sector-icon">
             <p class="heading-4">Utilities</p>
           </li>
-          <li class="sectors__item">
+          <li class="sectors__item" data-sal="slide-up" data-sal-duration="600">
             <img
               src="/images/icon-water.svg"
               loading="lazy"
@@ -177,7 +177,7 @@ layout: base.html
 </section>
 <div class="section">
   <div class="container">
-    <div class="humans__grid">
+    <div class="humans__grid" data-sal="slide-up" data-sal-duration="600">
       <div class="humans__img-wrapper">
       <img
         src="/images/becca-and-joe_900.jpg"
@@ -196,7 +196,7 @@ layout: base.html
 </div>
 <section class="section grey">
   <div class="container container--sm">
-    <div class="humans__grid">
+    <div class="humans__grid" data-sal="slide-up" data-sal-duration="600">
       <h2 class="heading-3">Meet the humans behind the AI</h2>
       <div>
         <p>Our people have worked on some of the most challenging projects across the renewable energy, civil nuclear and manufacturing sectors.</p>

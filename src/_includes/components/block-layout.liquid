@@ -4,7 +4,7 @@
       <div class="block-layout__row {% if textPlacement != "right" %}block-layout__row--reverse{% endif %}" >
         {% capture imgUrl %}{% sanityImageUrl content.image %}{% endcapture %}
 
-          <div data-sal="slide-up" data-sal-duration="500" class="block-layout__img-wrapper">
+          <div data-sal="slide-up" data-sal-duration="500" data-sal-delay="100" class="block-layout__img-wrapper">
             {% image imgUrl, content.image.altText %}
           </div>
 

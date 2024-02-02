@@ -29,7 +29,7 @@ eleventyComputed:
     
         {% if content._type == 'blockContent' %}
         <div class="section wf-section">
-            <article class="wrapper flow paragraph">
+            <article class="wrapper flow paragraph" data-sal="slide-up" data-sal-duration="600">
                 {% portableText content.content %}
             </article>
         </div>
@@ -71,7 +71,7 @@ eleventyComputed:
                 {% assign people = content.people %}
             {% endif %}
     
-            <section class="">
+            <section>
                 <div class="wrapper flow">
                 {% if content.sectionTitle %}
                 {% include 'components/sectionHeading.liquid' %}
@@ -83,7 +83,7 @@ eleventyComputed:
         {% endif %}
     
     {% if content._type == 'stackedTabs' %}
-        <section class="">
+        <section>
         <div class="wrapper flow">
             {% assign tabs = content.tabs %}
             {% assign sectionTitle = content.title %}
@@ -151,7 +151,7 @@ eleventyComputed:
             {% endif %}
             <section class="" data-narrow>
                 <div class="wrapper">
-                <div class="flex-row content-col">
+                <div class="flex-row content-col" data-sal="slide-up" data-sal-duration="600">
                     <div class="content flow">
                         <h2>Join our team</h2>
                         <p>Join us as we continue to drive down the cost of clean energy with AI applications.</p>
@@ -233,7 +233,7 @@ eleventyComputed:
         {% if content._type == 'caseStudies' %}
         <div class="section blue">
             <div class="container">
-                <h2 class="heading-3 section__heading">{{ content.title | default: "Our work" }}</h2>
+                <h2 class="heading-3 section__heading" data-sal="slide-up" data-sal-duration="600">{{ content.title | default: "Our work" }}</h2>
                 {% unless content.showLatest %}
                     {% assign caseStudyList = content.caseStudies %}
                 {% endunless %}

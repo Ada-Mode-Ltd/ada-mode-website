@@ -4,6 +4,9 @@ import accordion from './modules/accordion.js'
 
 window.addEventListener('DOMContentLoaded', () => {
   menu()
-  sal()
+  sal({
+    threshold: 0.01,
+    rootMargin: '0% 0px -10% 0px',
+  })
   accordion()
 })

@@ -26,7 +26,7 @@ eleventyComputed:
 
 <section id="page-heading" class="section hero hero--page hero--case-study blue">
   <div class="container">  
-    <div class="hero__title">
+    <div class="hero__title"  data-sal="slide-up" data-sal-duration="600">
       <p class="preheading hero__preheading">
         {% assign category = case.categories | first %}
         <span>{{ category.title }}</span>
@@ -36,11 +36,11 @@ eleventyComputed:
     </div>
   </div>
   <div class="hero__split">
-    <div class="hero__split__content">
+    <div class="hero__split__content" data-sal="slide-up" data-sal-duration="600" data-sal-delay="100">
       <h2 class="heading-3 hero__byline">{{ case.byline }}</h2>
       <p>{{ case.intro }}</p>
     </div>
-    <div class="hero__img-wrapper">
+    <div class="hero__img-wrapper" data-sal="slide-up" data-sal-duration="600" data-sal-delay="200">
       {% if case.mainImage.asset %}
         {% capture imgUrl %}
             {% sanityImageUrl case.mainImage %}

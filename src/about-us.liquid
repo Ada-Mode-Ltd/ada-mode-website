@@ -6,11 +6,11 @@ description: AI and data driven solutions by engineers, for engineers.
 
 <section id="page-heading" class="section hero hero--page">
   <div class="container {{ textAlign }}">  
-    <div class="hero__title heading-1">
+    <div class="hero__title heading-1" data-sal="slide-up" data-sal-duration="600">
       <h1>{{ description }}</h1>
     </div>
   </div>
-  <div class="offset-image">
+  <div class="offset-image" data-sal="slide-up" data-sal-duration="600">
     <div class="offset-image__img-wrapper">
       <img src="/images/nick-conor_1200.jpg" srcset="/images/nick-conor_1500.jpg 1500w, /images/nick-conor_1200.jpg 1200w, /images/nick-conor_900.jpg 900w, /images/nick-conor_600.jpg 600w" sizes="75vw" alt="Two members of the Ada Mode team in front of a large window">
     </div>
@@ -19,8 +19,7 @@ description: AI and data driven solutions by engineers, for engineers.
 
 <div class="section grey">
   <div class="container container--sm">
-    <div class="w-layout-grid _2-collum-grid" data-sal="slide-up"
-      data-sal-delay="100" data-sal-duration="600">
+    <div class="w-layout-grid _2-collum-grid" data-sal="slide-up" data-sal-duration="600">
       <h2>Our mission</h2>
       <p>To improve the performance of complex industrial processes through artificial
         intelligence, data science, engineering expertise and design thinking.</p>
@@ -30,9 +29,9 @@ description: AI and data driven solutions by engineers, for engineers.
 
 <div class="section blue">
   <div class="container">
-    <h2 class="section__heading">What makes us different?</h2>
+    <h2 class="section__heading" data-sal="slide-up" data-sal-duration="600">What makes us different?</h2>
     <ul class="about__difference-list" data-duration-in="300" data-duration-out="100" data-easing="ease">
-      <li class="about__difference-item">
+      <li class="about__difference-item" data-sal="slide-up" data-sal-duration="600">
         <h3>We focus on multivariate, <br>complex operational problems</h3>
         <p>We like to work on problems that are multi-faceted and have complicated
           interactions between people, technology and plant operations. This is where we believe the power of AI can
@@ -40,19 +39,19 @@ description: AI and data driven solutions by engineers, for engineers.
           industries and understand the day-to-day limitations and hurdles that operators face. Our solutions are
           developed by engineers, for engineers.</p>
       </li>
-      <li class="about__difference-item">
+      <li class="about__difference-item" data-sal="slide-up" data-sal-duration="600">
         <h3>Big impact results</h3>
         <p>We deliver a step change in performance which is sustainable and manageable
           in-house once we leave.</p>
       </li>
-      <li class="about__difference-item">
+      <li class="about__difference-item" data-sal="slide-up" data-sal-duration="600">
         <h3>Rapid benefit delivery focused on the user</h3>
         <p>We solve problems through machine learning and advanced data science. This means we
           can develop solutions quickly and efficiently, with full scalability across multiple applications or sites.
           In turn, this helps to realise the operational benefits much faster. We develop our solutions with the
           end-user at heart. Design thinking is central to our methodology and ensures longevity of every project.</p>
       </li>
-      <li class="about__difference-item">
+      <li class="about__difference-item" data-sal="slide-up" data-sal-duration="600">
         <h3>Challenge traditional approaches</h3>
         <p>We recognise that AI and machine learning are not the answer to all industrial
           problems. However, these technologies can complement traditional approaches, delivering better results in
@@ -69,27 +68,28 @@ description: AI and data driven solutions by engineers, for engineers.
         engineers, natural scientists, data scientists and designers. Our people have worked on some of the most
         challenging projects across the renewable energy, civil nuclear and manufacturing sectors.</p>
     </div>
-    <div class="w-layout-grid team-grid">
+    <ul class="w-layout-grid team-grid">
       {% assign people = allPeople %}
       {% for person in people %}
       {% capture imgUrl %}
       {% sanityImageUrl person.photo %}
       {% endcapture %}
-      <div class="w-layout-grid team-grid-content">
+      {% assign delay = forloop.index | times: 50 %}
+      <li class="w-layout-grid team-grid-content" data-sal="slide-up" data-sal-duration="600" data-sal-delay="{{ delay }}">
         <div>{% image imgUrl, '' %}</div>
         <div>
-          <div class="_10-pad-div-block">
-            <h3 class="heading-5">{{ person.name }}</h3>
-          </div>
-          <div class="text-block-5">{{ person.position}}</div>
+          <h3 class="heading-5">{{ person.name }}</h3>
+          {% if person.position %}
+            <p class="text-block-5">{{ person.position}}</p>
+          {% endif  %}
         </div>
-      </div>
+      </li>
       {% endfor %}
-    </div>
+    </ul>
   </div>
 </div>
 <div class="section section--overlap">
-  <div class="offset-image offset-image--left">
+  <div class="offset-image offset-image--left" data-sal="slide-up" data-sal-duration="600">
     <div class="offset-image__img-wrapper">
       <img src="/images/nick_1200.jpg" srcset="/images/nick_1600.jpg 1600w, /images/nick_1200.jpg 1200w, /images/nick_900.jpg 900w, /images/nick_600.jpg 600w" sizes="75vw" alt="A member of the Ada Mode team at a desk with laptop in view">
     </div>
@@ -142,15 +142,15 @@ description: AI and data driven solutions by engineers, for engineers.
 </div>
 <div class="section grey">
   <div class="container">
-    <h2 class="section__heading" data-sal="slide-up">Our History</h2>
+    <h2 class="section__heading" data-sal="slide-up" data-sal-duration="600">Our History</h2>
     <p class="section__subheading" data-sal-duration="600" data-sal-delay="200">Ada Mode’s founders wanted to set up a
       company that would challenge the archetype.</p>
   </div>
   <div class="history__grid">
-    <div class="history__image">
+    <div class="history__image" data-sal="slide-up" data-sal-duration="600">
       <img src="/images/conor-michelle_1200.jpg" srcset="/images/conor-michelle_1200.jpg 1200w, /images/conor-michelle_900.jpg 900w, /images/conor-michelle_600.jpg 600w" sizes="75vw" alt="A male and female memeber of the Ada Mode team smiling at something on a computer">
     </div>
-    <div class="history__content">
+    <div class="history__content" data-sal="slide-up" data-sal-duration="600" data-sal-delay="200">
       <p>A progressive, positive company driven curiosity and creativity. Fuelled by a desire to
           challenge the traditional, we want to grow a team who share our core values and aspire industry better.</p>
       <p>Driven by a need to disrupt traditional scientific and technical service providers, they
@@ -162,52 +162,3 @@ description: AI and data driven solutions by engineers, for engineers.
 </div>
 
 {% include 'components/blog-posts.liquid' %}
-{% comment %} <div class="section wf-section">
-  <div class="large-container w-container">
-    <div class="_60-pad-div-block">
-      <h3 class="heading-3">Recent blog posts</h3>
-    </div>
-    <div class="w-dyn-list">
-      <ul role="list" class="collection-list w-dyn-items">
-        {% for post in allPosts.data limit:3 %}
-        {% if post.mainImage.asset %}
-        {% capture imgUrl %}
-        {% sanityImageUrl post.mainImage %}
-        {% endcapture %}
-        {% else %}
-        {% capture imgUrl %}
-        {% sanityImageUrl site.blogFallbackImage %}
-        {% endcapture %}
-        {% endif %}
-        <li id="w-node-c49082f0-865f-00a1-a627-0e89ebad9e4b-e4fd2b7f" role="listitem"
-          class="collection-item-6 w-dyn-item">
-          <a href="/blog/{{post.slug.current}}" class="link-block w-inline-block">
-            <div class="w-layout-grid recent-blog-grid">
-              <div id="w-node-c49082f0-865f-00a1-a627-0e89ebad9e4e-e4fd2b7f" class="blog-post-image-div">{% image
-                imgUrl, '' %}</div>
-              <div class="blog-category-div">
-                {% assign category = post.categories | first %}
-                <div class="small-green-sub-heading">{{ category.title }}</div>
-                <div class="div-block-6">
-                  <div class="small-grey-sub-heading">|</div>
-                </div>
-                <div class="small-grey-sub-heading">{{ post.publishedAt | date: "%B %d, %Y" }}</div>
-              </div>
-              <div class="_20-pad-div-block">
-                <h4 class="heading-4">{{ post.title }}</h4>
-              </div>
-            </div>
-          </a>
-          <div class="div-block-144">
-            <a href="/blog/{{post.slug.current}}" class="green-outline-button w-button">Read more</a>
-          </div>
-        </li>
-        {% else %}
-        <div class="w-dyn-empty">
-          <div>No items found.</div>
-        </div>
-        {% endfor %}
-      </ul>
-    </div>
-  </div>
-</div> {% endcomment %}

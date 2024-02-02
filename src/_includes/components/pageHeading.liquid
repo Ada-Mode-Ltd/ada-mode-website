@@ -5,7 +5,7 @@
 {% endif %}
 
 <section id="page-heading" class="section hero hero--page">
-  <div class="container {{ textAlign }}">
+  <div class="container {{ textAlign }}" data-sal="slide-up" data-sal-duration="600">
     {% if content.logo %}
         <div class="div-block-77">
           {% capture imgUrl %}{% sanityImageUrl content.logo %}{% endcapture %}
@@ -21,7 +21,7 @@
     {% endif %}   
   </div>
   {% if content.keyVisual %}    
-    <div class="offset-image">
+    <div class="offset-image" data-sal="slide-up" data-sal-duration="600">
       {% for image in content.keyVisual %}
         {% capture imgUrl %}{% sanityImageUrl image %}{% endcapture %}
         <div class="offset-image__img-wrapper">

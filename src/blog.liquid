@@ -6,16 +6,16 @@ description: Read our latest views on industry, technology and everything else h
 
 <section id="page-heading" class="section hero hero--page">
   <div class="container">  
-    <div class="hero__title heading-1">
+    <div class="hero__title heading-1" data-sal="slide-up" data-sal-duration="600">
       <h1>Expert insights into AI, ML and Digital Twin technology for industry</h1>
     </div>
-    <p class="subheading hero__subheading">Subscribe to our mailing list for regular updates on AI, ML and digital twin technology here</p>
+    <p class="subheading hero__subheading" data-sal="slide-up" data-sal-duration="600" data-sal-delay="200">Subscribe to our mailing list for regular updates on AI, ML and digital twin technology here</p>
   </div>
 </section>
  
   <div class="section no-top-padding">
     <div class="container container--lg">
-      <nav class="category-nav" aria-label="Post categories">
+      <nav class="category-nav" aria-label="Post categories" data-sal="slide-up" data-sal-duration="600">
         <p>Filter:</p>
         <ul class="category-nav__list">
           <li><button data-active data-btn>All posts</button></li>
@@ -35,7 +35,7 @@ description: Read our latest views on industry, technology and everything else h
             {%- endcapture -%}
 
             <li
-              class="collection__item" data-item data-category="{{ categories }}">
+              class="collection__item" data-item data-category="{{ categories }}" data-sal="slide-up" data-sal-duration="600">
               <div class="collection__img-wrapper">
                 {% if post.mainImage.asset %}
                   {% capture imgUrl %}
