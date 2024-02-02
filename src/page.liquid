@@ -247,7 +247,7 @@ eleventyComputed:
             <div class="section blue">
                 <div class="container">
                     <h2 class="section__heading">{{ content.title }}</h2>
-                    <div class="faq" data-component="accordion">
+                    <div class="faq" data-component="accordion" data-sal="slide-up" data-sal-duration="600">
                         {% for item in content.list %}
                             {% assign id = item.title | split: " " | join: "_" %}
                             <div data-item>

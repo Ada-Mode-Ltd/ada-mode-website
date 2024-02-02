@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', () => {
   menu()
   sal({
     threshold: 0.01,
-    rootMargin: '0% 0px -10% 0px',
+    rootMargin: '0% 0px -5% 0px',
   })
   accordion()
 })

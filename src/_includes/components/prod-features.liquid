@@ -28,7 +28,7 @@
                 {% capture imgUrl %}
                     {% sanityImageUrl featureImage %}
                 {% endcapture %}
-                <div class="atlas-features__item">
+                <div class="atlas-features__item" data-sal="slide-up" data-sal-duration="600">
                   <div class="atlas-features-icon">{% image imgUrl, featureImage.altText %}</div>
                   <div class="atlas-features__heading">{% portableText featureTitle %}</div>
                   <div>{% portableText featureText %}</div>
@@ -66,7 +66,7 @@
                         {% capture imgUrl %}
                             {% sanityImageUrl featureImage %}
                         {% endcapture %}
-                        <div>
+                        <div data-sal="slide-up" data-sal-duration="600">
                             <h2 class="heading-3">{% portableText featureTitle %}</h2>
                             <div>{% portableText featureText %}</div>
                             <div class="atlas-features__image">{% image imgUrl, featureImage.altText %}</div>
@@ -105,7 +105,7 @@
                         {% sanityImageUrl featureImage %}
                     {% endcapture %}
 
-        <div class="w-layout-grid atlas-features-grids-2">
+        <div class="w-layout-grid atlas-features-grids-2" data-sal="slide-up" data-sal-duration="600">
             <div class="atlas-features-icon">{% image imgUrl, featureImage.altText %}</div>
             <div class="heading-4">{% portableText featureTitle %}</div>
           <div class="paragraph">{% portableText featureText %}</div>
