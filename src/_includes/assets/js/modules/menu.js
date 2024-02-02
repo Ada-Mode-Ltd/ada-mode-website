@@ -1,8 +1,6 @@
 const menu = () => {
   const el = document.querySelector('[data-component="menu"]')
-  const menuItems = [...el.querySelectorAll('[data-menu-link]')]
   const menuButton = el.querySelector('[data-menu-button="main"]')
-  const dropdownButtons = [...el.querySelectorAll('[data-dropdown-button]')]
   const dropdownContentAreas = [...el.querySelectorAll('[data-menu-dropdown]')]
   const content = el.querySelector('[data-menu-content]')
   const header = document.querySelector('.navbar')

@@ -22,7 +22,7 @@
             </button>
             <nav class="dropdown-list w-dropdown-list" data-menu-dropdown id="menu_{{ item.dropdownTitle }}">
               {% for child in item.children %}
-              <a href="/{{ child.slug }}/" class="nav-dropdown-link w-dropdown-link">{{ child.title }}</a>
+              <a href="/{{ child.slug }}/" class="nav-dropdown-link">{{ child.title }}</a>
               {% endfor %}
             </nav>
           </div>
@@ -34,9 +34,9 @@
             <div class="icon w-icon-dropdown-toggle"></div>
           </button>
           <nav class="dropdown-list" data-menu-dropdown id="menu_about">
-            <a href="/about-us/" class="nav-dropdown-link w-dropdown-link">About us</a>
-            <a href="/case-studies/" class="nav-dropdown-link w-dropdown-link">Case studies</a>
-            <a href="/careers/" class="nav-dropdown-link w-dropdown-link">Careers</a>
+            <a href="/about-us/" class="nav-dropdown-link">About us</a>
+            <a href="/case-studies/" class="nav-dropdown-link">Case studies</a>
+            <a href="/careers/" class="nav-dropdown-link">Careers</a>
           </nav>
         </div>
 
