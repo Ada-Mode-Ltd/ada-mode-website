@@ -1,0 +1,27 @@
+.humans__grid {
+  display: grid;
+  gap: var(--space-s-l);
+}
+
+.humans__button {
+  margin-top: var(--space-m);
+}
+
+.humans__img-wrapper img {
+  border-radius: 0.4rem;
+  overflow: hidden;
+}
+
+.humans__heading {
+  margin-bottom: var(--space-s);
+}
+
+@media (min-width: 992px) {
+  .humans__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .humans__img-wrapper {
+    padding-right: var(--space-xl);
+  }
+}

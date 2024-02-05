@@ -3,108 +3,79 @@ layout: base.html
 title: Ada Mode Blog
 description: Read our latest views on industry, technology and everything else here.
 ---
-  <section id="page-heading" class="section wf-section">
-  <div class="">
-    <div class="large-container w-container">
-      <div data-w-id="6fb4f742-e765-093c-0bd3-be1c3a12b67a" class="hero-content-div-block">
-        <div class="_40-pad-div-block">
-          <h1 class="heading-1"><strong>Expert insights into AI, ML and Digital Twin technology for industry</strong></h1>
-        </div>
-        <h2 class="heading-5">Subscribe to our mailing list for regular updates on AI, ML and digital twin technology here</h2>
-      </div>
+
+<section id="page-heading" class="section hero hero--page">
+  <div class="container">  
+    <div class="hero__title heading-1" data-sal="slide-up" data-sal-duration="600">
+      <h1>Expert insights into AI, ML and Digital Twin technology for industry</h1>
     </div>
   </div>
-  </section>  
-  <div class="section no-top-padding no-bottom-padding wf-section">
-    <div class="_90vw-container w-container">
-      <div class="category-nav" role="navigation" aria-label="Post categories">
-        <div class="large-container">
-            <ul class="flex-row" data-justify="start">
-                <li class="paragraph"><b>Filter: </b></li>
-                <li><button data-active class="paragraph" >All posts</button></li>
-                {% for category in allPosts.categories %}
-                    <li><button class="paragraph">{{ category }}</button></li>
-                {% endfor %}
-            </ul>
-        </div>
-        </div>
-      <div class="w-layout-grid blog-post-page-grid">
-        <div id="w-node-e272b7f5-b09a-5866-b965-eaf02a097450-1c9d9963" class="collection-list-wrapper w-dyn-list">
-          <ul role="list" class="blog-post-page-collection-list">
-            {% for post in allPosts.data %}
-              {%- capture categories -%}
-                {%- for cat in post.categories -%}
-                    {{cat.title}},
-                {%- endfor -%}
+</section>
+ 
+  <div class="section no-top-padding">
+    <div class="container container--lg">
+      <nav class="category-nav" aria-label="Post categories" data-sal="slide-up" data-sal-duration="600">
+        <p>Filter:</p>
+        <ul class="category-nav__list">
+          <li><button data-active data-btn>All posts</button></li>
+
+          {% for category in allPosts.categories %}
+            <li><button data-btn>{{ category }}</button></li>
+          {% endfor %}
+        </ul>
+      </nav>
+      <div data-wrapper>
+        <ul role="list" class="collection__list">
+          {% for post in allPosts.data %}
+            {%- capture categories -%}
+              {%- for cat in post.categories -%}
+                  {{cat.title}},
+              {%- endfor -%}
             {%- endcapture -%}
-              <li role="listitem" class="collection-list-item"  data-category="{{ categories }}">
-              <a href="/blog/{{post.slug.current}}" class="blog-post-image-link-block w-inline-block">
-              {% if post.mainImage.asset %}
-                {% capture imgUrl %}
-                    {% sanityImageUrl post.mainImage %}
-                {% endcapture %}
-                {% image imgUrl, post.mainImage.altText %}
-                {% else %}
-           {% capture imgUrl %}
-                    {% sanityImageUrl site.blogFallbackImage %}
-                {% endcapture %}
-                {% image imgUrl, '' %}
-              {% endif %}
-              </a>
-              <div class="post-content-div">
-                <div class="_20-pad-div-block _2">
-                  <div>
-                    {% assign category = post.categories | first %}
-                    <div class="text-block-7">{{ category.title }}</div>
-                  </div>
-                  <div class="div-block-50">
-                    <div class="small-grey-sub-heading">|</div>
-                  </div>
-                  <div>
-                    <div class="small-grey-sub-heading">{{ post.publishedAt | date: "%B %d, %Y" }}</div>
-                  </div>
-                </div>
-                <a href="/blog/{{post.slug.current}}" class="_20-pad-div-block w-inline-block">
-                  <h3 class="heading-4">{{ post.title }}</h3>
-                </a>
-                <div class="_40-pad-div-block">
-                  <p class="paragraph">{{ post.blurb  }}</p>
-                </div>
-                <div class="div-block-143">
-                  <a href="/blog/{{post.slug.current}}" class="green-outline-button w-button"><span>Learn more   →</span></a>
-                </div>
+
+            <li
+              class="collection__item" data-item data-category="{{ categories }}" data-sal="slide-up" data-sal-duration="600">
+              <div class="collection__img-wrapper">
+                {% if post.mainImage.asset %}
+                  {% capture imgUrl %}
+                      {% sanityImageUrl post.mainImage %}
+                  {% endcapture %}
+                  {% image imgUrl, post.mainImage.altText %}
+                  {% else %}
+                  {% capture imgUrl %}
+                      {% sanityImageUrl site.blogFallbackImage %}
+                  {% endcapture %}
+                  {% image imgUrl, '' %}
+                {% endif %}
+              </div>
+              <div class="collection__item-content">
+                <p class="pretitle collection__pretitle">
+                  {% assign category = post.categories | first %}
+                  <span>{{ category.title }}</span>
+                  <span> | {{ post.publishedAt | date: "%B %d, %Y" }}</span>
+                </p>
+                <h4 class="collection__post-heading">
+                  <a href="/blog/{{post.slug.current}}" class="collection__link">{{ post.title }}</a>
+                </h4>
+                <a href="/blog/{{post.slug.current}}" aria-hidden class="collection__item-button am-button am-button--sm am-button--green-outline">Read more</a>
               </div>
             </li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="subscribe-div-mobile">
-      <div class="subscribe-to-newsletter-form mobile w-form">
-        <div class="_20-pad-div-block">
-          <h4>Subscribe to our newsletter</h4>
-        </div>
-        <form id="email-form" name="email-form" data-name="Email Form" method="get"><input type="email" class="text-field-2 w-input" maxlength="256" name="email-2" data-name="Email 2" placeholder="" id="email-2" required=""><input type="submit" value="Submit" data-wait="Please wait..." class="green-button w-button"></form>
-        <div class="w-form-done">
-          <div>Thank you! Your submission has been received!</div>
-        </div>
-        <div class="w-form-fail">
-          <div>Oops! Something went wrong while submitting the form.</div>
-        </div>
+          {% endfor %}
+        </ul>
       </div>
     </div>
   </div>
   
   <script type="module">
     const categoryNav = document.querySelector('.category-nav');
-    const categoryButtons = categoryNav.querySelectorAll('button');
-    const posts = document.querySelectorAll('ul.blog-post-page-collection-list li.collection-list-item');
-    const section = document.querySelector('.category-nav > .wrapper');
+    const categoryButtons = categoryNav.querySelectorAll('[data-btn]');
+    const posts = document.querySelectorAll('[data-item]');
+    const section = document.querySelector('[data-wrapper]');
     const categoryTags = document.querySelectorAll('[data-category-filter]');
 
     categoryButtons.forEach(button => {
         button.addEventListener('click', () => {
+          console.log(button)
             categoryButtons.forEach(button => button.removeAttribute('data-active'));
             button.setAttribute('data-active', '');
             const category = button.textContent;

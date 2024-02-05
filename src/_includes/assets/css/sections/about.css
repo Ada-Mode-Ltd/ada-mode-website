@@ -1,0 +1,41 @@
+.about__difference-list {
+  list-style: none;
+  padding: 0 0 0 2rem;
+  position: relative;
+}
+
+.about__difference-list::before {
+  position: absolute;
+  content: '';
+  height: calc(100% + var(--space-3xl));
+  border-left: 1px solid var(--am-green-dark);
+  top: 0;
+  left: 0;
+}
+
+.about__difference-list > * + * {
+  margin-top: var(--space-s-l);
+}
+
+.about__difference-item h3 {
+  margin-bottom: var(--space-s);
+}
+
+.about__difference-item {
+  max-width: 70ch;
+}
+
+@media (min-width: 600px) {
+  .about__difference-list {
+    padding-left: 20%;
+    margin-top: var(--space-2xl);
+  }
+
+  .about__difference-list > * + * {
+    margin-top: var(--space-xl);
+  }
+
+  .about__difference-list::before {
+    left: 10%;
+  }
+}

@@ -1,0 +1,35 @@
+.section--overlap .offset-image {
+  margin-top: calc(var(--space-3xl) * -1);
+}
+
+.offset-image {
+  display: flex;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.offset-image__img-wrapper {
+  width: 75vw;
+  aspect-ratio: 2 / 1;
+  position: relative;
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+.offset-image__img-wrapper img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  border-radius: 0.4rem 0 0 0.4rem;
+}
+
+.offset-image--left .offset-image__img-wrapper {
+  margin-left: 0;
+}
+
+.offset-image--left .offset-image__img-wrapper img {
+  border-radius: 0 0.4rem 0.4rem 0;
+}

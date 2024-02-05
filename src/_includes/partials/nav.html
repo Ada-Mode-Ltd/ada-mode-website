@@ -1,7 +1,10 @@
-<div data-collapse="medium" data-animation="default" data-duration="400" data-w-id="a2b82e4e-c64b-beba-6a75-501c3a9c6235" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
-    <div class="nav-bar-container w-container">
-      <a href="/" aria-current="page" class="brand w-nav-brand w--current"><img src="/images/ada-mode-logo---dark-wire-horizontal-logo.svg" loading="lazy" width="150" alt="Ada Mode logo"></a>
-      <nav role="navigation" class="nav-menu w-nav-menu">
+<div class="navbar" data-component="menu">
+    <div class="nav-bar-container">
+      <a href="/" aria-current="page" class="brand"><img src="/images/ada-mode-logo---dark-wire-horizontal-logo.svg" loading="lazy" width="150" alt="Ada Mode logo"></a>
+      <button class="menu-button" data-menu-button="main">
+        <div class="icon-2 w-icon-nav-menu"></div>
+      </button>
+      <nav role="navigation" class="nav-menu" data-menu-content hidden>
         
         {% for item in site.topMenu %}
           {% if item.page %}
@@ -10,41 +13,35 @@
           {% else %}
             {% assign pageMenuTitle = item.page.title %}
           {% endif %}
-          <a href="/{{ item.page.slug.current }}/" class="nav-link w-nav-link">{{ pageMenuTitle }}</a>
+          <a href="/{{ item.page.slug.current }}/" class="nav-link w-nav-link" data-menu-link>{{ pageMenuTitle }}</a>
           {% else %}
           <div data-hover="false" data-delay="0" class="dropdown w-dropdown">
-            <div class="nav-link w-dropdown-toggle">
-              <div class="icon w-icon-dropdown-toggle"></div>
+            <button class="nav-link w-nav-link nav-link--dropdown" data-dropdown-button="menu_{{ item.dropdownTitle }}">
               <div class="text-block-14">{{ item.dropdownTitle }}</div>
-            </div>
-            <nav class="dropdown-list w-dropdown-list">
+              <div class="icon w-icon-dropdown-toggle"></div>
+            </button>
+            <nav class="dropdown-list w-dropdown-list" data-menu-dropdown id="menu_{{ item.dropdownTitle }}">
               {% for child in item.children %}
-              <a href="/{{ child.slug }}/" class="nav-dropdown-link w-dropdown-link">{{ child.title }}</a>
+              <a href="/{{ child.slug }}/" class="nav-dropdown-link">{{ child.title }}</a>
               {% endfor %}
             </nav>
           </div>
             {% endif %}
         {% endfor %}
         <div data-hover="false" data-delay="0" class="dropdown w-dropdown">
-          <div class="nav-link w-dropdown-toggle">
-            <div class="icon w-icon-dropdown-toggle"></div>
+          <button class="nav-link w-nav-link nav-link--dropdown" data-dropdown-button="menu_about">
             <div class="text-block-14">About</div>
-          </div>
-          <nav class="dropdown-list w-dropdown-list">
-            <a href="/about-us/" class="nav-dropdown-link w-dropdown-link">About us</a>
-            <a href="/case-studies/" class="nav-dropdown-link w-dropdown-link">Case studies</a>
-            <a href="/careers/" class="nav-dropdown-link w-dropdown-link">Careers</a>
+            <div class="icon w-icon-dropdown-toggle"></div>
+          </button>
+          <nav class="dropdown-list" data-menu-dropdown id="menu_about">
+            <a href="/about-us/" class="nav-dropdown-link">About us</a>
+            <a href="/case-studies/" class="nav-dropdown-link">Case studies</a>
+            <a href="/careers/" class="nav-dropdown-link">Careers</a>
           </nav>
         </div>
 
         <a href="/blog/" class="nav-link w-nav-link">Blog</a>
         <a href="/contact-us/" class="nav-link w-nav-link">Contact</a>
       </nav>
-      <div class="menu-button w-nav-button">
-        <div class="icon-2 w-icon-nav-menu"></div>
-      </div>
     </div>
-  </div>
-  <div class="fab">
-    <a href="/contact-us/" class="fab-button w-button">Request Demo</a>
   </div>

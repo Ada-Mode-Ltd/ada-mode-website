@@ -5,382 +5,209 @@ layout: base.html
 {% assign id = eleventy.serverless.path.id %}
 
 {% if eleventy.serverless.path %}
-{% for hp in preview.homepage %}
+  {% for hp in preview.homepage %}
     {% if hp._id == id %}
-        {% assign homeContent = hp %}
-        {% break %}
+      {% assign homeContent = hp %}
+      {% break %}
     {% endif %}
-{% endfor %}
+  {% endfor %}
 {% else %}
-    {% assign homeContent = homepage %}
+  {% assign homeContent = homepage %}
 {% endif %}
-  
-  <div class="home-page-hero-section wf-section">
-    <div class="homepage-hero-content-div">
-      <div class="div-block-138">
-        <h1 class="hero-heading">The industrial AI company<br></h1>
-      </div>
-      <div class="div-block-134">
-        <h2 class="heading-10">Game-changing AI for machine health monitoring and industrial process optimisation</h2>
-      </div>
-      <div class="div-block-135">
-        <a href="platform.html" class="green-button w-button">Learn more</a>
-      </div>
-    </div>
-    <div class="video-colour-overlay"></div>
-    <div data-poster-url="https://uploads-ssl.webflow.com/60ab68115056b0b8490b77f0/60d5dc95a725949d946a2e24_Home Page 2 ‐ Made with Clipchamp (1)-poster-00001.jpg" data-video-urls="https://uploads-ssl.webflow.com/60ab68115056b0b8490b77f0/60d5dc95a725949d946a2e24_Home Page 2 ‐ Made with Clipchamp (1)-transcode.mp4,https://uploads-ssl.webflow.com/60ab68115056b0b8490b77f0/60d5dc95a725949d946a2e24_Home Page 2 ‐ Made with Clipchamp (1)-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="background-video w-background-video w-background-video-atom"><video id="aeeaf313-6605-14db-fabb-657e852f1897-video" autoplay="" loop="" poster="https://uploads-ssl.webflow.com/60ab68115056b0b8490b77f0/60d5dc95a725949d946a2e24_Home Page 2 ‐ Made with Clipchamp (1)-poster-00001.jpg" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
-        <source src="https://uploads-ssl.webflow.com/60ab68115056b0b8490b77f0/60d5dc95a725949d946a2e24_Home Page 2 ‐ Made with Clipchamp (1)-transcode.mp4" data-wf-ignore="true">
-        <source src="https://uploads-ssl.webflow.com/60ab68115056b0b8490b77f0/60d5dc95a725949d946a2e24_Home Page 2 ‐ Made with Clipchamp (1)-transcode.webm" data-wf-ignore="true">
-      </video></div>
+
+<section class="home-page-hero-section">
+
+  <div class="hero__svg-container">
+    {% include 'components/hero-svg.liquid' %}
   </div>
-  <script>
-    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection || {};
-    const video = document.getElementsByTagName("video")[0];
-    const getDeviceType = () => {
-  const ua = navigator.userAgent;
-  if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
-    return "tablet";
-  }
-  if (
-    /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
-      ua
-    )
-  ) {
-    return "mobile";
-  }
-  return "desktop";
-};
-    if (connection.effectiveType === '3g' || connection.effectiveType === '2g' || getDeviceType() === 'mobile') { // prevent loading resources and other data saving measures
-        video.removeAttribute("autoplay");
-    }
-</script>
-  <div class="section _100-vh wf-section">
-    <div data-w-id="9c3da80c-8e6e-975b-7188-1ee03d00cad8" class="container w-container">
-      <div style="" class="_20-pad-div-block">
-        <h2 class="heading-2">Cutting-edge AI for power generation, utilities and manufacturing</h2>
+
+  <div class="container">
+    <div class="homepage-hero__content">
+      <h1 class="heading-1 home-page-hero-section__heading" data-sal="slide-up" data-sal-duration="300">Industrial AI, data and automation</h1>
+      <p class="subheading home-page-hero-section__subheading" data-sal="slide-up" data-sal-duration="300" data-sal-delay="100">We help operators, OEMs and government bodies with AI adoption to drive industrial decarbonisation.</p>
+      <div class="homepage-hero__button-wrapper" data-sal="slide-up" data-sal-duration="300" data-sal-delay="200">
+        <a href="platform.html" class="am-button am-button--on-dark">Learn more</a>
       </div>
     </div>
   </div>
-  <div class="section blue no-top-padding wf-section">
-    <div class="w-layout-grid grid-20">
-      <div id="w-node-_5018ac33-cb08-321c-b336-b4af9c97fa31-0e0b77f1" class="div-block-26"></div>
-      <div id="w-node-_5f5e8f26-1165-dd2d-5e0d-57a04cb6c881-0e0b77f1" class="video-div-block">
-        <div class="clip-element">
-          <div class="w-embed w-iframe">
-            <style>
-  .embed-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-  }
-  .embed-container iframe,
-  .embed-container object,
-  .embed-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>
-            <div class="embed-container"><iframe src="https://player.vimeo.com/video/157467640?background=1" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe></div>
-          </div>
-          <div style="padding-top:56.17021276595745%" class="video w-video w-embed"><iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FyQyuWElE7_8%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DyQyuWElE7_8&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FyQyuWElE7_8%2Fhqdefault.jpg&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=youtube" scrolling="no" title="YouTube embed" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true"></iframe></div>
-        </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="heading-2 services__heading">What we do</h2>
+    <div class="services__grid">
+      <div class="services__grid-col" data-sal="slide-up" data-sal-duration="600">
+        <h3 class="heading-4">Consultancy</h3>
+        <ul class="services__list">
+          <li>AI Adoption</li>
+          <li>Industrial Data Engineering</li>
+          <li>Simulation, Modelling and System Design</li>
+          <li>Responsible AI</li>
+          <li>Autonomous Systems</li>
+        </ul>
+        <a href="/services" class="am-button services__button">Explore our services</a>
       </div>
-      <div id="w-node-cacd66f9-b557-a5e5-c820-0dac144fd08e-0e0b77f1" data-w-id="cacd66f9-b557-a5e5-c820-0dac144fd08e" class="div-block-27"><img src="/images/atlas-logo.svg" loading="lazy" width="60" style="" alt="Atlas platform logo" class="atlas-logo">
-        <div style="" class="_40-pad-div-block">
-          <h2 class="heading-2 white">Human-in-the-loop AI</h2>
-        </div>
-        <div style="" class="_60-pad-div-block">
-          <p class="heading-5 white">Ensuring people remain at the heart of digital transformation. Laser focused on the most challenging operational problems. Built using our Atlas platform, Ada Mode combine powerful AI with operator knowledge to reach new levels of up-time, output and waste reduction. </p>
-        </div>
-        <div style="" class="div-block-25">
-          <a href="contact-us.html" class="green-button w-button">Arrange a demo</a>
-        </div>
-      </div>
-    </div>
-    <div data-w-id="10516008-233b-11c8-982d-6f26e08eb98e" class="large-container w-container">
-      <div class="w-layout-grid atlas-pros-grid">
-        <div id="w-node-_34040fc9-b707-deb5-2c61-bd34e6c3791b-0e0b77f1" data-w-id="34040fc9-b707-deb5-2c61-bd34e6c3791b" style="" class="green-border-div-block">
-          <div class="w-layout-grid grid-59">
-            <div id="w-node-_169f46c0-79fe-ec70-b76a-93bd6f32ba35-0e0b77f1" class="div-block-100"><img src="/images/reduced-downtime-icon.svg" loading="lazy" width="50" alt="Reduced downtime icon" class="atlas-icons"></div>
-            <h3 class="heading-8 white">Reduce Downtime</h3>
-          </div>
-        </div>
-        <div data-w-id="4093bfa9-1351-709f-0256-84fe71a0169f" style="-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="green-border-div-block">
-          <div class="w-layout-grid grid-59">
-            <div id="w-node-_0406bb35-e249-b311-55d0-6acb7f9ee44c-0e0b77f1" class="div-block-100"><img src="/images/reduced-emissions-icon.svg" loading="lazy" width="50" alt="Reduced emissions icon" class="atlas-icons"></div>
-            <h3 class="heading-8 white">Reduce Emissions</h3>
-          </div>
-        </div>
-        <div data-w-id="5c8a4740-71e6-c5b1-6ea7-e7710e73a923" style="" class="green-border-div-block">
-          <div class="w-layout-grid grid-59">
-            <div id="w-node-_6694b8c0-2882-5c22-605c-c2ec586d489c-0e0b77f1" class="div-block-100"><img src="/images/increase-safety-icon.svg" loading="lazy" width="40" alt="Increased safety icon" class="atlas-icons"></div>
-            <h3 class="heading-8 white">Increase Safety</h3>
-          </div>
-        </div>
-        <div data-w-id="92c7266d-9f73-484b-e3ab-32bc55470148" style="" class="green-border-div-block">
-          <div class="w-layout-grid grid-59">
-            <div id="w-node-_2db48ba1-a556-1f7a-4874-0d9b21d57759-0e0b77f1" class="div-block-100"><img src="/images/optimise-maintenance-icon.svg" loading="lazy" width="55" alt="Optimise maintenance icon" class="atlas-icons"></div>
-            <h3 class="heading-8 white">Optimise Maintenance</h3>
-          </div>
-        </div>
-        <div id="w-node-_8b3132f0-43c7-3874-b712-05026bd57203-0e0b77f1" data-w-id="8b3132f0-43c7-3874-b712-05026bd57203" style="" class="green-border-div-block">
-          <div class="w-layout-grid grid-59">
-            <div id="w-node-f778a74c-117d-bab4-8776-89f6fa69d349-0e0b77f1" class="div-block-100"><img src="/images/reduce-energy-consumption-icon.svg" loading="lazy" width="50" alt="Reduced energy consumption icon" class="atlas-icons"></div>
-            <h3 class="heading-8 white">Reduce Energy Consumption</h3>
-          </div>
-        </div>
-      </div>
-      <div data-w-id="9d97dd72-be18-39fb-9a72-e19890bd56ad" style="" class="div-block-117">
-        <a href="platform.html" class="green-outline-button w-button">Learn more about Atlas</a>
+      <div class="services__grid-col" data-sal="slide-up" data-sal-duration="600" data-sal-delay="100">
+        <h3 class="heading-4">Application development</h3>
+        <ul class="services__list">
+          <li>Autonomous Systems</li>
+          <li>Energy Optimisation</li>
+          <li>Predictive Maintenance</li>
+          <li>LLM</li>
+        </ul>
+        <a href="/services" class="am-button services__button">Find out more</a>
       </div>
     </div>
   </div>
-  {% assign quote = homeContent.quote | first %}
-  {% include 'components/quote.liquid' %}
-  <div class="section blue wf-section">
-    <div class="large-container w-container">
-      <div data-w-id="cf2dce07-b886-67db-2560-25a371db6f5c" style="" class="_75--width-div">
-        <h2 class="heading-2 white"><strong>Combine human intelligence and contemporary AI for groundbreaking operational transformation </strong><br></h2>
+</section>
+
+{% if homeContent.partners.showAll %}
+  {% assign partners = allPartners %}
+{% else %}
+  {% assign partners = homeContent.partnerArray %}
+{% endif %}
+
+<section class="section no-top-padding" data-sal="slide-up" data-sal-duration="600">
+  <div class="container">
+    <h2 class="heading-2">{{ homeContent.partners.title }}</h2>
+    <div class="w-layout-grid client-logo-grid">
+      {% if partners.size > 0 %}
+        {% for partner in partners %}
+          {% capture imgUrl %}{% sanityImageUrl partner.logo %}{% endcapture %}
+          <div><img
+              src="{{ imgUrl  }}"
+              loading="lazy"
+              alt=""
+              class="client-logo" /></div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="section blue no-padding">
+  {% assign featureCaseStudies = homeContent.featuredCaseStudies %}
+  {% for case in featureCaseStudies %}
+    {% capture imgUrl %}{% sanityImageUrl case.mainImage %}{% endcapture %}
+    <div class="case-studies__grid">
+      <div class="case-studies__img-wrapper">
+        {% image imgUrl, '' %}
       </div>
-      {% assign smallCaseStudies = homeContent.smallCaseStudies %}
-      <div class="w-layout-grid _2-3-grid">
-        <div class="spacer-div"></div>
-        <div class="w-layout-grid use-case-study-grid">
-          {% for case in smallCaseStudies %}
-            <div class="use-study-div-block">
-              <p class="paragraph-2 wihte"><strong>{{ case.title }}</strong><br><br>{{ case.description }}</p>
-              <div class="view-case-study-button-div">
-                <a href="/case-studies/{{ case.caseStudy.slug.current }}/" class="underline-only-button w-button"><span>View case study   →</span></a>
-              </div>
-            </div>
-          {% endfor %}
-        </div>
+      <div class="case-studies__content" data-sal="slide-up" data-sal-duration="600">
+        <h2 class="case-studies__heading">
+          <span class="preheading">Case study</span>
+          <span class="heading-2">{{ case.title }}</span>
+        </h2>
+        <a href="/case-studies/{{case.slug.current}}" class="am-button am-button--sm am-button--green-outline">
+          <span>View case study →</span>
+        </a>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{% assign quote = homeContent.quote | first %}
+{% include 'components/quote.liquid' %}
+
+<section class="section blue">
+  <div class="container">
+    <div class="sectors__grid">
+      <div data-sal="slide-up" data-sal-duration="600">
+        <h2 class="heading-2">Sectors we work in</h2>
+        <a
+          href="industries.html"
+          class="sectors__button sectors__button--top am-button am-button--green-outline">
+          <span>Learn more  →</span>
+        </a>
+      </div>
+      <div>
+        <ul class="sectors__list">
+          <li class="sectors__item" data-sal="slide-up" data-sal-duration="600">
+            <img
+              src="/images/icon-nuclear.svg"
+              loading="lazy"
+              width="45"
+              alt=""
+              class="sector-icon">
+            <p class="heading-4">Civil Nuclear</p>
+          </li>
+          <li class="sectors__item" data-sal="slide-up" data-sal-duration="600">
+            <img
+              src="/images/icon-wind.svg"
+              loading="lazy"
+              width="45"
+              alt=""
+              class="sector-icon">
+            <p class="heading-4">Renewables</p>
+          </li>
+          <li class="sectors__item" data-sal="slide-up" data-sal-duration="600">
+            <img
+              src="/images/icon-manufacturing.svg"
+              loading="lazy"
+              width="45"
+              alt=""
+              class="sector-icon">
+            <p class="heading-4">Manufacturing</p>
+          </li>
+          <li class="sectors__item" data-sal="slide-up" data-sal-duration="600">
+            <img
+              src="/images/icon-buildings.svg"
+              loading="lazy"
+              width="45"
+              alt=""
+              class="sector-icon">
+            <p class="heading-4">Utilities</p>
+          </li>
+          <li class="sectors__item" data-sal="slide-up" data-sal-duration="600">
+            <img
+              src="/images/icon-water.svg"
+              loading="lazy"
+              width="45"
+              alt=""
+              class="sector-icon">
+            <p class="heading-4">Marine</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <a
+      href="industries.html"
+      class="sectors__button sectors__button--bottom am-button am-button--green-outline">
+      <span>Learn more  →</span>
+    </a>
+  </div>
+</section>
+<div class="section">
+  <div class="container">
+    <div class="humans__grid" data-sal="slide-up" data-sal-duration="600">
+      <div class="humans__img-wrapper">
+      <img
+        src="/images/becca-and-joe_900.jpg"
+        loading="lazy"
+        srcset="/images/becca-and-joe_1200.jpg 1200w, /images/becca-and-joe_900.jpg 900w, /images/becca-and-joe_600.jpg 600w"
+        sizes="(max-width: 479px) 86vw, (max-width: 767px) 100vw, (max-width: 991px) 68vw, 674.6484375px"
+        alt="Woman and man sat at a table looking seriously at a laptop" >
+      </div>
+      <div>
+        <h2 class="heading-2 humans__heading">Data science and digital transformation</h2>
+        <p>Supporting operators with AI adoption, digital twin strategy and analytical support for complex operational problems</p>
+        <a href="services.html" class="humans__button am-button">Find Out More</a>
       </div>
     </div>
   </div>
-  <div class="section wf-section">
-    <div class="container w-container">
-      <div data-w-id="0163a965-3418-88af-c371-2a45e555caf0" class="w-layout-grid grid-19">
-        <div id="w-node-_77664776-5a7a-9f31-54f1-a8cc6c889447-0e0b77f1" style="" class="_60-pad-div-block">
-          <h2 class="heading-1">Increase operational efficiency</h2>
-        </div>
-        <div data-w-id="c1ced169-cb32-e188-4001-c04c2240f937" style="">
-          <div class="_20-pad-div-block">
-            <h3 class="heading-3">Machine Health</h3>
-          </div>
-          <div>
-            <p class="paragraph">AI technology used by major industrial operators to increase plant availability and optimise maintenance strategies. Eliminate unplanned downtime and reduce cost of maintenance.</p>
-          </div>
-        </div>
-        <div data-w-id="55eb17ca-7156-f6e9-7bc3-a9b14c05d034" style="">
-          <div class="_20-pad-div-block">
-            <h3 class="heading-3">Process Optimisation</h3>
-          </div>
-          <div>
-            <p class="paragraph">Advanced machine learning control technology to boost output and minimise waste. Achieve better quality, reduce emissions and increase throughput without major CAPEX.</p>
-          </div>
-        </div>
+</div>
+<section class="section grey">
+  <div class="container container--sm">
+    <div class="humans__grid" data-sal="slide-up" data-sal-duration="600">
+      <h2 class="heading-3">Meet the humans behind the AI</h2>
+      <div>
+        <p>Our people have worked on some of the most challenging projects across the renewable energy, civil nuclear and manufacturing sectors.</p>
+        <a href="/about-us/" class="humans__button am-button am-button--green-outline">
+          <span>Learn more   →</span>
+        </a>
       </div>
     </div>
   </div>
-  {% if homeContent.partners.showAll %}
-      {% assign partners = allPartners %}
-  {% else %}
-      {% assign partners = homeContent.partnerArray %}
-  {% endif %}
-  <div class="section no-top-padding wf-section">
-    <div class="large-container w-container">
-      <div class="_40-pad-div-block">
-        <div class="small-grey-sub-heading">{{ homeContent.partners.title }}</div>
-      </div>
-      <div class="w-layout-grid client-logo-grid">
-        {% if partners.size > 0 %}
-              {% for partner in partners %}
-              {% capture imgUrl %}{% sanityImageUrl partner.logo %}{% endcapture %}
-              <div><img src="{{ imgUrl  }}" loading="lazy" alt="" class="client-logo" /></div>
-              {% endfor %}
-          {% endif %}
-      </div>
-    </div>
-  </div>
-  <div class="gallery-wrapper wf-section">
-    <div class="carousel">
-      <div class="image-wrapper"><img src="/images/atlas-platform-01.png" loading="lazy" srcset="/images/atlas-platform-01-p-500.png 500w, /images/atlas-platform-01-p-800.png 800w, /images/atlas-platform-01-p-1080.png 1080w, /images/atlas-platform-01.png 1928w" sizes="100vw" alt="Atlas platform example screenshot" class="screenshot-image"></div>
-      <div class="image-wrapper"><img src="/images/atlas-platform-02.png" loading="lazy" srcset="/images/atlas-platform-02-p-500.png 500w, /images/atlas-platform-02-p-800.png 800w, /images/atlas-platform-02-p-1080.png 1080w, /images/atlas-platform-02-p-1600.png 1600w, /images/atlas-platform-02.png 1928w" sizes="100vw" alt="Atlas platform example screenshot" class="screenshot-image"></div>
-      <div class="image-wrapper"><img src="/images/platform-image-01.png" loading="lazy" srcset="/images/platform-image-01-p-500.png 500w, /images/platform-image-01-p-800.png 800w, /images/platform-image-01-p-1080.png 1080w, /images/platform-image-01.png 1446w" sizes="100vw" alt="Atlas platform example screenshot" class="screenshot-image"></div>
-      <div class="image-wrapper"><img src="/images/atlas-platform-03.png" loading="lazy" srcset="/images/atlas-platform-03-p-500.png 500w, /images/atlas-platform-03-p-800.png 800w, /images/atlas-platform-03-p-1080.png 1080w, /images/atlas-platform-03-p-1600.png 1600w, /images/atlas-platform-03.png 1928w" sizes="100vw" alt="Atlas platform example screenshot" class="screenshot-image"></div>
-      <div class="image-wrapper slick-center"><img src="/images/atlas-platform-06.png" loading="lazy" srcset="/images/atlas-platform-06-p-500.png 500w, /images/atlas-platform-06-p-800.png 800w, /images/atlas-platform-06-p-1080.png 1080w, /images/atlas-platform-06-p-1600.png 1600w, /images/atlas-platform-06.png 1928w" sizes="100vw" alt="Atlas platform example screenshot" class="screenshot-image"></div>
-      <div class="image-wrapper slick-center"><img src="/images/atlas-platform-04.png" loading="lazy" srcset="/images/atlas-platform-04-p-500.png 500w, /images/atlas-platform-04-p-800.png 800w, /images/atlas-platform-04-p-1080.png 1080w, /images/atlas-platform-04-p-1600.png 1600w, /images/atlas-platform-04.png 1928w" sizes="100vw" alt="Atlas platform example screenshot" class="screenshot-image"></div>
-      <div class="image-wrapper slick-center"><img src="/images/atlas-platform-02.png" loading="lazy" srcset="/images/atlas-platform-02-p-500.png 500w, /images/atlas-platform-02-p-800.png 800w, /images/atlas-platform-02-p-1080.png 1080w, /images/atlas-platform-02-p-1600.png 1600w, /images/atlas-platform-02.png 1928w" sizes="100vw" alt="Atlas platform example screenshot" class="screenshot-image"></div>
-    </div>
-  </div>
-  <div class="section no-padding wf-section">
-    <div data-delay="4000" data-animation="slide" class="_w-slider w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="500" data-infinite="true">
-      <div class="mask w-slider-mask">
-        <div class="slide w-slide"><img src="/images/atlas-platform-01.png" loading="lazy" srcset="/images/atlas-platform-01-p-500.png 500w, /images/atlas-platform-01-p-800.png 800w, /images/atlas-platform-01-p-1080.png 1080w, /images/atlas-platform-01.png 1928w" sizes="(max-width: 479px) 96vw, (max-width: 991px) 88vw, (max-width: 1439px) 82vw, 86vw" alt="Atlas platform example screenshot" class="image-23"></div>
-        <div class="slide w-slide"><img src="/images/atlas-platform-03.png" loading="lazy" srcset="/images/atlas-platform-03-p-500.png 500w, /images/atlas-platform-03-p-800.png 800w, /images/atlas-platform-03-p-1080.png 1080w, /images/atlas-platform-03-p-1600.png 1600w, /images/atlas-platform-03.png 1928w" sizes="(max-width: 479px) 96vw, (max-width: 991px) 88vw, (max-width: 1439px) 82vw, 86vw" alt="Atlas platform example screenshot"></div>
-        <div class="slide w-slide"><img src="/images/atlas-platform-06.png" loading="lazy" srcset="/images/atlas-platform-06-p-500.png 500w, /images/atlas-platform-06-p-800.png 800w, /images/atlas-platform-06-p-1080.png 1080w, /images/atlas-platform-06-p-1600.png 1600w, /images/atlas-platform-06.png 1928w" sizes="(max-width: 479px) 96vw, (max-width: 991px) 88vw, (max-width: 1439px) 82vw, 86vw" alt="Atlas platform example screenshot"></div>
-        <div class="slide w-slide"><img src="/images/atlas-platform-04.png" loading="lazy" srcset="/images/atlas-platform-04-p-500.png 500w, /images/atlas-platform-04-p-800.png 800w, /images/atlas-platform-04-p-1080.png 1080w, /images/atlas-platform-04-p-1600.png 1600w, /images/atlas-platform-04.png 1928w" sizes="(max-width: 479px) 96vw, (max-width: 991px) 88vw, (max-width: 1439px) 82vw, 86vw" alt="Atlas platform example screenshot"></div>
-      </div>
-      <div class="left-arrow-3 w-slider-arrow-left">
-        <div class="icon-3 w-icon-slider-left"></div>
-      </div>
-      <div class="right-arrow-3 w-slider-arrow-right">
-        <div class="icon-4 w-icon-slider-right"></div>
-      </div>
-      <div class="_w-slider-nav-w-round w-slider-nav w-slider-nav-invert w-round"></div>
-    </div>
-    <div class="div-block-90">
-      <a href="platform.html" class="green-button w-button">Learn more about Atlas</a>
-    </div>
-  </div>
-  <div class="section blue wf-section">
-    <div class="container w-container">
-      <div data-w-id="4e866dc1-d58d-1692-7f18-de139aefffde" class="w-layout-grid _2-collumn-grid">
-        <div id="w-node-a4776582-a9b3-c678-cc08-b5f47605ce2e-0e0b77f1" class="div-block-3">
-          <div style="" class="_20-pad-div-block">
-            <h2 class="heading-2 white">Sectors we work in</h2>
-          </div>
-          <div style="" class="div-block-116">
-            <a data-w-id="f5ba9a4f-b099-f05a-77e6-3b856f69dd67" href="industries.html" class="underline-only-button w-button"><span>Learn more  →</span></a>
-          </div>
-        </div>
-        <div id="w-node-_3847447d-1f80-4052-7daf-3c2eb5a71e1f-0e0b77f1">
-          <div class="w-layout-grid sectors-grid">
-            {% for industry in allIndustries %}
-            {% capture imgUrl %}{% sanityImageUrl industry.logo %}{% endcapture %}
-              <div style="" class="sector-div-block">
-                <div class="w-layout-grid grid-8">
-                  <div id="w-node-bc81804e-ccaa-a3f1-556a-e7fcec87d679-0e0b77f1" class="sector-icon-div-block"><img src="{{ imgUrl }}" loading="lazy" width="45" alt=" " class="sector-icon"></div>
-                  <h3 class="heading-4 white">{{ industry.title }}</h3>
-                </div>
-              </div>
-              <div style="" class="green-line-div"></div>
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-      <div class="div-block-91">
-        <a href="/industries/" class="green-button w-button">Learn more</a>
-      </div>
-    </div>
-  </div>
-  <div class="section wf-section">
-    <div class="large-container w-container">
-      <div class="w-layout-grid services-grid _3">
-        <div class="div-block-36"><img src="/images/home-data-science-and-DT.jpg" loading="lazy" srcset="/images/home-data-science-and-DT-p-1080.jpeg 1080w, /images/home-data-science-and-DT-p-1600.jpeg 1600w, /images/home-data-science-and-DT-p-2000.jpeg 2000w, /images/home-data-science-and-DT-p-2600.jpeg 2600w, /images/home-data-science-and-DT.jpg 3000w" sizes="(max-width: 479px) 86vw, (max-width: 767px) 100vw, (max-width: 991px) 68vw, 674.6484375px" alt="Red haired lady looking at multiple screens with code" class="image-4"></div>
-        <div class="div-block-139">
-          <div class="w-layout-grid grid-15">
-            <div>
-              <h2 class="heading-2">Data science and digital transformation</h2>
-            </div>
-            <div class="_20-pad-div-block">
-              <p class="paragraph-2">Supporting operators with AI adoption, digital twin strategy and analytical support for complex operational problems</p>
-            </div>
-            <div id="w-node-_3a7cdbe8-5aa7-c6d8-66ba-d37ccefe8a3f-0e0b77f1">
-              <a href="services.html" class="green-button w-button">Find Out More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="section no-padding _0px-padding wf-section">
-    {% assign featureCaseStudies = homeContent.featuredCaseStudies %}
-    {% for case in featureCaseStudies %}
-      {% capture imgUrl %}{% sanityImageUrl case.mainImage %}{% endcapture %}
-        <div class="w-layout-grid _2-3rd-grid">
-          <div class="w-dyn-list">
-            <div role="list" class="w-dyn-items">
-              <div role="listitem" class="w-dyn-item">
-                <div class="case-study-cta-image-div">
-                  {% image imgUrl, '' %}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="w-node-_65a3be1a-b473-6436-d3ee-3c942a3995e2-0e0b77f1" class="div-block blue">
-            <div class="collection-list-wrapper w-dyn-list">
-              <div role="list" class="w-dyn-items">
-                <div role="listitem" class="w-dyn-item">
-                  <div class="_20-pad-div-block">
-                    <div class="text-block-2">Case study</div>
-                  </div>
-                  <div class="_80-pad-div-block">
-                    <h2 class="heading-2 white">{{ case.title }}</h2>
-                  </div>
-                  <div class="div-block-16">
-                    <div class="div-block-141">
-                      <a href="/case-studies/{{case.slug.current}}" class="green-outline-button w-button"><span>View case study   →</span></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    {% endfor %}
-  </div>
-  <div class="section grey _75vh wf-section">
-    <div data-w-id="04f4228a-9dae-41c6-9731-d295d8aec445" style="-webkit-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 75px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="w-container">
-      <div class="container">
-        <div class="w-layout-grid _2-collum-grid">
-          <div class="div-block-79">
-            <h2 class="heading-3">Meet the humans behind the AI</h2>
-          </div>
-          <div>
-            <div class="_40-pad-div-block">
-              <p class="paragraph-2">Our people have worked on some of the most challenging projects across the renewable energy, civil nuclear and manufacturing sectors.</p>
-            </div>
-            <div class="div-block-123">
-              <a href="/about-us/" class="green-outline-button green w-button"><span>Learn more   →</span></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="section wf-section">
-    <div class="large-container w-container">
-      <div class="_60-pad-div-block">
-        <h3 class="heading-3">Recent blog posts</h3>
-      </div>
-      <div class="w-dyn-list">
-        <div role="list" class="collection-list w-dyn-items">
-          {% for post in allPosts.data limit:3 %}
-          {% capture imgUrl %}{% sanityImageUrl post.mainImage %}{% endcapture %}
-            <div id="w-node-c49082f0-865f-00a1-a627-0e89ebad9e4b-e4fd2b7f" role="listitem" class="collection-item-6 w-dyn-item">
-              <a href="/blog/{{post.slug.current}}" class="link-block w-inline-block">
-                <div class="w-layout-grid recent-blog-grid">
-                  <div id="w-node-c49082f0-865f-00a1-a627-0e89ebad9e4e-e4fd2b7f" class="blog-post-image-div">{% image imgUrl, '' %}</div>
-                  <div class="blog-category-div">
-                    {% assign category = post.categories | first %}
-                    <div class="small-green-sub-heading">{{ category.title }}</div>
-                    <div class="div-block-6">
-                      <div class="small-grey-sub-heading">|</div>
-                    </div>
-                    <div class="small-grey-sub-heading">{{ post.publishedAt | date: "%B %d, %Y" }}</div>
-                  </div>
-                  <div class="_20-pad-div-block">
-                    <h4 class="heading-4">{{ post.title }}</h4>
-                  </div>
-                </div>
-              </a>
-              <div class="div-block-144">
-                <a href="/blog/{{post.slug.current}}" class="green-outline-button w-button">Read more</a>
-              </div>
-            </div>
-          {% else %}
-            <div class="w-dyn-empty">
-              <div>No items found.</div>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  </div>
+</section>
+
+{% include 'components/blog-posts.liquid' %}

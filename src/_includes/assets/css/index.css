@@ -1,52 +1,69 @@
-@import "./normalize.css";
-@import "./webflow.css";
-@import "./ada-mode-website.webflow.css";
+@import './normalize.css';
+@import './webflow.css';
+@import './ada-mode-website.webflow.css';
 
-@import "./base/_reset.css";
-@import "./base/variables.css";
-@import "./base/mixins.css";
-@import "./base/typography.css";
+@import './base/_reset.css';
+@import './base/variables.css';
+@import './base/mixins.css';
+@import './base/typography.css';
 
 /* Utility classes*/
-@import "./utilities/spacing.css";
-@import "./utilities/visibility.css";
-@import "./utilities/flex-row.css";
-@import "./utilities/content-col.css";
-@import "./utilities/border-box.css";
-@import "./utilities/flex-grid.css";
-@import "./utilities/post-tags.css";
+@import './utilities/spacing.css';
+@import './utilities/visibility.css';
+@import './utilities/flex-row.css';
+@import './utilities/content-col.css';
+@import './utilities/border-box.css';
+@import './utilities/flex-grid.css';
+@import './utilities/post-tags.css';
 
 /* Defines whole sections of a page */
-@import "./sections/wrapper.css";
-@import "./sections/header.css";
-@import "./sections/main.css";
-@import "./sections/footer.css";
-@import "./sections/homepage-hero.css";
-@import "./sections/article.css";
-@import "./sections/section.css";
-@import "./sections/text-page-header.css";
-@import "./sections/post-head.css";
-@import "./sections/cta-page.css";
+@import './sections/wrapper.css';
+@import './sections/header.css';
+@import './sections/main.css';
+@import './sections/footer.css';
+@import './sections/homepage-hero.css';
+@import './sections/article.css';
+@import './sections/section.css';
+@import './sections/case-studies.css';
+@import './sections/text-page-header.css';
+@import './sections/post-head.css';
+@import './sections/cta-page.css';
+@import './sections/sectors.css';
+@import './sections/services.css';
+@import './sections/humans.css';
+@import './sections/collection.css';
+@import './sections/industries.css';
+@import './sections/block-layout.css';
+@import './sections/about.css';
 
 /* Components */
-@import "./components/buttons.css";
-@import "./components/quote.css";
-@import "./components/columns.css";
-@import "./components/form.css";
-@import "./components/person.css";
-@import "./components/cta-section.css";
-@import "./components/prod-feature.css";
-@import "./components/stacked-tabs.css";
-@import "./components/styled-ol.css";
-@import "./components/comparison.css";
-@import "./components/blog-feature.css";
-@import "./components/index-post.css";
-@import "./components/category-nav.css";
-@import "./components/post-content.css";
+@import './components/buttons.css';
+@import './components/quote.css';
+@import './components/columns.css';
+@import './components/form.css';
+@import './components/person.css';
+@import './components/cta-section.css';
+@import './components/prod-feature.css';
+@import './components/stacked-tabs.css';
+@import './components/styled-ol.css';
+@import './components/comparison.css';
+@import './components/blog-feature.css';
+@import './components/index-post.css';
+@import './components/category-nav.css';
+@import './components/post-content.css';
+@import './components/hero.css';
+@import './components/atlas-features.css';
+@import './components/offset-image.css';
+@import './components/history.css';
+@import './components/faq.css';
 
-@import "./sal.css";
+@import './sal.css';
 
-@import "./components/cead.css";
+@import './components/cead.css';
+
+a {
+  color: inherit;
+}
 
 .w-slider-dot {
   height: 6px;
@@ -76,7 +93,7 @@
 .case-study-image-div img {
   max-width: 100%;
   width: 100%;
-  height: auto%;
+  height: auto;
 }
 
 .w-layout-grid._2-3rd-grid:nth-child(even) > .w-dyn-list {
@@ -132,7 +149,7 @@ a.case-study-image-div.w-inline-block img,
 .case-study-cta-image-div img {
   object-fit: cover;
   height: 80vh;
-  aspect-ration: 1;
+  aspect-ratio: 1;
 }
 
 .blog-post-feature-image img {
@@ -192,14 +209,6 @@ a.case-study-image-div.w-inline-block img,
   font-weight: 600;
 }
 
-.section.blue h3 {
-  color: #fff;
-}
-
-.overlap-section.blue {
-  max-height: none;
-}
-
 .atlas-features-icon img {
   height: 50px;
   margin-bottom: 20px;
@@ -209,19 +218,6 @@ a.case-study-image-div.w-inline-block img,
 .media.full lite-youtube {
   width: 100%;
   height: 100%;
-}
-
-.faq-content,
-.faq-wrapper .plus-icon {
-  transition: all 0.2s;
-}
-
-.text-section-header + .overlap-section {
-  margin-top: 12rem;
-}
-
-.overlap-section {
-  max-height: initial;
 }
 
 .blog-post-image-div {
@@ -236,10 +232,6 @@ a.case-study-image-div.w-inline-block img,
 
 .text-page-header {
   max-width: 75%;
-}
-
-.section.hero {
-  padding-top: 70px;
 }
 
 @media screen and (max-width: 479px) {
@@ -257,11 +249,6 @@ a.case-study-image-div.w-inline-block img,
   .text-page-header {
     max-width: 100%;
   }
-
-  .section.hero,
-  .section.hero._2 {
-    padding-top: 25px;
-  }
 }
 
 .flow.text-content h2 + p {
@@ -276,8 +263,8 @@ a.case-study-image-div.w-inline-block img,
   grid-template-areas: none;
 }
 
-.section + .text-section-header {
-  padding-top: 0;
+.section--block-layout .flex-row {
+  margin-block-start: 0;
 }
 
 .section.wf-section .flex-row {
@@ -285,8 +272,8 @@ a.case-study-image-div.w-inline-block img,
 }
 
 .section.wf-section:not(.no-padding) {
-  padding-top: 120px;
-  padding-bottom: 120px;
+  padding-top: clamp(3rem, 120px, 10vw);
+  padding-bottom: clamp(3rem, 120px, 10vw);
 }
 
 .recent-blog-grid .blog-post-image-div,
@@ -302,4 +289,9 @@ a.case-study-image-div.w-inline-block img,
 .client-logo {
   width: 100%;
   filter: grayscale(1);
+}
+
+.section__services-grid {
+  display: grid;
+  gap: 1rem;
 }

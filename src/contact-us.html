@@ -2,32 +2,49 @@
 layout: base.html
 title: Get in touch
 description: info@ada-mode.com
-# TODO: Move this form over to Mailchimp
 ---
 
-
-  <div class="section extra-top-padding wf-section">
-    <div class="large-container w-container">
-      <div data-w-id="5b9415ae-75f0-2fcb-8104-ecd88f65f9c9" class="hero-content-div-block">
-        <div class="_40-pad-div-block">
-          <h1 class="heading-1">Get in touch</h1>
-        </div>
-        <h2 class="heading-5">Please complete the form below and we will get back to you as soon as possible</h2>
+<div id="page-heading" class="section hero hero--page hero--contact">
+  <div class="container" data-sal="slide-up" data-sal-duration="600">  
+    <div class="hero__title heading-1">
+      <h1>{{ title }}</h1>
+    </div>
+    <p class="subheading hero__subheading">Please complete the form below and we will get back to you as soon as possible</p>
+  </div>
+</div>
+<div class="section no-top-padding" data-sal="slide-up" data-sal-duration="600">
+  <div class="container container--sm">
+    <form class="form" name="contact" method="POST" data-netlify="true" value="New form submission from ada-mode.com">
+      <div class="form__group">
+        <label for="name">Full name</label>
+        <input type="text" maxlength="256" name="name" data-name="Name" 
+        id="name" required>
       </div>
+      <div class="form__group">
+        <label for="email">Email Address</label>
+        <input type="email" maxlength="256" name="email" data-name="Email" id="email" required>
+      </div>
+      <div class="form__group">
+        <label for="organisation">Organisation (optional)</label>
+        <input type="text" maxlength="256" name="organisation" data-name="Organisation" id="organisation">
+      </div>
+      <div class="form__group">
+        <label for="subject">Subject</label>
+        <input type="text" maxlength="256" name="subject" data-name="Subject" id="subject" required>
+      </div>
+      <div class="form__group">
+        <label for="message">Message</label>
+        <textarea placeholder="Your message here" maxlength="5000" rows="8" id="message" name="message" data-name="Message"></textarea>
+      </div>
+      <div class="form__submit">
+        <button type="submit" class="am-button">Submit</button>
+      </div>
+    </form>
+    <div class="w-form-done">
+      <div>Thank you! Your submission has been received!</div>
+    </div>
+    <div class="w-form-fail">
+      <div>Oops! Something went wrong while submitting the form.</div>
     </div>
   </div>
-  <div class="section no-padding wf-section">
-    <div class="contact-form-container w-container">
-      <div id="w-node-a2d015a2-f8a2-dd70-d510-2b1dcc022f09-66b407fe" class="form-block w-form">
-        <form id="email-form" name="email-form" data-name="Email Form" method="get" class="form"><label for="name" class="field-label">Full name</label><input type="text" class="text-field w-input" maxlength="256" name="name" data-name="Name" placeholder="" id="name" required=""><label for="email" class="field-label">Email Address</label><input type="email" class="text-field w-input" maxlength="256" name="email" data-name="Email" placeholder="" id="email" required=""><label for="email-2" class="field-label">Organisation</label><label for="email-3" class="field-label-7">Optional</label><input type="text" class="text-field w-input" maxlength="256" name="email-2" data-name="Email 2" placeholder="" id="email-2"><label for="email-3" class="field-label">Subject</label><input type="text" class="text-field w-input" maxlength="256" name="email-2" data-name="Email 2" placeholder="" id="email-2" required=""><label for="email-3" class="field-label">Message</label><textarea placeholder="Your message here" maxlength="5000" id="field" name="field" data-name="field" class="textarea w-input"></textarea>
-          <div class="div-block-75"><input type="submit" value="Submit" data-wait="Please wait..." class="green-button w-button"></div>
-        </form>
-        <div class="w-form-done">
-          <div>Thank you! Your submission has been received!</div>
-        </div>
-        <div class="w-form-fail">
-          <div>Oops! Something went wrong while submitting the form.</div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>

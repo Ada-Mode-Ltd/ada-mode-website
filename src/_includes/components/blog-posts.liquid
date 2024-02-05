@@ -1,0 +1,27 @@
+{% if allPosts.data %}
+  <section class="section">
+    <div class="container">
+      <h3 class="heading-3 collection__heading">Recent blog posts</h3>
+      <ul role="list" class="collection__list">
+        {% for post in allPosts.data limit: 3 %}
+          {% capture imgUrl %}{% sanityImageUrl post.mainImage %}{% endcapture %}
+          <li
+            class="collection__item" data-sal="slide-up" data-sal-duration="600">
+            <div class="collection__img-wrapper">{% image imgUrl , '' %}</div>
+            <div class="collection__item-content">
+              <p class="pretitle collection__pretitle">
+                {% assign category = post.categories | first %}
+                <span>{{ category.title }}</span>
+                <span> | {{ post.publishedAt | date: "%B %d, %Y" }}</span>
+              </p>
+              <h4 class="collection__post-heading">
+                <a href="/blog/{{post.slug.current}}" class="collection__link">{{ post.title }}</a>
+              </h4>
+              <a href="/blog/{{post.slug.current}}" aria-hidden class="collection__item-button am-button am-button--sm am-button--green-outline">Read more</a>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+{% endif %}

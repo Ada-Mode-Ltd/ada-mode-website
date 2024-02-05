@@ -1,0 +1,20 @@
+<article class="section section--block-layout">
+  <div class="container">
+      {% assign textPlacement = content.layout %}
+      <div class="block-layout__row {% if textPlacement != "right" %}block-layout__row--reverse{% endif %}" >
+        {% capture imgUrl %}{% sanityImageUrl content.image %}{% endcapture %}
+
+          <div data-sal="slide-up" data-sal-duration="500" data-sal-delay="100" class="block-layout__img-wrapper">
+            {% image imgUrl, content.image.altText %}
+          </div>
+
+          <div class="block-layout__content" data-sal="slide-up" data-sal-duration="500">
+            {% portableText content.text.content %}
+
+            {% if content.sectionLink %}
+                <a href="{{ sectionLink.url }}" class="am-button am-button--green-outline">{{ content.sectionLink.text }}</a>
+            {% endif %}
+          </div>
+      </div>
+  </div>
+</article>

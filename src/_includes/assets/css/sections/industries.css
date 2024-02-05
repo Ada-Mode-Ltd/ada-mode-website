@@ -1,0 +1,33 @@
+.industries__grid {
+  display: grid;
+  gap: var(--space-l);
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(
+      min(calc((var(--container-width) / 2) - (var(--space-s-l) * 4)), 100%),
+      1fr
+    )
+  );
+}
+
+.industries__item-grid {
+  display: flex;
+  gap: var(--space-s-l);
+  align-items: start;
+}
+
+.industries__item-grid img {
+  flex: 0 0 auto;
+  width: 4rem;
+  height: auto;
+}
+
+.industries__item-list {
+  padding: 0;
+  margin-top: var(--space-xs);
+}
+
+.industries__item-list > li {
+  margin-left: 1rem;
+  padding-left: var(--space-xs);
+}

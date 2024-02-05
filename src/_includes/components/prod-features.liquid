@@ -1,7 +1,7 @@
 {% if featureType == "medium" %}
-<div class="section blue wf-section">
-    <div class="xtra-large-container w-container">
-      <div class="w-layout-grid grid-21">
+  <div class="section blue">
+    <div class="container">
+      <div class="atlas-features__grid">
         {% for feature in features %}
             {% assign featureStyle = feature.featureType %}
     
@@ -28,19 +28,19 @@
                 {% capture imgUrl %}
                     {% sanityImageUrl featureImage %}
                 {% endcapture %}
-                <div id="w-node-_1ecab970-ddda-e104-d333-a27cd5acb0a6-2db407ac" class="div-block-126">
+                <div class="atlas-features__item" data-sal="slide-up" data-sal-duration="600">
                   <div class="atlas-features-icon">{% image imgUrl, featureImage.altText %}</div>
-                  <div class="_40-pad-div-block">{% portableText featureTitle %}</div>
-                  <div class="heading-5 white">{% portableText featureText %}</div>
+                  <div class="atlas-features__heading">{% portableText featureTitle %}</div>
+                  <div>{% portableText featureText %}</div>
                 </div>
         {% endfor %}
       </div>
     </div>
   </div>
 {% elsif featureType == 'large' %}
-    <div class="section wf-section">
-    <div class="large-container w-container">
-        <div class="w-layout-grid grid-72">
+    <div class="section">
+    <div class="container">
+        <div class="atlas-features-grids">
             {% for feature in features %}
                 {% assign featureStyle = feature.featureType %}
             
@@ -66,22 +66,18 @@
                         {% capture imgUrl %}
                             {% sanityImageUrl featureImage %}
                         {% endcapture %}
-                        <div class="">
-                            <div class="w-layout-grid grid-74">
-                                <div id="w-node-_7b3706d9-1d6f-4b76-5e4d-53247644e612-2db407ac">
-                                  <h2 class="heading-3">{% portableText featureTitle %}</h2>
-                                </div>
-                                  <div class="paragraph-2">{% portableText featureText %}</div>
-                            </div>
-                              <div id="w-node-_9d002deb-4a3a-355c-d041-a118ec72b17d-2db407ac" class="div-block-128">{% image imgUrl, featureImage.altText %}</div>
+                        <div data-sal="slide-up" data-sal-duration="600">
+                            <h2 class="heading-3">{% portableText featureTitle %}</h2>
+                            <div>{% portableText featureText %}</div>
+                            <div class="atlas-features__image">{% image imgUrl, featureImage.altText %}</div>
                         </div>
             {% endfor %}
         </div>
     </div>
   </div>
 {% else %}
-<div class="section wf-section">
-    <div class="container w-container">
+  <div class="section">
+    <div class="container">
       <div class="w-layout-grid atlas-features-grids">
         {% for feature in features %}
             {% assign featureStyle = feature.featureType %}
@@ -109,7 +105,7 @@
                         {% sanityImageUrl featureImage %}
                     {% endcapture %}
 
-        <div class="w-layout-grid atlas-features-grids-2">
+        <div class="w-layout-grid atlas-features-grids-2" data-sal="slide-up" data-sal-duration="600">
             <div class="atlas-features-icon">{% image imgUrl, featureImage.altText %}</div>
             <div class="heading-4">{% portableText featureTitle %}</div>
           <div class="paragraph">{% portableText featureText %}</div>

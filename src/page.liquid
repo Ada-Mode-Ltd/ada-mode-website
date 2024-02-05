@@ -29,32 +29,14 @@ eleventyComputed:
     
         {% if content._type == 'blockContent' %}
         <div class="section wf-section">
-            <article class="wrapper flow paragraph">
+            <article class="wrapper flow paragraph" data-sal="slide-up" data-sal-duration="600">
                 {% portableText content.content %}
             </article>
         </div>
         {% endif %}
     
         {% if content._type == 'blockLayout' %}
-            <section class="section wf-section">
-                <div class="large-container full-width w-container">
-                    {% assign textPlacement = content.layout %}
-    <div class="flex-row" {% if textPlacement !="right"%}data-flex-reverse{%endif%}>
-                                {% capture imgUrl %}{% sanityImageUrl content.image %}{% endcapture %}
-                            {% if textPlacement == 'right' %}
-                                <div class="div-block-36" data-sal="slide-up"
-                        data-sal-duration="500">{% image imgUrl, content.image.altText %}</div>
-                                <div class="flow text-content paragraph" data-sal="slide-up"
-                        data-sal-duration="500">{% portableText content.text.content %}</div>
-                            {% else %}
-                                <div class="flow text-content paragraph" data-sal="slide-up"
-                        data-sal-duration="500">{% portableText content.text.content %}</div>
-                                <div class="div-block-36" data-sal="slide-up"
-                        data-sal-duration="500">{% image imgUrl, content.image.altText %}</div>
-                            {% endif %}
-                        </div>
-                </div>
-            </section>
+            {%  include 'components/block-layout.liquid' %}
         {% endif %}
     
         {% if content._type == 'quote' %}
@@ -89,7 +71,7 @@ eleventyComputed:
                 {% assign people = content.people %}
             {% endif %}
     
-            <section class="">
+            <section>
                 <div class="wrapper flow">
                 {% if content.sectionTitle %}
                 {% include 'components/sectionHeading.liquid' %}
@@ -101,7 +83,7 @@ eleventyComputed:
         {% endif %}
     
     {% if content._type == 'stackedTabs' %}
-        <section class="">
+        <section>
         <div class="wrapper flow">
             {% assign tabs = content.tabs %}
             {% assign sectionTitle = content.title %}
@@ -115,31 +97,31 @@ eleventyComputed:
         {% assign rows = content.left.size | minus: 1 %}
         {% assign left = content.left %}
         {% assign right = content.right %}
-        <div class="overlap-section blue wf-section">
-            <div class="container-2 w-container">
-              <div class="div-block-4 columns comparison" style="--comparison-rows: {{rows}};">
-            <div>
-                {% if left.title %}
-                <p class="column-title color-secondary">{{ left.title }}</p>
-                {% endif %}
-                <ul data-marker="{{ left.icon}}">
-                    {% for item in left.items %}
-                        <li>{{ item }}</li>
-                    {% endfor %}
-                </ul>
+        <div class="section section--overlap">
+            <div class="container container--sm">
+              <div class="comparison" style="--comparison-rows: {{rows}};">
+                <div>
+                    {% if left.title %}
+                        <h3 class="heading-4">{{ left.title }}</h3>
+                    {% endif %}
+                    <ul data-marker="{{ left.icon }}">
+                        {% for item in left.items %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div>
+                    {% if right.title %}
+                        <h3 class="heading-4">{{ right.title }}</h3>
+                    {% endif %}
+                    <ul data-marker="{{ right.icon }}">
+                        {% for item in right.items %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
-            <div>
-                {% if right.title %}
-                <p class="column-title color-accent">{{ right.title }}</p>
-                {% endif %}
-                <ul data-marker="{{ right.icon }}">
-                    {% for item in right.items %}
-                        <li>{{ item }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-</div>
-</div>
+        </div>
 </div>
     {% endif %}
     
@@ -169,7 +151,7 @@ eleventyComputed:
             {% endif %}
             <section class="" data-narrow>
                 <div class="wrapper">
-                <div class="flex-row content-col">
+                <div class="flex-row content-col" data-sal="slide-up" data-sal-duration="600">
                     <div class="content flow">
                         <h2>Join our team</h2>
                         <p>Join us as we continue to drive down the cost of clean energy with AI applications.</p>
@@ -223,108 +205,75 @@ eleventyComputed:
         {% endif %}
 
         {% if content._type == 'industries' %}
-        <div class="section blue wf-section">
-            <div class="large-container w-container">
-              <div class="_100-pad-div-block">
-                <h3 class="heading-3 white">{{ content.title }}</h3>
-              </div>
-              {% unless content.showAll %}
-              {% assign industryList = content.industries %}
-              {% else %}
-                {% assign industryList = allIndustries %}
-            {% endunless %}
-            <div class="w-layout-grid industries-grid">
-            {% for industry in industryList %}
-            {% capture imgUrl %}{% sanityImageUrl industry.logo %}{% endcapture %}
-                    <div class="w-layout-grid individual-industries-grid">
-                        <div class="industries-icon-div" data-sal="slide-up"
-                        data-sal-duration="500">{% image imgUrl, '' %}</div>
-                        <div  class="industries-heading-div" data-sal="slide-up"
+        <div class="section grey">
+            <div class="container">
+                <h2 class="section__heading">Industries we work in</h2>
+
+                {% assign industryList = industriesList %}
+                <div class="industries__grid">
+                    {% for industry in industryList %}
+                        <div class="industries__item-grid" data-sal="slide-up"
                         data-sal-duration="500">
-                            <h3 class="heading-3 white">{{ industry.title }}</h3>
+                            <img src="{{ industry.imageUrl }}" alt="" width="100" height="auto">
+                            <div>
+                                <h3 class="heading-3">{{ industry.title }}</h3>
+                                <ul class="industries__item-list">
+                                    {% for item in industry.items %}
+                                        <li>{{ item }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
                         </div>
-                        <p  class="paragraph white" data-sal="slide-up"
-                        data-sal-duration="500" data-sal-delay="200">{{ industry.text }}</p>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
           </div>
         {% endif %}
 
         {% if content._type == 'caseStudies' %}
-        <div class="section blue wf-section">
-            <div class="large-container w-container">
-              <div class="_100-pad-div-block">
-                <h3 class="heading-3 white">{{ content.title | default: "Our work" }}</h3>
-              </div>
-              {% unless content.showLatest %}
-              {% assign caseStudyList = content.caseStudies %}
-            {% endunless %}
-            {% include 'partials/caseStudiesBlock.liquid' %}
+        <div class="section blue">
+            <div class="container">
+                <h2 class="heading-3 section__heading" data-sal="slide-up" data-sal-duration="600">{{ content.title | default: "Our work" }}</h2>
+                {% unless content.showLatest %}
+                    {% assign caseStudyList = content.caseStudies %}
+                {% endunless %}
+
+                {% include 'partials/caseStudiesBlock.liquid' %}
             </div>
-          </div>
+        </div>
         {% endif %}
         
         {% if content._type == 'accordion' %}
-         <div class="section blue wf-section">
-    <div class="container w-container">
-      <div>
-        <h2 class="heading-2 white">{{ content.title }}</h2>
-      </div>
-    </div>
-    <div class="container w-container">
-      <div class="container-52"></div>
-      <div class="w-layout-grid grid-54">
-        <div class="hide"></div>
-        <div id="w-node-fb50ddc8-a99f-56ab-a760-845ee0a39bcd-2db407ac" class="w-layout-grid faq-grid">
-            <div id="w-node-fb50ddc8-a99f-56ab-a760-845ee0a39bce-2db407ac" class="faq-wrapper">
-                {% for item in content.list %}
-                <div data-w-id="fb50ddc8-a99f-56ab-a760-845ee0a39bcf" class="faq-question-wrap">
-                    <a href="#" class="faq-question-bar w-inline-block">
-                      <div class="question-title">{{ item.title }}</div><img src="https://uploads-ssl.webflow.com/5f30fd5278e7e1bf6d6f311b/606f391793aed1d5d3c5e5ec_plus.svg" alt="" class="plus-icon">
-                    </a>
-                    <div style="height:0PX" class="faq-content">
-                      <p class="faq-paragraph">{{ item.text }}</p>
-                      <div class="div-block-78"></div>
+            <div class="section blue">
+                <div class="container">
+                    <h2 class="section__heading">{{ content.title }}</h2>
+                    <div class="faq" data-component="accordion" data-sal="slide-up" data-sal-duration="600">
+                        {% for item in content.list %}
+                            {% assign id = item.title | split: " " | join: "_" %}
+                            <div data-item>
+                                <h3 class="faq__title">
+                                    <button data-btn="{{ id }}" class="faq__button">
+                                        {{ item.title }}
+                                    </button>
+                                </h3>
+                                <div class="faq__content" id="{{ id }}" data-content>
+                                    <div class="faq__content-inner" data-inner-content>
+                                        <p>{{ item.text }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
                     </div>
-                    </div>
-                {% endfor %}
                 </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const question = document.querySelectorAll('.faq-question-wrap');
-
-    question.forEach((item) => {
-        const content = item.querySelector('.faq-content');
-        const icon = item.querySelector('.plus-icon');
-      item.addEventListener('click', () => {
-        item.classList.toggle('active');
-
-        if (item.classList.contains('active')) {
-          content.style.height = content.scrollHeight + 'px';
-          // rotate icon 45deg
-            icon.style.transform = 'rotate(45deg)';
-        } else {
-            // rotate icon back to 0deg
-                icon.style.transform = 'rotate(0deg)';
-          content.style.height = 0;
-        }
-      });
-    });
-  </script>
+            </div>
         {% endif %}
-    
-        {% if content._type == 'ctaSection' %}
-            {% if content.blockLayout %}
-            {% unless content.blockLayout == 'noimage' %}
-                {% assign ctaCols = 2 %}
-            {% endunless %}
-            {% endif %}
-            {% include 'components/cta-section.liquid' %}
+
+    {% if content._type == 'ctaSection' %}
+        {% if content.blockLayout %}
+        {% unless content.blockLayout == 'noimage' %}
+            {% assign ctaCols = 2 %}
+        {% endunless %}
         {% endif %}
-    {% endfor %}
+        {% include 'components/cta-section.liquid' %}
+    {% endif %}
+{% endfor %}

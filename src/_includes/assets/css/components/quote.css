@@ -1,8 +1,7 @@
 .quote-holder > ul {
-  @mixin flex-row var(--space-48), center, flex-start;
+  /* @mixin flex-row var(--space-48), center, flex-start; */
   overflow-x: hidden;
   scroll-snap-type: x mandatory;
-  /* @mixin container-padding var(--space-104) 0; */
   scroll-behavior: smooth;
 
   @media (max-width: 1024px) {
@@ -15,8 +14,8 @@
   padding: var(--space-88) var(--space-72);
   display: grid;
   grid-template-areas:
-    "partner text"
-    "partner details";
+    'partner text'
+    'partner details';
   column-gap: var(--space-56);
   row-gap: var(--space-24);
   align-items: center;
@@ -39,7 +38,7 @@
     grid-area: text;
     font-size: var(--h4);
     font-weight: 500;
-    font-variations-settings: "wght" 500;
+    font-variations-settings: 'wght' 500;
   }
 
   & > small {
@@ -48,9 +47,9 @@
 
   @media (max-width: 1024px) {
     grid-template-areas:
-      "partner"
-      "text"
-      "details";
+      'partner'
+      'text'
+      'details';
     gap: var(--space-48);
     grid-template-columns: 1fr;
     max-width: calc(100vw - var(--space-72));
@@ -65,7 +64,7 @@
 }
 
 .quote-nav {
-  @mixin flex-row var(--space-32), center, center;
+  /* @mixin flex-row var(--space-32), center, center; */
   margin-top: var(--space-48);
   display: flex;
   flex-wrap: wrap;
@@ -111,7 +110,7 @@
     align-items: center;
   }
 
-  & button[aria-current="true"] {
+  & button[aria-current='true'] {
     --bg: var(--ws-bright-blue);
   }
 
@@ -128,4 +127,13 @@
   .quote:not(:first-child) {
     display: none;
   }
+}
+
+.l-quote__img {
+  width: var(--space-2xl);
+  margin-bottom: var(--space-m);
+}
+
+.l-quote__source {
+  color: var(--am-green-dark);
 }

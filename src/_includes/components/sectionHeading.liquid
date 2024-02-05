@@ -6,11 +6,12 @@
     {% assign sectionText = content.sectionTitle.text %}
 {% endif %}
 
-    <div class="flow text-section-header section wf-section">
-        <div class="large-container w-container">
-            <h2 class="heading-2">{{ sectionTitle }}</h2>
-            {% if sectionText %}
-            <p class="text-center">{{ sectionText }}</p>
-            {% endif %}
-        </div>
+<div class="section section--header">
+    <div class="container">
+        <h2>{{ sectionTitle }}</h2>
+        
+        {% if sectionText %}
+            <p>{{ sectionText }}</p>
+        {% endif %}
     </div>
+</div>

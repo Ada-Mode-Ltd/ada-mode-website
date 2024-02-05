@@ -1,13 +1,9 @@
-<div class="testimonial-section wf-section">
-    <div class="small-container w-container">
-      <div class="w-layout-grid testimonial-grid">
-        <div class="_10-pad-div-block"><img src="/images/“.svg" loading="lazy" width="65.5" alt="Quotation mark icon"></div>
-        <div>
-          <p class="heading-3">{{ quote.text }}</p>
-        </div>
-        <div>
-          <p class="text-block-3">- {{ quote.partner.name }}</p>
-        </div>
-      </div>
-    </div>
+<section class="section">
+  <div class="container container--sm" data-sal="slide-up" data-sal-duration="600">
+    <img class="l-quote__img" src="/images/“.svg" loading="lazy" width="65.5" alt="Quotation mark icon">
+    <blockquote class="l-quote__blockquote">
+      <p class="heading-3 font-light">{{ quote.text }}</p>
+      <cite class="l-quote__source">- {{ quote.partner.name }}</cite>
+    </blockquote>
   </div>
+</section>

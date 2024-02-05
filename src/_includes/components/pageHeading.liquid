@@ -4,72 +4,30 @@
     {% assign textAlign = "text-left" %}
 {% endif %}
 
-<section id="page-heading" class="section wf-section">
-    <div class="{% if content.keyVisual %}section hero _2 wf-section{% endif %}">
-        <div class="wrapper flow text-page-header {{ textAlign }}">
-            {% if content.logo %}
-                <div class="div-block-77">
-                    {% capture imgUrl %}{% sanityImageUrl content.logo %}{% endcapture %}
-                        <img src="{{ imgUrl }}" alt="">
-                </div>
-            {% endif %}    
-            {% if content.showDate %}
-                <p class="text--small timestamp">Last updated: <time datetime="{{ thisPage._updatedAt | w3cDate }}">{{ thisPage._updatedAt | dateFormat }}</time></p>
-            {% endif %}
-            <div class="_40-pad-div-block {{ textAlign }}">
-              <div class="heading-1 {{ textAlign }}">{% portableText content.title %}</div>
-            </div>
-            {% if content.tagline %}
-            <div class="hero-sub-heading-div {{ textAlign }}">
-              <h2 class="heading-5 {{ textAlign }}">{{ content.tagline }}</h2>
-            </div>
-            {% endif %}
+<section id="page-heading" class="section hero hero--page">
+  <div class="container {{ textAlign }}" data-sal="slide-up" data-sal-duration="600">
+    {% if content.logo %}
+        <div class="div-block-77">
+          {% capture imgUrl %}{% sanityImageUrl content.logo %}{% endcapture %}
+          <img src="{{ imgUrl }}" alt="">
         </div>
-        {% if content.keyVisual %}    
-        {% unless content.keyVisual.size > 1 %}
-        <div class="hero-image-relative">
-            {% for image in content.keyVisual %}
-            {% capture imgUrl %}{% sanityImageUrl image %}{% endcapture %}
-                <div class="lower-hero-image _4" style="background-image:url('{{ imgUrl }}')"></div>
-            {% endfor %}
+    {% endif %}    
+    {% if content.showDate %}
+        <p class="text--small timestamp">Last updated: <time datetime="{{ thisPage._updatedAt | w3cDate }}">{{ thisPage._updatedAt | dateFormat }}</time></p>
+    {% endif %}
+    <div class="hero__title heading-1 {{ textAlign }}">{% portableText content.title %}</div>
+    {% if content.tagline %}
+      <p class="subheading hero__subheading {{ textAlign }}">{{ content.tagline }}</p>
+    {% endif %}   
+  </div>
+  {% if content.keyVisual %}    
+    <div class="offset-image" data-sal="slide-up" data-sal-duration="600">
+      {% for image in content.keyVisual %}
+        {% capture imgUrl %}{% sanityImageUrl image %}{% endcapture %}
+        <div class="offset-image__img-wrapper">
+          {% image imgUrl, image.altText, 'eager' %}
         </div>
-        {% else %}
-        <div class="section no-padding wf-section">
-            <div data-delay="4000" data-animation="slide" class="_w-slider product-page w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="500" data-infinite="true">
-              <div class="mask w-slider-mask">
-                {% for image in content.keyVisual %}
-                {% capture imgUrl %}{% sanityImageUrl image %}{% endcapture %}
-                    <div style="opacity: 0" class="slide w-slide">{% image imgUrl, image.altText, "auto" %}</div>
-                  {% endfor %}
-                  </div>
-                  <div class="left-arrow-3 w-slider-arrow-left">
-                    <div class="icon-3 w-icon-slider-left"></div>
-                    </div>
-                    <div class="right-arrow-3 w-slider-arrow-right">
-                      <div class="icon-4 w-icon-slider-right"></div>
-                      </div>
-                      <div class="_w-slider-nav-w-round w-slider-nav w-slider-nav-invert w-round"></div>
-                      </div>
-                      </div>
-                      <script>
-                        var imageHolder = document.querySelectorAll('.slide.w-slide')
-                        var img = document.querySelectorAll('.slide.w-slide img')
-      
-      function loaded(i) {
-        // Change the opacity from 0 to 1
-        imageHolder[i].style.opacity = 1
-      }
-      
-      // For each image check if it is complete
-      for (var i = 0; i < img.length; i++) {
-      if (img[i].complete) {
-        loaded(i))
-      } else {
-        img[i].addEventListener('load', loaded(i))
-      }
-      }
-                      </script>
-        {% endunless %}
-        {% endif %}
+      {% endfor %}
     </div>
-  </section>
+  {% endif %}
+</section>

@@ -1,38 +1,25 @@
 {% if caseStudyList %}
   {% assign cases = caseStudyList %}
-  {% else %}
+{% else %}
   {% assign cases = allCaseStudies %}
 {% endif %}
 
-<div class="w-dyn-list">
-        <ul role="list" class="collection-list-3 w-dyn-items">
-          {% for case in cases limit:3 %}
-          {% capture imgUrl %}{% sanityImageUrl case.mainImage %}{% endcapture %}
-          <li role="listitem" class="collection-item-2 w-dyn-item">
-            <div class="w-layout-grid grid-24">
-              <a href="/case-studies/{{ case.slug.current }}/" class="case-study-image-div w-inline-block">
-                <div class="div-block-98">
-                  {% image imgUrl, '' %}
-                </div>
-              </a>
-              <div class="div-block-32">
-                <div>
-                  {% assign category = case.categories | first %}
-                  <div class="case-study-text">{{ category.title }}</div>
-                  <a href="/case-studies/{{ case.slug.current }}/" class="_40-pad-div-block w-inline-block">
-                    <h4 class="heading-4 white">{{ case.title }}</h4>
-                  </a>
-                </div>
-                <div class="div-block-67">
-                  <a href="/case-studies/{{ case.slug.current }}/" class="green-outline-button w-button">Learn more</a>
-                </div>
-              </div>
-            </div>
-          </li>
-          {% else %}
-          <li class="w-dyn-empty">
-            <div>No items found.</div>
-            </li>
-          {% endfor %}
-          </ul>
-        </div>
+<ul role="list" class="collection__list">
+  {% for case in cases limit:3 %}
+    {% capture imgUrl %}{% sanityImageUrl case.mainImage %}{% endcapture %}
+    <li
+      class="collection__item collection__item--dark" data-sal="slide-up" data-sal-duration="600">
+      <div class="collection__img-wrapper">{% image imgUrl , '' %}</div>
+      <div class="collection__item-content">
+        <p class="pretitle collection__pretitle">
+          {% assign category = case.categories | first %}
+          <span>{{ category.title }}</span>
+        </p>
+        <h4 class="collection__post-heading">
+          <a href="/case-studies/{{ case.slug.current }}" class="collection__link">{{ case.title }}</a>
+        </h4>
+        <a href="/case-studies/{{ case.slug.current }}" aria-hidden class="collection__item-button am-button am-button--sm am-button--green-outline">Read more</a>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
