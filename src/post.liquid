@@ -39,14 +39,14 @@ eleventyComputed:
     <div class="offset-image__img-wrapper">
       {% if post.mainImage.asset %}
         {% capture imgUrl %}
-            {% sanityImageUrl post.mainImage %}
+          {% sanityImageUrl post.mainImage %}
         {% endcapture %}
-        {% image imgUrl, post.mainImage.altText %}
+        {% image imgUrl, post.mainImage.altText, 'eager' %}
       {% else %}
         {% capture imgUrl %}
           {% sanityImageUrl site.blogFallbackImage %}
         {% endcapture %}
-        {% image imgUrl, '' %}
+        {% image imgUrl, '', 'eager' %}
       {% endif %}
     </div>
   </div>

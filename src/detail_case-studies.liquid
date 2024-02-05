@@ -45,12 +45,12 @@ eleventyComputed:
         {% capture imgUrl %}
             {% sanityImageUrl case.mainImage %}
         {% endcapture %}
-        {% image imgUrl, case.mainImage.altText %}
+        {% image imgUrl, case.mainImage.altText, 'eager' %}
       {% else %}
         {% capture imgUrl %}
           {% sanityImageUrl site.blogFallbackImage %}
         {% endcapture %}
-        {% image imgUrl, '' %}
+        {% image imgUrl, '', 'eager' %}
       {% endif %}
     </div>
   </div>
