@@ -36,6 +36,9 @@ input[type='submit'] {
 }
 
 .form {
-  max-width: 40rem;
+  max-width: 50rem;
   margin-inline: auto;
+  background-color: var(--am-grey-xlight);
+  padding: var(--space-s-l);
+  border-radius: 0.4rem;
 }
