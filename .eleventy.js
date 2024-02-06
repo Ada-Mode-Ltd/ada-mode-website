@@ -126,6 +126,7 @@ module.exports = function (eleventyConfig) {
         mode: 'production',
         sourcemap: 'true',
         manifest: true,
+        emptyOutDir: true,
         // This puts CSS and JS in subfolders – remove if you want all of it to be in /assets instead
         rollupOptions: {
           output: {
