@@ -13,7 +13,8 @@
     "serve": "NODE_ENV=development npx @11ty/eleventy --serve",
     "bench": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
     "build": "NODE_ENV=production npx @11ty/eleventy",
-    "build:site": "NODE_ENV=production npx @11ty/eleventy && node ./src/utils/generate-preview-css.js",
+    "build:site": "run-s build build:preview",
+    "build:preview": "node ./src/utils/generate-preview-css.mjs",
     "clean": "del-cli _site && del-cli .11ty-vite",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -46,7 +47,6 @@
     "fs-extra": "^11.2.0",
     "htm": "^3.1.1",
     "lodash.throttle": "^4.1.1",
-    "npm-run-all": "^4.1.5",
     "postcss": "^8.4.33",
     "postcss-import": "^15.1.0",
     "postcss-mixins": "^9.0.4",
@@ -62,6 +62,7 @@
     "@shopify/prettier-plugin-liquid": "^1.4.1",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^3.2.4",
     "sal.js": "^0.8.5"
   }
