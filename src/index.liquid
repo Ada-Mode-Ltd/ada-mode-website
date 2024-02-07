@@ -74,11 +74,15 @@ layout: base.html
       {% if partners.size > 0 %}
         {% for partner in partners %}
           {% capture imgUrl %}{% sanityImageUrl partner.logo %}{% endcapture %}
-          <div><img
+          <div>
+            <img
               src="{{ imgUrl  }}"
               loading="lazy"
-              alt=""
-              class="client-logo" /></div>
+              alt="{{ partner.name }}"
+              width="400"
+              height="300"
+              class="client-logo" />
+            </div>
         {% endfor %}
       {% endif %}
     </div>
