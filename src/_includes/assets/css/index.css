@@ -56,10 +56,24 @@
 @import './components/offset-image.css';
 @import './components/history.css';
 @import './components/faq.css';
+@import './components/client-logos.css';
 
 @import './sal.css';
 
-@import './components/cead.css';
+body {
+  opacity: 0;
+  animation: appear 150ms forwards;
+}
+
+.no-js {
+  opacity: 1;
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}
 
 a {
   color: inherit;
@@ -279,19 +293,4 @@ a.case-study-image-div.w-inline-block img,
 .recent-blog-grid .blog-post-image-div,
 .recent-blog-grid .blog-category-div {
   margin-bottom: 0;
-}
-
-.client-logo-grid {
-  justify-content: center;
-  align-items: center;
-}
-
-.client-logo {
-  width: 100%;
-  filter: grayscale(1);
-}
-
-.section__services-grid {
-  display: grid;
-  gap: 1rem;
 }

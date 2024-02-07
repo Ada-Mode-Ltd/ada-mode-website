@@ -25,7 +25,7 @@
       {% for image in content.keyVisual %}
         {% capture imgUrl %}{% sanityImageUrl image %}{% endcapture %}
         <div class="offset-image__img-wrapper">
-          {% image imgUrl, image.altText, 'eager' %}
+          {% image imgUrl, image.alt, 'eager' %}
         </div>
       {% endfor %}
     </div>
