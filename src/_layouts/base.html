@@ -36,9 +36,6 @@
 
     {% if eleventy.serverless.path %}
       <link rel="stylesheet" href="/assets/build/index.css" />
-      <script src="/assets/js/index.js" defer type="module"></script>
-    {% else %}
-      <script src="/_includes/assets/js/index.js" defer type="module"></script>
     {% endif %}
 
     {% analyticsScript %}
@@ -46,6 +43,12 @@
   <body class="body">
     <div id="consent"></div>
     {% include 'partials/nav.html' %} {{ content }} {% include 'partials/footer.html' %}
+
+    {% if eleventy.serverless.path %}
+      <script src="/assets/js/index.js" defer type="module"></script>
+    {% else %}
+      <script src="/_includes/assets/js/index.js" defer type="module"></script>
+    {% endif %}
 
     <noscript>
       <style type="text/css">
