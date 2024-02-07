@@ -40,8 +40,10 @@
 
     {% analyticsScript %}
   </head>
-  <body class="body">
-    <div id="consent"></div>
+  <body class="body no-js">
+    <script>
+      document.body.classList.remove('no-js')
+    </script>
     {% include 'partials/nav.html' %} {{ content }} {% include 'partials/footer.html' %}
 
     {% if eleventy.serverless.path %}
