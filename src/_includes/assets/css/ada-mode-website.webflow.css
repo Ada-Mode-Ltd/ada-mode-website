@@ -932,8 +932,13 @@ body {
 
 .brand {
   flex-shrink: 0;
-  width: clamp(150px, 30%, 300px);
+  width: clamp(8rem, 30%, 10rem);
   margin-left: -1rem;
+}
+
+.brand img {
+  width: 100%;
+  height: auto;
 }
 
 .nav-link {
