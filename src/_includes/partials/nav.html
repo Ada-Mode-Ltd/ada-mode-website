@@ -1,8 +1,10 @@
 <div class="navbar" data-component="menu">
     <div class="nav-bar-container">
-      <a href="/" aria-current="page" class="brand"><img src="/images/ada-mode-logo---dark-wire-horizontal-logo.svg" loading="lazy" width="150" height="45" alt="Ada Mode logo"></a>
-      <button class="menu-button" data-menu-button="main" aria-label="menu">
-        <div class="icon-2 w-icon-nav-menu"></div>
+      <a href="/" aria-current="page" class="brand">
+        {% include "../components/logo.liquid" %}      
+      </a>
+      <button class="menu-button" data-menu-button="main" aria-label="Open/close menu">
+        {% include "../components/menu-icon.liquid" %}  
       </button>
       <nav role="navigation" class="nav-menu" data-menu-content hidden>
         
