@@ -1,13 +1,48 @@
-@mixin button primary;
-
-@mixin button secondary, transparent, transparent, var(--ws-grey) {
-  border: 1px solid var(--ws-grey);
-  &:hover,
-  &:focus {
-    border: 1px solid var(--ws-bright-blue);
-    color: var(--ws-bright-blue);
-  }
+.am-button {
+  display: inline-flex;
+  padding: 1em 2em;
+  justify-content: center;
+  text-decoration: none;
+  border: 1px solid var(--am-green-dark);
+  border-radius: 0.4em;
+  background-color: var(--am-green-dark);
+  color: var(--white);
+  line-height: 1.4;
+  font-size: 1rem;
+  font-family: var(--regular);
+  font-weight: 400;
+  transition:
+    background-color 150ms,
+    border 150ms,
+    color 150ms;
 }
 
-@mixin button tertiary, var(--ws-bright-blue), var(--ws-bright-blue-dark),
-  var(--ws-white);
+.am-button:hover,
+.am-button:focus-visible {
+  background-color: transparent;
+  color: var(--am-green-dark);
+}
+
+.am-button--sm {
+  font-size: 0.9rem;
+  padding: 0.75em 1.5em;
+}
+
+.am-button--green-outline {
+  background: transparent;
+  color: var(--am-green-dark);
+}
+
+.am-button--on-dark:hover,
+.am-button--on-dark:focus-visible {
+  background-color: var(--am-grey-xlight);
+  border: 1px solid var(--am-grey-xlight);
+  color: var(--am-blue-deep);
+}
+
+.am-button--green-outline:hover,
+.am-button--green-outline:focus-visible {
+  background-color: var(--am-green-dark);
+  border: 1px solid var(--am-green-dark);
+  color: var(--white);
+}
