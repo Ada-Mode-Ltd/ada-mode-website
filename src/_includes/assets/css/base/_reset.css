@@ -69,6 +69,11 @@ select {
   font: inherit;
 }
 
+svg {
+  width: 100%;
+  height: auto;
+}
+
 /* Reduced motion defaults */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
