@@ -1,15 +1,20 @@
 .client-logo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s-l);
+  grid-column-gap: var(--space-l);
   justify-content: center;
   align-items: center;
+  margin-top: var(--space-s);
+}
+
+.client-logos__item {
+  flex: 0 0 auto;
+  width: 6.75rem;
 }
 
 .client-logo {
   width: 100%;
   filter: grayscale(1);
   height: auto;
-}
-
-.section__services-grid {
-  display: grid;
-  gap: 1rem;
 }

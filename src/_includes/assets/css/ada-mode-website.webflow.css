@@ -24,6 +24,10 @@
   max-width: var(--container-width-lg);
 }
 
+.container--full {
+  max-width: none;
+}
+
 body {
   font-family: Roboto, sans-serif;
   color: var(--am-blue-deep);
@@ -334,12 +338,6 @@ body {
   color: #fff;
   font-size: 28px;
   line-height: 36px;
-}
-
-.client-logo-grid {
-  grid-column-gap: var(--space-l);
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto;
 }
 
 .sectors-grid {
@@ -6655,10 +6653,6 @@ body {
   .heading-4.white {
     font-size: 22px;
     line-height: 30px;
-  }
-
-  .client-logo-grid {
-    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .grid-8 {

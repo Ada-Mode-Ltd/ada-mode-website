@@ -37,7 +37,7 @@ layout: base.html
     <h2 class="heading-2 services__heading">What we do</h2>
     <div class="services__grid">
       <div class="services__grid-col" data-sal="slide-up" data-sal-duration="600">
-        <h3 class="heading-4">Consultancy</h3>
+        <h3 class="heading-4">Services</h3>
         <ul class="services__list">
           <li>AI Adoption</li>
           <li>Industrial Data Engineering</li>
@@ -68,15 +68,17 @@ layout: base.html
 {% endif %}
 
 <section class="section no-top-padding" data-sal="slide-up" data-sal-duration="600">
-  <div class="container">
+  <div class="container container--lg">
     <h2 class="heading-2">{{ homeContent.partners.title }}</h2>
-    <div class="w-layout-grid client-logo-grid">
+  </div>
+  <div class="container container--full">
+    <div class="client-logo-grid">
       {% if partners.size > 0 %}
         {% for partner in partners %}
           {% capture imgUrl %}{% sanityImageUrl partner.logo %}{% endcapture %}
-          <div>
+          <div class="client-logos__item">
             <img
-              src="{{ imgUrl  }}"
+              src="{{ imgUrl }}"
               loading="lazy"
               alt="{{ partner.name }}"
               width="400"
@@ -87,6 +89,7 @@ layout: base.html
       {% endif %}
     </div>
   </div>
+  
 </section>
 
 <section class="section blue no-padding">
