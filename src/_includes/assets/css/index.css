@@ -59,12 +59,6 @@
 
 @import './sal.css';
 
-@media (min-width: 95em) {
-  html {
-    font-size: 120%;
-  }
-}
-
 body {
   opacity: 0;
   animation: appear 150ms forwards;

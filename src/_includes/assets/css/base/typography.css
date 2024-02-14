@@ -16,6 +16,18 @@
   font-display: swap;
 }
 
+@media (min-width: 120em) {
+  html {
+    font-size: 110%;
+  }
+}
+
+@media (min-width: 140em) {
+  html {
+    font-size: 120%;
+  }
+}
+
 body {
   font-family: var(--light);
   font-weight: 400;
