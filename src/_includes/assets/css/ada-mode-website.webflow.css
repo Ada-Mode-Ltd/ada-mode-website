@@ -4889,6 +4889,7 @@ body {
   margin-right: -1rem;
   width: 4rem;
   display: flex;
+  align-items: center;
 }
 
 .menu-button > * {
