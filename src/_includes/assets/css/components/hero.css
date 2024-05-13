@@ -2,6 +2,11 @@
   padding-top: calc(var(--space-s-l) + var(--header-height));
 }
 
+.hero--page-simple {
+  padding-top: calc(var(--space-s-l) + var(--header-height));
+  padding-bottom: 0;
+}
+
 .hero--contact {
   padding-bottom: var(--space-s-l);
 }
