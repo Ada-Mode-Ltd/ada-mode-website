@@ -14,266 +14,299 @@ eleventyComputed:
 {% assign id = eleventy.serverless.path.id %}
 
 {% if eleventy.serverless.path %}
-{% for page in preview.page %}
+  {% for page in preview.page %}
     {% if page._id == id %}
-        {% assign thisPage = page %}
-        {% break %}
+      {% assign thisPage = page %}
+      {% break %}
     {% endif %}
-{% endfor %}
+  {% endfor %}
 {% endif %}
 
-    {% for content in thisPage.body %}
-        {% if content._type == 'pageHeading' %}
-            {% include "components/pageHeading.liquid" %}
-        {% endif %}
-    
-        {% if content._type == 'blockContent' %}
-        <div class="section wf-section">
-            <article class="wrapper flow paragraph" data-sal="slide-up" data-sal-duration="600">
-                {% portableText content.content %}
-            </article>
-        </div>
-        {% endif %}
-    
-        {% if content._type == 'blockLayout' %}
-            {%  include 'components/block-layout.liquid' %}
-        {% endif %}
-    
-        {% if content._type == 'quote' %}
-            <section class="">
-                <div class="wrapper">
-                    {% assign quotes = content | makeArray %}
-                    {% include 'components/quotes.liquid' %}
-                </div>
-            </section>
-        {% endif %}
-    
-        {% if content._type == 'quoteCarousel' and content.allQuotes %}
-            <section class="">
-                <div class="wrapper">
-                    {% assign quotes = allQuotes %}
-                    {% include 'components/quotes.liquid' %}
-                </div>
-            </section>
-        {% elsif content._type == 'quoteCarousel' and content.allQuotes != true %}
-            <section class="">
-                <div class="wrapper">
-                    {% assign quotes = content.quotes %}
-                    {% include 'components/quotes.liquid' %}
-                </div>
-            </section>
-        {% endif %}
-    
-        {% if content._type == 'people' %}
-            {% if content.allPeople %}
-                {% assign people = allPeople %}
-            {% else %}
-                {% assign people = content.people %}
-            {% endif %}
-    
-            <section>
-                <div class="wrapper flow">
-                {% if content.sectionTitle %}
-                {% include 'components/sectionHeading.liquid' %}
-                {% endif %}
-                {% include 'components/people.liquid' %}
-            </div>
-            </section>
-    
-        {% endif %}
-    
-    {% if content._type == 'stackedTabs' %}
-        <section>
-        <div class="wrapper flow">
-            {% assign tabs = content.tabs %}
-            {% assign sectionTitle = content.title %}
-            {% assign sectionLink = content.sectionLink %}
-            {% include 'components/stackedTabs.liquid' %}
-        </div>
+{% for content in thisPage.body %}
+  {% if content._type == 'pageHeading' %}
+    {% include 'components/pageHeading.liquid' %}
+  {% endif %}
+
+  {% if content._type == 'blockContent' %}
+    <div class='section wf-section'>
+      <article
+        class='wrapper flow paragraph'
+        data-sal='slide-up'
+        data-sal-duration='600'>
+        {% portableText content.content %}
+      </article>
+    </div>
+  {% endif %}
+
+  {% if content._type == 'blockLayout' %}
+    {% include 'components/block-layout.liquid' %}
+  {% endif %}
+
+  {% if content._type == 'quote' %}
+    <section class=''>
+      <div class='wrapper'>
+        {% assign quotes = content | makeArray %}
+        {% include 'components/quotes.liquid' %}
+      </div>
     </section>
+  {% endif %}
+
+  {% if content._type == 'quoteCarousel' and content.allQuotes %}
+    <section class=''>
+      <div class='wrapper'>
+        {% assign quotes = allQuotes %}
+        {% include 'components/quotes.liquid' %}
+      </div>
+    </section>
+  {% elsif content._type == 'quoteCarousel' and content.allQuotes != true %}
+    <section class=''>
+      <div class='wrapper'>
+        {% assign quotes = content.quotes %}
+        {% include 'components/quotes.liquid' %}
+      </div>
+    </section>
+  {% endif %}
+
+  {% if content._type == 'people' %}
+    {% if content.allPeople %}
+      {% assign people = allPeople %}
+    {% else %}
+      {% assign people = content.people %}
     {% endif %}
-    
-    {% if content._type == 'comparison' %}
-        {% assign rows = content.left.size | minus: 1 %}
-        {% assign left = content.left %}
-        {% assign right = content.right %}
-        <div class="section section--overlap">
-            <div class="container container--sm">
-              <div class="comparison" style="--comparison-rows: {{rows}};">
-                <div>
-                    {% if left.title %}
-                        <h3 class="heading-4">{{ left.title }}</h3>
-                    {% endif %}
-                    <ul data-marker="{{ left.icon }}">
-                        {% for item in left.items %}
-                            <li>{{ item }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                <div>
-                    {% if right.title %}
-                        <h3 class="heading-4">{{ right.title }}</h3>
-                    {% endif %}
-                    <ul data-marker="{{ right.icon }}">
-                        {% for item in right.items %}
-                            <li>{{ item }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-        </div>
-</div>
-    {% endif %}
-    
-        {% if content._type == 'sectionHeading' %}
-                {% assign sectionTitle = content.title %}
-                {% assign sectionText = content.text %}
-                {% include 'components/sectionHeading.liquid' %}
+
+    <section>
+      <div class='wrapper flow'>
+        {% if content.sectionTitle %}
+          {% include 'components/sectionHeading.liquid' %}
         {% endif %}
-    
-        {% if content._type == 'rowOfLogos' %}
-            <section class="">
-                <div class="wrapper flow">
-                {% if content.sectionTitle %}
-                {% include 'components/sectionHeading.liquid' %}
-                {% endif %}
-                {% include 'components/rowOfLogos.liquid' %}
-            </div>
-            </section>
-    
-        {% endif %}
-    
-        {% if content._type == 'careers' %}
-        {% if content.allJobs %}
-                {% assign jobs = allJobs %}
-            {% else %}
-                {% assign jobs = content.jobs %}
+        {% include 'components/people.liquid' %}
+      </div>
+    </section>
+  {% endif %}
+
+  {% if content._type == 'stackedTabs' %}
+    <section>
+      <div class='wrapper flow'>
+        {% assign tabs = content.tabs %}
+        {% assign sectionTitle = content.title %}
+        {% assign sectionLink = content.sectionLink %}
+        {% include 'components/stackedTabs.liquid' %}
+      </div>
+    </section>
+  {% endif %}
+
+  {% if content._type == 'comparison' %}
+    {% assign rows = content.left.size | minus: 1 %}
+    {% assign left = content.left %}
+    {% assign right = content.right %}
+    <div class='section section--overlap'>
+      <div class='container container--sm'>
+        <div
+          class='comparison'
+          style='--comparison-rows: {{rows}};'>
+          <div>
+            {% if left.title %}
+              <h3 class='heading-4'>{{ left.title }}</h3>
             {% endif %}
-            <section class="" data-narrow>
-                <div class="wrapper">
-                <div class="flex-row content-col" data-sal="slide-up" data-sal-duration="600">
-                    <div class="content flow">
-                        <h2>Join our team</h2>
-                        <p>Join us as we continue to drive down the cost of clean energy with AI applications.</p>
-                    </div>
-                    <div class="flex-col flow">
-                        {% if jobs.size > 0 %}
-                        {% for job in jobs %}
-                            <div class="border-box__light" data-button>
-                                <div class="flow">
-                                    <p class="semi-bold text--secondary">{{ job.title }}</p>
-                                </div>
-                                <div>
-                                    {% assign buttonIcon = true %}
-                                    {% assign buttonType = "tertiary" %}
-                                    {% assign buttonText = "Learn more" %}
-                                    {% assign buttonLink = "/careers/" | append: job.slug.current %}
-                                    {% include 'components/button.liquid' %}
-                                </div>
-                            </div>
-                        {% endfor %}
-                        {% else %}
-                            <div class="border-box__light" data-button>
-                                <div class="flow">
-                                    <p class="semi-bold text--secondary">No open positions.</p>
-                                    <p>You can still send us your CV to keep on file.</p>
-                                </div>
-                                <div>
-                                    {% assign buttonIcon = true %}
-                                    {% assign buttonType = "tertiary" %}
-                                    {% assign buttonText = "Email us" %}
-                                    {% assign buttonLink = "mailto:careers@ada-mode.com" %}
-                                    {% include 'components/button.liquid' %}
-                                </div>
-                            </div>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-            </section>
-    
-        {% endif %}
-    
-        {% if content._type == 'productFeatures' %}
-        {% assign featureType = content.featureType %}
-            {% if content.allFeatures %}
-            {% assign features = allFeatures[featureType] %}
-            {% else %}
-            {% assign features = content.features %}
-        {% endif %}
-        {% include 'components/prod-features.liquid' %}
-        {% endif %}
-
-        {% if content._type == 'industries' %}
-        <div class="section grey">
-            <div class="container">
-                <h2 class="section__heading">Industries we work in</h2>
-
-                {% assign industryList = industriesList %}
-                <div class="industries__grid">
-                    {% for industry in industryList %}
-                        <div class="industries__item-grid" data-sal="slide-up"
-                        data-sal-duration="500">
-                            <img src="{{ industry.imageUrl }}" alt="" width="100" height="auto">
-                            <div>
-                                <h3 class="heading-3">{{ industry.title }}</h3>
-                                <ul class="industries__item-list">
-                                    {% for item in industry.items %}
-                                        <li>{{ item }}</li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
+            <ul data-marker='{{ left.icon }}'>
+              {% for item in left.items %}
+                <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
           </div>
-        {% endif %}
-
-        {% if content._type == 'caseStudies' %}
-        <div class="section blue">
-            <div class="container">
-                <h2 class="heading-3 section__heading" data-sal="slide-up" data-sal-duration="600">{{ content.title | default: "Our work" }}</h2>
-                {% unless content.showLatest %}
-                    {% assign caseStudyList = content.caseStudies %}
-                {% endunless %}
-
-                {% include 'partials/caseStudiesBlock.liquid' %}
-            </div>
+          <div>
+            {% if right.title %}
+              <h3 class='heading-4'>{{ right.title }}</h3>
+            {% endif %}
+            <ul data-marker='{{ right.icon }}'>
+              {% for item in right.items %}
+                <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
-        {% endif %}
-        
-        {% if content._type == 'accordion' %}
-            <div class="section blue">
-                <div class="container">
-                    <h2 class="section__heading">{{ content.title }}</h2>
-                    <div class="faq" data-component="accordion" data-sal="slide-up" data-sal-duration="600">
-                        {% for item in content.list %}
-                            {% assign id = item.title | split: " " | join: "_" %}
-                            <div data-item>
-                                <h3 class="faq__title">
-                                    <button data-btn="{{ id }}" class="faq__button">
-                                        {{ item.title }}
-                                    </button>
-                                </h3>
-                                <div class="faq__content" id="{{ id }}" data-content>
-                                    <div class="faq__content-inner" data-inner-content>
-                                        <p>{{ item.text }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        {% endif %}
+      </div>
+    </div>
+  {% endif %}
 
-    {% if content._type == 'ctaSection' %}
-        {% if content.blockLayout %}
-        {% unless content.blockLayout == 'noimage' %}
-            {% assign ctaCols = 2 %}
-        {% endunless %}
+  {% if content._type == 'sectionHeading' %}
+    {% assign sectionTitle = content.title %}
+    {% assign sectionText = content.text %}
+    {% include 'components/sectionHeading.liquid' %}
+  {% endif %}
+
+  {% if content._type == 'rowOfLogos' %}
+    <section class=''>
+      <div class='wrapper flow'>
+        {% if content.sectionTitle %}
+          {% include 'components/sectionHeading.liquid' %}
         {% endif %}
-        {% include 'components/cta-section.liquid' %}
+        {% include 'components/rowOfLogos.liquid' %}
+      </div>
+    </section>
+  {% endif %}
+
+  {% if content._type == 'careers' %}
+    {% if content.allJobs %}
+      {% assign jobs = allJobs %}
+    {% else %}
+      {% assign jobs = content.jobs %}
     {% endif %}
+    <section
+      class=''
+      data-narrow>
+      <div class='wrapper'>
+        <div
+          class='flex-row content-col'
+          data-sal='slide-up'
+          data-sal-duration='600'>
+          <div class='content flow'>
+            <h2>Join our team</h2>
+            <p>Join us as we continue to drive down the cost of clean energy with AI applications.</p>
+          </div>
+          <div class='flex-col flow'>
+            {% if jobs.size > 0 %}
+              {% for job in jobs %}
+                <div
+                  class='border-box__light'
+                  data-button>
+                  <div class='flow'>
+                    <p class='semi-bold text--secondary'>{{ job.title }}</p>
+                  </div>
+                  <div>
+                    {% assign buttonIcon = true %}
+                    {% assign buttonType = 'tertiary' %}
+                    {% assign buttonText = 'Learn more' %}
+                    {% assign buttonLink = '/careers/' | append: job.slug.current %}
+                    {% include 'components/button.liquid' %}
+                  </div>
+                </div>
+              {% endfor %}
+            {% else %}
+              <div
+                class='border-box__light'
+                data-button>
+                <div class='flow'>
+                  <p class='semi-bold text--secondary'>No open positions.</p>
+                  <p>You can still send us your CV to keep on file.</p>
+                </div>
+                <div>
+                  {% assign buttonIcon = true %}
+                  {% assign buttonType = 'tertiary' %}
+                  {% assign buttonText = 'Email us' %}
+                  {% assign buttonLink = 'mailto:careers@ada-mode.com' %}
+                  {% include 'components/button.liquid' %}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  {% if content._type == 'productFeatures' %}
+    {% assign featureType = content.featureType %}
+    {% if content.allFeatures %}
+      {% assign features = allFeatures[featureType] %}
+    {% else %}
+      {% assign features = content.features %}
+    {% endif %}
+    {% include 'components/prod-features.liquid' %}
+  {% endif %}
+
+  {% if content._type == 'industries' %}
+    <div class='section grey'>
+      <div class='container'>
+        <h2 class='section__heading'>Industries we work in</h2>
+
+        {% assign industryList = industriesList %}
+        <div class='industries__grid'>
+          {% for industry in industryList %}
+            <div
+              class='industries__item-grid'
+              data-sal='slide-up'
+              data-sal-duration='500'>
+              <img
+                src='{{ industry.imageUrl }}'
+                alt=''
+                width='100'
+                height='auto'>
+              <div>
+                <h3 class='heading-3'>{{ industry.title }}</h3>
+                <ul class='industries__item-list'>
+                  {% for item in industry.items %}
+                    <li>{{ item }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if content._type == 'caseStudies' %}
+    <div class='section blue'>
+      <div class='container'>
+        <h2
+          class='heading-3 section__heading'
+          data-sal='slide-up'
+          data-sal-duration='600'>
+          {{ content.title | default: 'Our work' }}
+        </h2>
+        {% unless content.showLatest %}
+          {% assign caseStudyList = content.caseStudies %}
+        {% endunless %}
+
+        {% include 'partials/caseStudiesBlock.liquid' %}
+      </div>
+    </div>
+  {% endif %}
+
+  {% if content._type == 'accordion' %}
+    <div class='section blue'>
+      <div class='container'>
+        <h2 class='section__heading'>{{ content.title }}</h2>
+        <div
+          class='faq'
+          data-component='accordion'
+          data-sal='slide-up'
+          data-sal-duration='600'>
+          {% for item in content.list %}
+            {% assign id = item.title | split: ' ' | join: '_' %}
+            <div data-item>
+              <h3 class='faq__title'>
+                <button
+                  data-btn='{{ id }}'
+                  class='faq__button'>
+                  {{ item.title }}
+                </button>
+              </h3>
+              <div
+                class='faq__content'
+                id='{{ id }}'
+                data-content>
+                <div
+                  class='faq__content-inner'
+                  data-inner-content>
+                  <p>{{ item.text }}</p>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if content._type == 'ctaSection' %}
+    {% if content.blockLayout %}
+      {% unless content.blockLayout == 'noimage' %}
+        {% assign ctaCols = 2 %}
+      {% endunless %}
+    {% endif %}
+    {% include 'components/cta-section.liquid' %}
+  {% endif %}
 {% endfor %}

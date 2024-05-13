@@ -1,30 +1,49 @@
 {% if content.textAlign == 'center' %}
-    {% assign textAlign = "text-center" %}
+  {% assign textAlign = 'text-center' %}
 {% else %}
-    {% assign textAlign = "text-left" %}
+  {% assign textAlign = 'text-left' %}
 {% endif %}
 
-<section id="page-heading" class="section hero hero--page">
-  <div class="container {{ textAlign }}" data-sal="slide-up" data-sal-duration="600">
+{% if content.keyVisual %}
+  {% assign componentClass = 'section hero hero--page' %}
+{% else %}
+  {% assign componentClass = 'section hero hero--page-simple' %}
+{% endif %}
+
+<section
+  id='page-heading'
+  class='{{ componentClass }}'>
+  <div
+    class='container {{ textAlign }}'
+    data-sal='slide-up'
+    data-sal-duration='600'>
     {% if content.logo %}
-        <div class="div-block-77">
-          {% capture imgUrl %}{% sanityImageUrl content.logo %}{% endcapture %}
-          <img src="{{ imgUrl }}" alt="">
-        </div>
-    {% endif %}    
-    {% if content.showDate %}
-        <p class="text--small timestamp">Last updated: <time datetime="{{ thisPage._updatedAt | w3cDate }}">{{ thisPage._updatedAt | dateFormat }}</time></p>
+      <div class='div-block-77'>
+        {% capture imgUrl %}{% sanityImageUrl content.logo %}{% endcapture %}
+        <img
+          src='{{ imgUrl }}'
+          alt=''>
+      </div>
     {% endif %}
-    <div class="hero__title heading-1 {{ textAlign }}">{% portableText content.title %}</div>
+    {% if content.showDate %}
+      <p class='text--small timestamp'>
+        Last updated:
+        <time datetime='{{ thisPage._updatedAt | w3cDate }}'>{{ thisPage._updatedAt | dateFormat }}</time>
+      </p>
+    {% endif %}
+    <div class='hero__title heading-1 {{ textAlign }}'>{% portableText content.title %}</div>
     {% if content.tagline %}
-      <p class="subheading hero__subheading {{ textAlign }}">{{ content.tagline }}</p>
-    {% endif %}   
+      <p class='subheading hero__subheading {{ textAlign }}'>{{ content.tagline }}</p>
+    {% endif %}
   </div>
-  {% if content.keyVisual %}    
-    <div class="offset-image" data-sal="slide-up" data-sal-duration="600">
+  {% if content.keyVisual %}
+    <div
+      class='offset-image'
+      data-sal='slide-up'
+      data-sal-duration='600'>
       {% for image in content.keyVisual %}
         {% capture imgUrl %}{% sanityImageUrl image %}{% endcapture %}
-        <div class="offset-image__img-wrapper">
+        <div class='offset-image__img-wrapper'>
           {% image imgUrl, image.alt, 'eager' %}
         </div>
       {% endfor %}

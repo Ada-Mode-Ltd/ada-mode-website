@@ -12,31 +12,38 @@ eleventyComputed:
     pageTitle: '{{ post.title }}'
     pageDescription: '{{ post.description | default: post.blurb }}'
 ---
-
 {% assign id = eleventy.serverless.path.id %}
 
 {% if eleventy.serverless.path %}
-{% for p in preview.post %}
+  {% for p in preview.post %}
     {% if p._id == id %}
-        {% assign post = p %}
-        {% break %}
+      {% assign post = p %}
+      {% break %}
     {% endif %}
-{% endfor %}
+  {% endfor %}
 {% endif %}
 
-<section id="page-heading" class="section hero hero--page">
-  <div class="container">  
-    <div class="hero__title" data-sal="slide-up" data-sal-duration="600">
-      <p class="preheading hero__preheading">
+<section
+  id='page-heading'
+  class='section hero hero--page'>
+  <div class='container'>
+    <div
+      class='hero__title'
+      data-sal='slide-up'
+      data-sal-duration='600'>
+      <p class='preheading hero__preheading'>
         {% assign category = post.categories | first %}
         <span>{{ category.title }}</span>
-        <span>| {{ post.publishedAt | date: "%B %d, %Y" }}</span>
+        <span>| {{ post.publishedAt | date: '%B %d, %Y' }}</span>
       </p>
       <h1>{{ post.title }}</h1>
     </div>
   </div>
-  <div class="offset-image" data-sal="slide-up" data-sal-duration="600">
-    <div class="offset-image__img-wrapper">
+  <div
+    class='offset-image'
+    data-sal='slide-up'
+    data-sal-duration='600'>
+    <div class='offset-image__img-wrapper'>
       {% if post.mainImage.asset %}
         {% capture imgUrl %}
           {% sanityImageUrl post.mainImage %}
@@ -52,9 +59,9 @@ eleventyComputed:
   </div>
 </section>
 
-<section class="section section--post-content">
-  <div class="container container--sm">
-    <div class="w-richtext flow">
+<section class='section section--post-content'>
+  <div class='container container--sm'>
+    <div class='w-richtext flow'>
       {% portableText post.body.content %}
     </div>
   </div>
@@ -62,5 +69,9 @@ eleventyComputed:
 
 {% include 'components/blog-posts.liquid' %}
 
-  <script src="/assets/js/lite-vimeo.js" type="module"></script>
-<script src="/assets/js/lite-youtube.js" type="module"></script>
+<script
+  src='/assets/js/lite-vimeo.js'
+  type='module'></script>
+<script
+  src='/assets/js/lite-youtube.js'
+  type='module'></script>

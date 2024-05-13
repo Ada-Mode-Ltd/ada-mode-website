@@ -178,7 +178,6 @@ a.case-study-image-div.w-inline-block img,
   object-fit: cover;
   height: 100%;
   aspect-ratio: 1.34;
-  /* width: 100%; */
 }
 
 .industries-icon-div {
@@ -292,4 +291,8 @@ a.case-study-image-div.w-inline-block img,
 .recent-blog-grid .blog-post-image-div,
 .recent-blog-grid .blog-category-div {
   margin-bottom: 0;
+}
+
+[data-sal='slide-up'] {
+  transform: translateY(2rem);
 }
