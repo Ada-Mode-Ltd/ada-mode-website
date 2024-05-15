@@ -13,7 +13,8 @@
     "serve": "NODE_ENV=development npx @11ty/eleventy --serve",
     "bench": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
     "build": "NODE_ENV=production npx @11ty/eleventy",
-    "build:site": "run-s clean build generate:preview",
+    "build:remote-images": "node afterBuild.js",
+    "build:site": "run-s clean build build:remote-images generate:preview",
     "generate:preview": "node ./src/utils/generate-preview-css.js",
     "clean": "del-cli _site && del-cli .11ty-vite",
     "test": "echo \"Error: no test specified\" && exit 1"
