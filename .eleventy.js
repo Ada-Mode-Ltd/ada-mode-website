@@ -8,9 +8,8 @@ const { sanityImageUrl } = require('./src/_11ty/shortcodes/sanityImageUrl')
 const portableText = require('./src/_11ty/shortcodes/portableText')
 const getReferences = require('./src/_11ty/shortcodes/getReference')
 
-// const { copy } = require('fs-extra')
-// const { cp } = require('fs/promises')
-const { access, constants, cp } = require('fs')
+const { constants, cp } = require('fs')
+const { access } = require('fs/promises')
 
 const dev = process.env.NODE_ENV === 'production' ? false : true
 // console.log("dev", dev);
@@ -150,32 +149,17 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('public/assets/**/*')
 
   if (!dev || !isServerless) {
-    // eleventyConfig.on('eleventy.after', async () => {
-    //   await cp('public/assets/img/remote', '_site/assets/img/remote', { recursive: true }, (err) => {
-    //     if (err) console.error(err)
-    //   })
-    //   console.log('remote images copied')
-    // })
-
-    eleventyConfig.on('eleventy.after', () => {
-      access('public/assets/img/remote', constants.F_OK, (err) => {
-        if (err) {
-          console.log(`public/assets/img/remote ${err ? 'is not' : 'is'} readable and writable`)
-        }
-        else {
-          access('_site/assets/img/remote', constants.F_OK, (err) => {
-            if (err) {
-              console.log(`_site/assets/img/remote ${err ? 'is not' : 'is'} readable and writable`)
-            }
-            else {
-              cp('public/assets/img/remote', '_site/assets/img/remote', { recursive: true }, (err) => {
-                if (err) console.error(err)
-                else console.log('copied remote images')
-              })
-            }
-          })
-        }
-      })
+    eleventyConfig.on('eleventy.after', async () => {
+      try {
+        await access('public/assets/img/remote', constants.R_OK | constants.W_OK)
+        await access('_site/assets/img/remote', constants.R_OK | constants.W_OK)
+        cp('public/assets/img/remote', '_site/assets/img/remote', { recursive: true }, (err) => {
+          if (err) console.error(err)
+          else console.log('copied remote images')
+        })
+      } catch (err) {
+        console.error(err)
+      }
     })
   }
 
