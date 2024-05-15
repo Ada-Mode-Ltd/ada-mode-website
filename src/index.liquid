@@ -35,28 +35,39 @@ layout: base.html
 <section class="section">
   <div class="container">
     <h2 class="heading-2 services__heading">What we do</h2>
-    <div class="services__grid">
-      <div class="services__grid-col" data-sal="slide-up" data-sal-duration="600">
-        <h3 class="heading-4">Services</h3>
-        <ul class="services__list">
-          <li>AI Adoption</li>
-          <li>Industrial Data Engineering</li>
-          <li>Simulation, Modelling and System Design</li>
-          <li>Responsible AI</li>
-          <li>Autonomous Systems</li>
-        </ul>
-        <a href="/services" class="am-button services__button">Explore our services</a>
-      </div>
-      <div class="services__grid-col" data-sal="slide-up" data-sal-duration="600" data-sal-delay="100">
-        <h3 class="heading-4">Application development</h3>
-        <ul class="services__list">
-          <li>Autonomous Systems</li>
-          <li>Energy Optimisation</li>
-          <li>Predictive Maintenance</li>
-          <li>Large Language Models</li>
-        </ul>
-        <a href="/services" class="am-button services__button">Find out more</a>
-      </div>
+  </div>
+  <div class="services__grid">
+    <div class="services__img-wrapper" data-sal="slide-up" data-sal-duration="600" data-sal-delay="100">
+      <img src="/images/homepage-services-2_1200.webp" srcset="/images/homepage-services-2_1600.webp 1600w, /images/homepage-services-2_1200.webp 1200w, /images/homepage-services-2_900.webp 900w, /images/homepage-services-2_700.webp 700w" width="1600" height="1065" sizes="(min-width: 990px) 50vw, 100vw" alt="Two people looking at machinery with a clipboard" loading="lazy">
+    </div>
+    <div class="services__content" data-sal="slide-up" data-sal-duration="600">
+      <h3 class="heading-4">AI Services</h3>
+      <p>We help customers with the adoption of responsible AI and autonomous systems to improve operational efficiency, reduce waste and increase safety. We provide support from strategy development and road mapping, through to building data infrastructures and creating custom AI solutions on our Atlas platform.</p>
+      <ul class="services__list">
+        <li>AI Adoption</li>
+        <li>Industrial Data Engineering</li>
+        <li>Simulation, Modelling and System Design</li>
+        <li>Responsible AI</li>
+        <li>Autonomous Systems</li>
+      </ul>
+      <a href="/services" class="am-button services__button">Explore our services</a>
+    </div>
+  </div>
+
+  <div class="services__grid">
+    <div class="services__img-wrapper" data-sal="slide-up" data-sal-duration="600">
+      <img src="/images/homepage-services_1200.jpg" srcset="/images/homepage-services_1600.jpg 1600w, /images/homepage-services_1200.jpg 1200w, /images/homepage-services_900.jpg 900w, /images/homepage-services_700.jpg 700w" width="700" height="525" sizes="(min-width: 990px) 50vw, 100vw" alt="A member of the Ada Mode team working at a desk" loading="lazy">
+    </div>
+    <div class="services__content" data-sal="slide-up" data-sal-duration="600" data-sal-delay="100">
+      <h3 class="heading-4">Application development</h3>
+      <p>Our platform for the development, deployment and monitoring of industrial AI solutions to drive better operational performance. Trusted by major industrial partners across energy, manufacturing and marine sectors.</p>
+      <ul class="services__list">
+        <li>Autonomous Systems</li>
+        <li>Energy Optimisation</li>
+        <li>Predictive Maintenance</li>
+        <li>Large Language Models</li>
+      </ul>
+      <a href="/services" class="am-button services__button">Find out more</a>
     </div>
   </div>
 </section>
@@ -129,56 +140,19 @@ layout: base.html
       </div>
       <div>
         <ul class="sectors__list">
-          <li class="sectors__item" data-sal="slide-up" data-sal-duration="600">
-            <img
-              src="/images/icon-nuclear.svg"
-              loading="lazy"
-              width="45"
-              height="45"
-              alt=""
-              class="sector-icon">
-            <p class="heading-4">Civil Nuclear</p>
-          </li>
-          <li class="sectors__item" data-sal="slide-up" data-sal-duration="600">
-            <img
-              src="/images/icon-wind.svg"
-              loading="lazy"
-              width="45"
-              height="45"
-              alt=""
-              class="sector-icon">
-            <p class="heading-4">Renewables</p>
-          </li>
-          <li class="sectors__item" data-sal="slide-up" data-sal-duration="600">
-            <img
-              src="/images/icon-manufacturing.svg"
-              loading="lazy"
-              width="45"
-              height="45"
-              alt=""
-              class="sector-icon">
-            <p class="heading-4">Manufacturing</p>
-          </li>
-          <li class="sectors__item" data-sal="slide-up" data-sal-duration="600">
-            <img
-              src="/images/icon-buildings.svg"
-              loading="lazy"
-              width="45"
-              height="45"
-              alt=""
-              class="sector-icon">
-            <p class="heading-4">Utilities</p>
-          </li>
-          <li class="sectors__item" data-sal="slide-up" data-sal-duration="600">
-            <img
-              src="/images/icon-water.svg"
-              loading="lazy"
-              width="45"
-              height="45"
-              alt=""
-              class="sector-icon">
-            <p class="heading-4">Marine</p>
-          </li>
+          {% for industry in allIndustries %}
+            <li class="sectors__item" data-sal="slide-up" data-sal-duration="600">
+              {% capture imgUrl %}
+                {% sanityImageUrl industry.logo %}
+              {% endcapture %}
+              <img
+                src='{{ imgUrl }}'
+                alt=''
+                width='45'
+                height='auto' />
+              <p class="heading-4">{{ industry.title }}</p>
+            </li>
+          {% endfor %}
         </ul>
       </div>
     </div>

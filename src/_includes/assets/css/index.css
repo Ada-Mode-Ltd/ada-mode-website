@@ -15,6 +15,8 @@
 @import './utilities/flex-grid.css';
 @import './utilities/post-tags.css';
 
+@import './components/buttons.css';
+
 /* Defines whole sections of a page */
 @import './sections/wrapper.css';
 @import './sections/header.css';
@@ -36,7 +38,6 @@
 @import './sections/about.css';
 
 /* Components */
-@import './components/buttons.css';
 @import './components/quote.css';
 @import './components/columns.css';
 @import './components/form.css';
@@ -62,6 +63,8 @@
 body {
   opacity: 0;
   animation: appear 150ms forwards;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .no-js {
@@ -294,5 +297,5 @@ a.case-study-image-div.w-inline-block img,
 }
 
 [data-sal='slide-up'] {
-  transform: translateY(2rem);
+  transform: translateY(3rem);
 }

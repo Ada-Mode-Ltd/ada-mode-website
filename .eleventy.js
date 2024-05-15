@@ -8,10 +8,7 @@ const { sanityImageUrl } = require('./src/_11ty/shortcodes/sanityImageUrl')
 const portableText = require('./src/_11ty/shortcodes/portableText')
 const getReferences = require('./src/_11ty/shortcodes/getReference')
 
-const { copy } = require('fs-extra')
-
 const dev = process.env.NODE_ENV === 'production' ? false : true
-// console.log("dev", dev);
 const isServerless = process.env.ELEVENTY_SERVERLESS || false
 
 module.exports = function (eleventyConfig) {
@@ -146,12 +143,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/_includes/assets/js')
   eleventyConfig.addPassthroughCopy('public/images/*')
   eleventyConfig.addPassthroughCopy('public/assets/**/*')
-
-  if (!dev || !isServerless) {
-    eleventyConfig.on('eleventy.after', async () => {
-      await copy('public/assets/img/remote', '_site/assets/img/remote')
-    })
-  }
 
   // Return your Object options:
   return {
