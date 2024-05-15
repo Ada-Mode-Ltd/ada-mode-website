@@ -1,5 +1,6 @@
 .faq__button {
   background: transparent;
+  color: inherit;
   font-size: var(--text-large);
   padding-block: var(--space-s);
   border-bottom: 1px solid var(--am-green-dark);
