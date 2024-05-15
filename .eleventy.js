@@ -8,9 +8,6 @@ const { sanityImageUrl } = require('./src/_11ty/shortcodes/sanityImageUrl')
 const portableText = require('./src/_11ty/shortcodes/portableText')
 const getReferences = require('./src/_11ty/shortcodes/getReference')
 
-const { constants, cp } = require('fs')
-const { access } = require('fs/promises')
-
 const dev = process.env.NODE_ENV === 'production' ? false : true
 const isServerless = process.env.ELEVENTY_SERVERLESS || false
 
@@ -146,21 +143,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/_includes/assets/js')
   eleventyConfig.addPassthroughCopy('public/images/*')
   eleventyConfig.addPassthroughCopy('public/assets/**/*')
-
-  // if (!dev || !isServerless) {
-  //   eleventyConfig.on('eleventy.after', async () => {
-  //     try {
-  //       await access('public/assets/img/remote', constants.R_OK | constants.W_OK)
-  //       await access('_site/assets/img/remote', constants.R_OK | constants.W_OK)
-  //       cp('public/assets/img/remote', '_site/assets/img/remote', { recursive: true }, (err) => {
-  //         if (err) console.error(err)
-  //         else console.log('copied remote images')
-  //       })
-  //     } catch (err) {
-  //       console.error(err)
-  //     }
-  //   })
-  // }
 
   // Return your Object options:
   return {
