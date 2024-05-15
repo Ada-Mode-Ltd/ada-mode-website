@@ -220,28 +220,7 @@ eleventyComputed:
       <div class='container'>
         <h2 class='section__heading'>Industries we work in</h2>
 
-        {% assign industryList = industriesList %}
-        <div class='industries__grid'>
-          {% for industry in industryList %}
-            <div
-              class='industries__item-grid'
-              data-sal='slide-up'
-              data-sal-duration='500'>
-              <img
-                src='{{ industry.imageUrl }}'
-                alt=''
-                width='100'
-                height='auto'>
-              <div>
-                <h3 class='heading-3'>{{ industry.title }}</h3>
-                <ul class='industries__item-list'>
-                  {% for item in industry.items %}
-                    <li>{{ item }}</li>
-                  {% endfor %}
-                </ul>
-              </div>
-            </div>
-          {% endfor %}
+        {% include 'partials/industries.liquid' %}
         </div>
       </div>
     </div>

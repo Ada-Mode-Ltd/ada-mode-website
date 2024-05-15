@@ -1,0 +1,23 @@
+<div class='industries__grid'>
+  {% for industry in allIndustries %}
+    <div
+      class='industries__item-grid'
+      data-sal='slide-up'
+      data-sal-duration='500'>
+      {% capture imgUrl %}
+        {% sanityImageUrl industry.logo %}
+      {% endcapture %}
+      <img
+        src='{{ imgUrl }}'
+        alt=''
+        width='100'
+        height='auto' />
+      <div class="industries__col">
+        <h3 class='heading-3'>{{ industry.title }}</h3>
+        <div>
+          {{ industry.text }}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
