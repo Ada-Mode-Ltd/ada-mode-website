@@ -26,10 +26,16 @@
                 {% endif %}
 
                 {% capture imgUrl %}
-                    {% sanityImageUrl featureImage %}
+                  {% sanityImageUrl featureImage %}
                 {% endcapture %}
                 <div class="atlas-features__item" data-sal="slide-up" data-sal-duration="600">
-                  <div class="atlas-features-icon">{% image imgUrl, featureImage.altText %}</div>
+                  <div class="atlas-features-icon">
+                    <img
+                      src="{{ imgUrl }}"
+                      alt=""
+                      width="90"
+                      height="auto" />
+                  </div>
                   <div class="atlas-features__heading">{% portableText featureTitle %}</div>
                   <div>{% portableText featureText %}</div>
                 </div>
@@ -69,7 +75,14 @@
                         <div data-sal="slide-up" data-sal-duration="600">
                             <h2 class="heading-3">{% portableText featureTitle %}</h2>
                             <div>{% portableText featureText %}</div>
-                            <div class="atlas-features__image">{% image imgUrl, featureImage.altText %}</div>
+                            <div class="atlas-features__image">
+                              {% image imgUrl, featureImage.altText %}
+                              <img
+                                src="{{ imgUrl }}"
+                                alt=""
+                                width="60"
+                                height="auto" />
+                            </div>
                         </div>
             {% endfor %}
         </div>
@@ -82,35 +95,42 @@
         {% for feature in features %}
             {% assign featureStyle = feature.featureType %}
         
-                    {% if featureStyle == "large" %}
-                    {% assign featureImage = feature.largeImage %}
-                    {% assign featureTitle = feature.longTitle %}
-                    {% assign featureText = feature.largeText %}
-                    {% assign featureImagePlacement = "left" %}
-                    {% assign secondaryTitle = feature.secondaryTitle %}
-                    {% elsif featureStyle == "medium" %}
-                    {% assign featureImage = feature.mediumImage %}
-                    {% assign featureTitle = feature.mediumTitle %}
-                    {% assign featureText = feature.mediumText %}
-                    {% assign secondaryTitle = null %}
-                    {% assign featureImagePlacement = null %}
-                    {% else %}
-                    {% assign featureImage = feature.smallImage %}
-                    {% assign featureTitle = feature.smallTitle %}
-                    {% assign featureText = feature.smallText %}
-                    {% assign secondaryTitle = null %}
-                    {% assign featureImagePlacement = null %}
-                    {% endif %}
-                    {% capture imgUrl %}
-                        {% sanityImageUrl featureImage %}
-                    {% endcapture %}
+            {% if featureStyle == "large" %}
+            {% assign featureImage = feature.largeImage %}
+            {% assign featureTitle = feature.longTitle %}
+            {% assign featureText = feature.largeText %}
+            {% assign featureImagePlacement = "left" %}
+            {% assign secondaryTitle = feature.secondaryTitle %}
+            {% elsif featureStyle == "medium" %}
+            {% assign featureImage = feature.mediumImage %}
+            {% assign featureTitle = feature.mediumTitle %}
+            {% assign featureText = feature.mediumText %}
+            {% assign secondaryTitle = null %}
+            {% assign featureImagePlacement = null %}
+            {% else %}
+            {% assign featureImage = feature.smallImage %}
+            {% assign featureTitle = feature.smallTitle %}
+            {% assign featureText = feature.smallText %}
+            {% assign secondaryTitle = null %}
+            {% assign featureImagePlacement = null %}
+            {% endif %}
+
+            {% capture imgUrl %}
+              {% sanityImageUrl featureImage %}
+            {% endcapture %}
 
         <div class="w-layout-grid atlas-features-grids-2" data-sal="slide-up" data-sal-duration="600">
-            <div class="atlas-features-icon">{% image imgUrl, featureImage.altText %}</div>
+            <div class="atlas-features-icon">
+              <img
+                src="{{ imgUrl }}"
+                alt=""
+                width="60"
+                height="auto" />
+            </div>
             <div class="heading-4">{% portableText featureTitle %}</div>
           <div class="paragraph">{% portableText featureText %}</div>
         </div>
-                {% endfor %}
+        {% endfor %}
       </div>
     </div>
   </div>
