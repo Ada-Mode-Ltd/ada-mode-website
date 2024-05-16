@@ -225,8 +225,9 @@ a.case-study-image-div.w-inline-block img,
 }
 
 .atlas-features-icon img {
-  height: 50px;
-  margin-bottom: 20px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  margin-bottom: var(--space-s);
 }
 
 .media.full,
