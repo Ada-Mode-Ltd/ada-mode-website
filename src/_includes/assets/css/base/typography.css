@@ -127,3 +127,7 @@ blockquote p {
 .font-light {
   font-family: var(--light);
 }
+
+.text-sm {
+  font-size: 0.95rem;
+}

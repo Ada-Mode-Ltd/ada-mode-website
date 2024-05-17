@@ -75,13 +75,14 @@ description: AI and data driven solutions by engineers, for engineers.
       {% sanityImageUrl person.photo %}
       {% endcapture %}
       {% assign delay = forloop.index | times: 50 %}
-      <li class="w-layout-grid team-grid-content" data-sal="slide-up" data-sal-duration="600" data-sal-delay="{{ delay }}">
-        <div>{% image imgUrl, '' %}</div>
+      <li class="team-grid-content" data-sal="slide-up" data-sal-duration="600" data-sal-delay="{{ delay }}">
+        <div class="team-grid__img">{% image imgUrl, '' %}</div>
         <div>
           <h3 class="heading-5">{{ person.name }}</h3>
-          {% if person.position %}
-            <p class="text-block-5">{{ person.position}}</p>
-          {% endif  %}
+          <p>{{ person.position }}</p>
+          {% if person.linkedIn %}
+            <a href="{{ person.linkedIn }}" class="team-grid__link text-sm">LinkedIn profile</a>
+          {% endif %}
         </div>
       </li>
       {% endfor %}
