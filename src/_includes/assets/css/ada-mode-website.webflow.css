@@ -1482,7 +1482,6 @@ body {
   position: relative;
   top: -220px;
   margin-bottom: 100px;
-  -ms-grid-rows: auto;
   grid-template-rows: auto;
 }
 
@@ -1494,36 +1493,23 @@ body {
   margin-top: 150px;
   grid-column-gap: 75px;
   grid-row-gap: 75px;
-  -ms-grid-columns: 0.7fr 1fr 1fr;
   grid-template-columns: 0.7fr 1fr 1fr;
-  -ms-grid-rows: auto auto auto;
   grid-template-rows: auto auto auto;
 }
 
 .grid-32 {
   position: relative;
   grid-column-gap: 0px;
-  -ms-grid-columns: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
-  -ms-grid-rows: auto;
   grid-template-rows: auto;
 }
 
 .div-block-45 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   overflow: hidden;
   width: 100%;
   height: 400px;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -1534,21 +1520,12 @@ body {
 }
 
 .team-grid {
-  margin-top: 100px;
-  grid-column-gap: 50px;
-  grid-row-gap: 75px;
-  grid-template-areas:
-    '. . . .'
-    '. . . Area';
-  -ms-grid-columns: 1fr 50px 1fr 50px 1fr 50px 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  -ms-grid-rows: auto 75px auto 75px auto;
+  margin-top: var(--space-s-l);
+  column-gap: var(--space-m);
+  row-gap: var(--space-m);
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   grid-template-rows: auto auto auto;
-}
-
-.team-grid-content {
-  -ms-grid-columns: 1fr;
-  grid-template-columns: 1fr;
+  list-style: none;
 }
 
 .text-block-5 {
@@ -1561,9 +1538,6 @@ body {
 }
 
 ._10-pad-div-block._2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
 }
 

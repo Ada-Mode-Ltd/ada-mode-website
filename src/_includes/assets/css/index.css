@@ -99,7 +99,22 @@ a {
   filter: grayscale(100%);
   height: auto;
   aspect-ratio: 1;
-  border-radius: 8px;
+  border-radius: 2rem;
+  object-fit: cover;
+}
+
+.team-grid-content > * + * {
+  margin-top: var(--space-xs);
+}
+
+.team-grid__link {
+  color: var(--am-green-dark);
+  transition: color 150ms;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--am-blue-deep);
+  }
 }
 
 .case-study-grid .paragraph.w-richtext {
