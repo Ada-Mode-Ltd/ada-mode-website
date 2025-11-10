@@ -133,7 +133,3 @@
   width: var(--space-2xl);
   margin-bottom: var(--space-m);
 }
-
-.l-quote__source {
-  color: var(--am-green-dark);
-}

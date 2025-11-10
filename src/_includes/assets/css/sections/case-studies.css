@@ -1,5 +1,6 @@
 .case-studies__grid {
   display: grid;
+  align-items: stretch;
 }
 
 .case-studies__content {
@@ -13,11 +14,15 @@
 
 .case-studies__heading .preheading {
   margin-bottom: var(--space-s);
-  color: var(--am-green-dark);
+  color: var(--color-am-green);
 }
 
 .case-studies__heading {
   margin-bottom: var(--space-l);
+
+  .heading-2 {
+    font-weight: 700;
+  }
 }
 
 .case-studies__img-wrapper {

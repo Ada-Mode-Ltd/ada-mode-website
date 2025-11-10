@@ -1,0 +1,6 @@
+.why-were-different {
+  h2,
+  h3 {
+    color: var(--color-am-green);
+  }
+}

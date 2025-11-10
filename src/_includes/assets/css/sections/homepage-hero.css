@@ -4,10 +4,18 @@
   align-items: center;
   width: 100vw;
   min-height: 100vh;
-  background-color: var(--am-blue-dark);
+  background-color: var(--color-am-teal);
   color: var(--white);
   padding-top: calc(80px + var(--space-xl-3xl));
   overflow: hidden;
+  position: relative;
+
+  img {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    object-fit: cover;
+  }
 }
 
 .home-page-hero-section::after {
@@ -17,12 +25,7 @@
   left: 0;
   width: 100%;
   height: calc(100% + 200px);
-  background: radial-gradient(
-    circle at 100% 0,
-    var(--am-green-dark),
-    var(--am-blue-dark),
-    var(--am-blue-deep)
-  );
+  background: var(--color-am-teal);
   transition: transform 30ms;
 }
 

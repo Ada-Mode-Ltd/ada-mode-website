@@ -1,5 +1,5 @@
 {% if featureType == "medium" %}
-  <div class="section blue">
+  <section class="section blue">
     <div class="container">
       <div class="atlas-features__grid">
         {% for feature in features %}
@@ -42,9 +42,9 @@
         {% endfor %}
       </div>
     </div>
-  </div>
+  </section>
 {% elsif featureType == 'large' %}
-    <div class="section">
+    <section class="section light-green">
     <div class="container">
         <div class="atlas-features-grids">
             {% for feature in features %}
@@ -87,9 +87,9 @@
             {% endfor %}
         </div>
     </div>
-  </div>
+  </section>
 {% else %}
-  <div class="section">
+  <section class="section light-green">
     <div class="container">
       <div class="w-layout-grid atlas-features-grids">
         {% for feature in features %}
@@ -133,5 +133,5 @@
         {% endfor %}
       </div>
     </div>
-  </div>
+  </section>
 {% endif %}

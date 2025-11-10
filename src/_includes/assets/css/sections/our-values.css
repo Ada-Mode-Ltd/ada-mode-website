@@ -1,0 +1,6 @@
+.our-values {
+  h2,
+  h3 {
+    color: var(--color-am-green);
+  }
+}

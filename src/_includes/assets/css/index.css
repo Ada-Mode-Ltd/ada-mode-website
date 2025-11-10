@@ -14,6 +14,7 @@
 @import './utilities/border-box.css';
 @import './utilities/flex-grid.css';
 @import './utilities/post-tags.css';
+@import './utilities/color.css';
 
 @import './components/buttons.css';
 
@@ -36,6 +37,8 @@
 @import './sections/industries.css';
 @import './sections/block-layout.css';
 @import './sections/about.css';
+@import './sections/our-values.css';
+@import './sections/why-were-different.css';
 
 /* Components */
 @import './components/quote.css';
@@ -65,6 +68,7 @@ body {
   animation: appear 150ms forwards;
   max-width: 100%;
   overflow-x: hidden;
+  background-color: var(--color-white);
 }
 
 .no-js {
@@ -108,12 +112,12 @@ a {
 }
 
 .team-grid__link {
-  color: var(--am-green-dark);
+  color: var(--color-am-green);
   transition: color 150ms;
 
   &:hover,
   &:focus-visible {
-    color: var(--am-blue-deep);
+    color: var(--color-am-teal);
   }
 }
 
