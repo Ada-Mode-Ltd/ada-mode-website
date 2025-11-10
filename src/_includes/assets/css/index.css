@@ -293,10 +293,6 @@ a.case-study-image-div.w-inline-block img,
   height: 85%;
 }
 
-.team-grid {
-  grid-template-areas: none;
-}
-
 .section--block-layout .flex-row {
   margin-block-start: 0;
 }
