@@ -3,7 +3,8 @@
   display: flex;
   align-items: center;
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 60rem;
   background-color: var(--color-am-teal);
   color: var(--white);
   padding-top: calc(80px + var(--space-xl-3xl));
@@ -12,7 +13,10 @@
 
   img {
     position: absolute;
-    inset: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
     z-index: 1;
     object-fit: cover;
   }
