@@ -1,5 +1,4 @@
 .quote-holder > ul {
-  /* @mixin flex-row var(--space-48), center, flex-start; */
   overflow-x: hidden;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
@@ -64,7 +63,6 @@
 }
 
 .quote-nav {
-  /* @mixin flex-row var(--space-32), center, center; */
   margin-top: var(--space-48);
   display: flex;
   flex-wrap: wrap;
@@ -132,8 +130,4 @@
 .l-quote__img {
   width: var(--space-2xl);
   margin-bottom: var(--space-m);
-}
-
-.l-quote__source {
-  color: var(--am-green-dark);
 }

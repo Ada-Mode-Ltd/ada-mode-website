@@ -1,6 +1,6 @@
 .comparison {
   background-color: var(--am-grey-xlight);
-  color: var(--am-blue-deep);
+  color: var(--color-am-teal);
   padding: var(--space-s-l);
   display: grid;
   gap: var(--space-s-l);

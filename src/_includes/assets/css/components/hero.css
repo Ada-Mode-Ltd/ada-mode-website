@@ -21,6 +21,14 @@
 
 .hero__subheading {
   max-width: 60ch;
+  font-size: var(--text-medium);
+  line-height: 1.4;
+}
+
+@media screen and (min-width: 40rem) {
+  .hero__subheading {
+    font-size: var(--text-large);
+  }
 }
 
 .hero__preheading {
@@ -28,7 +36,7 @@
 }
 
 .hero__preheading span:first-child {
-  color: var(--am-green-dark);
+  color: var(--color-am-green);
 }
 
 .hero .offset-image {
@@ -59,6 +67,9 @@
 
 .hero__byline {
   margin-bottom: var(--space-s);
+  font-size: var(--text-large);
+  font-weight: 400;
+  line-height: 1.25;
 }
 
 @media (min-width: 992px) {

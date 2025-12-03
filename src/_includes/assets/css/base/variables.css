@@ -15,6 +15,45 @@
   --black: #0c0c0c;
   --white: #ffffff;
 
+  /* New branding */
+  --color-mountain-meadow-lightest: #e8f9f4;
+  --color-mountain-meadow-lighter: #d1f3e9;
+  --color-mountain-meadow-light: #5fd7b2;
+  --color-mountain-meadow: #1bc691;
+  --color-mountain-meadow-dark: #159e74;
+  --color-mountain-meadow-darker: #0a4f3a;
+  --color-mountain-meadow-darkest: #083b2b;
+
+  --color-sherpa-blue-lightest: #e5ecec;
+  --color-sherpa-blue-lighter: #ccd9da;
+  --color-sherpa-blue-light: #4c7b7f;
+  --color-sherpa-blue: #004349;
+  --color-sherpa-blue-dark: #00353a;
+  --color-sherpa-blue-darker: #001a1d;
+  --color-sherpa-blue-darkest: #001415;
+
+  --color-snow-flurry-lightest: #fbfff8;
+  --color-snow-flurry-lighter: #f7fff2;
+  --color-snow-flurry-light: #e3ffd3;
+  --color-snow-flurry: #d7ffc1;
+  --color-snow-flurry-dark: #accc9a;
+  --color-snow-flurry-darker: #56664d;
+  --color-snow-flurry-darkest: #404c39;
+
+  --color-white: #ffffff;
+  --color-neutral-white: #ffffff;
+  --color-neutral-lightest: #f2f2f2;
+  --color-neutral-lighter: #dadada;
+  --color-neutral-light: #b5b6b5;
+  --color-neutral: #858684;
+  --color-neutral-dark: #545553;
+  --color-neutral-darker: #232522;
+  --color-neutral-darkest: #0b0d0a;
+
+  --color-am-green: var(--color-mountain-meadow);
+  --color-am-green-light: var(--color-snow-flurry);
+  --color-am-teal: var(--color-sherpa-blue);
+
   --ws-bright-blue: #3065fb;
   --ws-bright-blue-dark: linear-gradient(
       0deg,
@@ -108,9 +147,7 @@
   --container-width-lg: 100rem;
 
   /* Fonts */
-  --light: 'Roboto Light', sans-serif;
-  --regular: 'Roboto Regular', sans-serif;
-  --bold: 'Roboto Bold', sans-serif;
+  --font-body: 'Hanken Grotesk', sans-serif;
 }
 
 /* Utopia.fyi */

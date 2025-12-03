@@ -1,5 +1,5 @@
 .atlas-features__item {
-  border: 1px solid var(--am-green-dark);
+  border: 1px solid var(--color-am-green);
   padding: var(--space-s-l);
   border-radius: 0.4rem;
 }

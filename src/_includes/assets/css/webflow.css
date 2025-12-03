@@ -42,14 +42,6 @@
 html {
   height: 100%;
 }
-body {
-  margin: 0;
-  min-height: 100%;
-  background-color: #fff;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-}
 img {
   max-width: 100%;
   vertical-align: middle;
@@ -140,7 +132,6 @@ html[data-w-dynpage] [data-w-cloak] {
   font-family: inherit;
   font-weight: inherit;
   color: inherit;
-  font-size: inherit;
   line-height: inherit;
   font-style: inherit;
   font-variant: inherit;
@@ -172,7 +163,6 @@ html[data-w-dynpage] [data-w-cloak] {
   background-color: #fff !important;
   border-radius: 3px !important;
   padding: 6px 8px 6px 6px !important;
-  font-size: 12px !important;
   opacity: 1 !important;
   line-height: 14px !important;
   text-decoration: none !important;
@@ -192,39 +182,6 @@ html[data-w-dynpage] [data-w-cloak] {
   visibility: visible !important;
   opacity: 1 !important;
   vertical-align: middle !important;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-h1 {
-  font-size: 38px;
-  line-height: 44px;
-  margin-top: 20px;
-}
-h4 {
-  font-size: 18px;
-  line-height: 24px;
-  margin-top: 10px;
-}
-h5 {
-  font-size: 14px;
-  line-height: 20px;
-  margin-top: 10px;
-}
-h6 {
-  font-size: 12px;
-  line-height: 18px;
-  margin-top: 10px;
-}
-p {
-  margin-top: 0;
-  margin-bottom: 10px;
 }
 figure {
   margin: 0;
@@ -310,7 +267,6 @@ label {
   height: 38px;
   padding: 8px 12px;
   margin-bottom: 10px;
-  font-size: 14px;
   line-height: 1.42857143;
   color: #333333;
   vertical-align: middle;
@@ -428,7 +384,6 @@ textarea.w-select {
 }
 .w-file-upload-uploading-btn {
   display: flex;
-  font-size: 14px;
   font-weight: normal;
   cursor: pointer;
   margin: 0;

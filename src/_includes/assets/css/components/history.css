@@ -29,12 +29,6 @@
   max-width: 65ch;
 }
 
-.history__content > p:first-child {
-  font-size: var(--text-large);
-  font-family: var(--bold);
-  max-width: 45ch;
-}
-
 .history__grid {
   display: grid;
   gap: var(--space-s-l);

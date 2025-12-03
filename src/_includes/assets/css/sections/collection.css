@@ -43,8 +43,8 @@
 }
 
 .collection__item:where(:hover, :focus) .collection__item-button {
-  background-color: var(--am-green-dark);
-  color: var(--white);
+  background-color: var(--color-am-green);
+  color: var(--color-neutral-darkest);
 }
 
 .collection__post-heading {
@@ -57,7 +57,7 @@
 }
 
 .collection__pretitle span:first-child {
-  color: var(--am-green-dark);
+  color: var(--color-am-green);
 }
 
 .collection__link {
@@ -71,7 +71,7 @@
 }
 
 .collection__item--dark {
-  background-color: var(--am-blue-deep-l);
+  background-color: var(--color-sherpa-blue-dark);
   color: var(--white);
   border-radius: 0.4rem;
   overflow: hidden;

@@ -1,5 +1,6 @@
 .services__grid {
   display: grid;
+  gap: 1rem;
 
   img {
     height: auto;
@@ -52,11 +53,14 @@
 
 @media (min-width: 992px) {
   .services__grid {
-    --col: calc((min(var(--container-width), 100%) / 3) - (var(--space-s-l) * 0.75));
+    --col: calc(
+      (min(var(--container-width), 100%) / 3) - (var(--space-s-l) * 0.75)
+    );
     grid-template-columns:
       minmax(var(--space-s-l), 1fr) repeat(3, minmax(var(--col), 1fr))
       minmax(var(--space-s-l), 1fr);
     grid-auto-flow: dense;
+    gap: 0;
   }
 
   .services__grid + .services__grid {
